@@ -1,0 +1,78 @@
+name: 毎日コンテンツレポート生成
+
+on:
+  # 毎朝 6:30 JST に実行（UTC 21:30）
+  schedule:
+    - cron: "30 21 * * *"
+
+  # GitHub Actions 画面から手動でも実行できる
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "ドライラン（AIなし・メールなし）"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+
+jobs:
+  generate-and-send:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # git push のために必要
+
+    steps:
+      # ── 1. リポジトリをチェックアウト ────────────────────────────────────
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── 2. Python セットアップ ────────────────────────────────────────────
+      - name: Python セットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      # ── 3. 依存パッケージのインストール ──────────────────────────────────
+      - name: 依存パッケージ インストール
+        run: pip install -r requirements.txt
+
+      # ── 4. レポート生成 ───────────────────────────────────────────────────
+      - name: レポート生成・メール送信
+        env:
+          # OpenAI
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL:   "gpt-4o-mini"   # コスト削減のため mini を推奨
+          # Gmail
+          GMAIL_USER:         ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          GMAIL_TO:           ${{ secrets.GMAIL_TO }}
+          # GitHub Pages ベースURL
+          # 例: https://yourname.github.io/instagram-content-analyzer
+          GITHUB_PAGES_BASE: ${{ secrets.GITHUB_PAGES_BASE }}
+        run: |
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            python run_report.py --dry-run
+          else
+            python run_report.py
+          fi
+
+      # ── 5. 生成した HTML を git commit して push ─────────────────────────
+      - name: レポートを git にコミット
+        run: |
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports/
+          # 変更がなければスキップ（reports/が空の場合など）
+          git diff --cached --quiet && echo "変更なし。コミットをスキップします。" || \
+            git commit -m "📊 レポート自動生成: $(date +'%Y-%m-%d') [skip ci]"
+
+      - name: Push
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref_name }}
