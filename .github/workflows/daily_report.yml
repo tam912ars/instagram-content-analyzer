@@ -52,8 +52,7 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           GMAIL_TO:           ${{ secrets.GMAIL_TO }}
           # GitHub Pages ベースURL
-          # 例: https://yourname.github.io/instagram-content-analyzer
-          GITHUB_PAGES_BASE: ${{ secrets.GITHUB_PAGES_BASE }}
+          GITHUB_PAGES_BASE: ${{ secrets.PAGES_BASE_URL }}
         run: |
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
             python run_report.py --dry-run
