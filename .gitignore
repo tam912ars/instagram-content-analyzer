@@ -3,5 +3,4 @@ __pycache__/
 *.pyc
 *.pyo
 .DS_Store
-reports/*.html
-!reports/index.html
+# reportsフォルダはGitHub Pagesで公開するため除外しない
