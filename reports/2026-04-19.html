@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="ja" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ダイ先生 コンテンツ分析レポート — 2026年04月19日</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Noto Sans JP', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #c084fc 0%, #f472b6 50%, #60a5fa 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .tab-btn { transition: all 0.2s; }
+    .tab-btn.active {
+      background: linear-gradient(135deg, #7c3aed, #db2777);
+      color: white; border-color: transparent;
+    }
+    [data-panel] { display: none; }
+    [data-panel].active { display: block; }
+  </style>
+</head>
+<body class="min-h-screen bg-[#0a0f1e] text-slate-100">
+
+<!-- ── Sticky header + tab nav ── -->
+<header class="sticky top-0 z-50 border-b border-slate-800 bg-[#0d1424]/95 backdrop-blur-sm">
+  <div class="mx-auto max-w-7xl px-4">
+    <div class="flex items-center gap-3 py-3 border-b border-slate-800/60">
+      <div class="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-pink-600 text-white font-black text-sm">D</div>
+      <div>
+        <span class="font-bold text-slate-200 text-sm">ダイ先生</span>
+        <span class="text-slate-500 text-xs ml-2">コンテンツ分析</span>
+      </div>
+      <div class="ml-auto flex items-center gap-3">
+        <span class="text-xs text-slate-500 hidden sm:block">2026年04月19日</span>
+        <span class="text-xs text-slate-600">2026/04/19 23:07 生成</span>
+      </div>
+    </div>
+    <!-- Tab buttons -->
+    <nav class="flex gap-1 py-2 overflow-x-auto">
+      <button data-tab-btn="1" onclick="switchTab(1)"
+        class="tab-btn active flex items-center gap-1.5 rounded-xl border border-slate-700 px-4 py-2 text-sm font-medium text-slate-300 whitespace-nowrap">
+        📊 ダッシュボード
+      </button>
+      <button data-tab-btn="2" onclick="switchTab(2)"
+        class="tab-btn flex items-center gap-1.5 rounded-xl border border-slate-700 px-4 py-2 text-sm font-medium text-slate-300 whitespace-nowrap">
+        📰 外部トレンド
+      </button>
+      <button data-tab-btn="3" onclick="switchTab(3)"
+        class="tab-btn flex items-center gap-1.5 rounded-xl border border-slate-700 px-4 py-2 text-sm font-medium text-slate-300 whitespace-nowrap">
+        💬 ホットコメント
+      </button>
+      <button data-tab-btn="4" onclick="switchTab(4)"
+        class="tab-btn flex items-center gap-1.5 rounded-xl border border-slate-700 px-4 py-2 text-sm font-medium text-slate-300 whitespace-nowrap">
+        📅 昨年同時期
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="mx-auto max-w-7xl px-4 py-8">
+
+<!-- ════════════════════════════════════════════════════════ PAGE 1 -->
+<div data-panel="1" class="active space-y-10">
+
+  <!-- タイトル -->
+  <div class="text-center space-y-3">
+    <p class="text-xs font-medium text-slate-500 tracking-widest uppercase">Daily Content Report</p>
+    <h1 class="text-3xl font-black gradient-text">2026年04月19日</h1>
+    
+  </div>
+
+  <!-- デュアルサマリー -->
+  
+<div class="rounded-2xl border border-slate-700/50 bg-gradient-to-r from-slate-800/60 to-slate-900/60 p-6 grid md:grid-cols-2 gap-6 mb-8">
+  <div>
+    <div class="flex items-center gap-2 mb-3">
+      <span class="text-lg">📊</span>
+      <h2 class="text-sm font-bold uppercase tracking-wider text-violet-400">今フォロワーが反応していること</h2>
+    </div>
+    <div class="flex flex-wrap gap-2 mb-4"><span class="rounded-full bg-violet-900/70 border border-violet-700/50 px-3 py-1 text-sm text-violet-200 font-medium">友達の先生にも送りました</span><span class="rounded-full bg-violet-900/70 border border-violet-700/50 px-3 py-1 text-sm text-violet-200 font-medium">ダイ先生のおかげで学級経営が変わりました</span><span class="rounded-full bg-violet-900/70 border border-violet-700/50 px-3 py-1 text-sm text-violet-200 font-medium">スタエフで深堀りしてほしいです</span><span class="rounded-full bg-violet-900/70 border border-violet-700/50 px-3 py-1 text-sm text-violet-200 font-medium">新任1年目でこれ知りたかったです</span><span class="rounded-full bg-violet-900/70 border border-violet-700/50 px-3 py-1 text-sm text-violet-200 font-medium">YouTubeライブで質問したいです</span></div>
+    <div class="flex flex-wrap gap-1 items-center">
+      <span class="text-xs text-slate-500 mr-1">🗓️ 旬：</span><span class="rounded-full bg-emerald-900/50 border border-emerald-700/40 px-2 py-0.5 text-xs text-emerald-300">新年度</span><span class="rounded-full bg-emerald-900/50 border border-emerald-700/40 px-2 py-0.5 text-xs text-emerald-300">学級開き</span><span class="rounded-full bg-emerald-900/50 border border-emerald-700/40 px-2 py-0.5 text-xs text-emerald-300">新任</span><span class="rounded-full bg-emerald-900/50 border border-emerald-700/40 px-2 py-0.5 text-xs text-emerald-300">新生活</span>
+    </div>
+  </div>
+  <div class="border-t md:border-t-0 md:border-l border-slate-700/50 pt-4 md:pt-0 md:pl-6">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="text-lg">📰</span>
+      <h2 class="text-sm font-bold uppercase tracking-wider text-orange-400">今外部で話題の教育テーマ</h2>
+    </div>
+    <ul class="space-y-2 mb-4"><li class="flex items-start gap-2 text-sm text-slate-300"><span class="text-orange-400 shrink-0">▸</span><span>高等支援学校でいじめ、同級生からお金を取られスマホ購入代を支…</span></li><li class="flex items-start gap-2 text-sm text-slate-300"><span class="text-orange-400 shrink-0">▸</span><span>5件“いじめ”認定…不登校との因果関係も ひのくに高等支援学…</span></li><li class="flex items-start gap-2 text-sm text-slate-300"><span class="text-orange-400 shrink-0">▸</span><span>「不登校の原因に」いじめ5件を認定 熊本・ひのくに高等支援学…</span></li></ul>
+    <div class="rounded-xl bg-orange-900/30 border border-orange-700/40 px-3 py-2 flex items-center gap-2">
+      <span class="text-xs text-orange-400 shrink-0">🔥 最注目：</span>
+      <span class="text-xs text-orange-200 font-medium leading-snug flex-1">高等支援学校でいじめ、同級生からお金を取られスマホ購入代を支払わされて不登校に…５件の因果関係認定 - Yahoo!ニュース</span>
+      <span class="text-xs font-bold text-orange-300 shrink-0">0pt</span>
+    </div>
+    <p class="mt-2 text-xs text-slate-500">主な感情傾向：<span class="text-slate-300 font-medium">不明</span></p>
+  </div>
+</div>
+
+  <!-- TOP 3 -->
+  <section>
+    <div class="mb-5 flex items-center gap-3">
+      <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-600/20 border border-amber-500/40 text-lg">🏆</div>
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest text-amber-400">今日のイチオシ</p>
+        <h2 class="text-lg font-bold text-amber-200">今日いちばん伸びそうなネタ 3選</h2>
+      </div>
+      <p class="ml-auto text-xs text-slate-500 hidden md:block text-right leading-relaxed">過去の類似投稿・季節一致・ニュース接続<br>コメント熱量・外部トレンドの複合スコア</p>
+    </div>
+    <div class="grid gap-5 md:grid-cols-3">
+<div class="rounded-2xl border bg-gradient-to-br from-amber-900/60 to-yellow-900/40 border-amber-500/50 p-5 flex flex-col gap-4 relative">
+  <!-- ランクバッジ -->
+  <div class="flex items-center gap-2">
+    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-amber-500 text-white text-xs font-black shrink-0">1</span>
+    <span class="text-amber-300 text-xs font-semibold tracking-widest">Rank 1</span>
+    <span class="ml-auto text-2xl">🥇</span>
+  </div>
+
+  <!-- タイトル（大きく・くっきり） -->
+  <h3 class="text-base font-bold text-white leading-snug">新人でも担任､すでに授業でも大活躍《学校は無茶ぶりが当たり前？》若手を離職･休職させない4つのポイント - 東洋経済オンライン</h3>
+
+  <!-- ジャンルタグ -->
+  <div class="flex flex-wrap gap-1"><span class="rounded-full bg-slate-700/60 px-2 py-0.5 text-xs text-slate-400">学級経営</span></div>
+
+  <!-- 向いている形式 -->
+  <div class="flex flex-wrap gap-1"></div>
+
+  <!-- 切り口メモ -->
+  <div class="rounded-xl bg-black/25 border-l-2 border-white/30 px-3 py-2.5">
+    <p class="text-xs font-semibold text-slate-400 mb-1">✏️ 推奨切り口</p>
+    <p class="text-xs text-slate-200 leading-relaxed"></p>
+  </div>
+</div>
+<div class="rounded-2xl border bg-gradient-to-br from-slate-700/60 to-slate-800/50 border-slate-500/50 p-5 flex flex-col gap-4 relative">
+  <!-- ランクバッジ -->
+  <div class="flex items-center gap-2">
+    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-400 text-white text-xs font-black shrink-0">2</span>
+    <span class="text-slate-300 text-xs font-semibold tracking-widest">Rank 2</span>
+    <span class="ml-auto text-2xl">🥈</span>
+  </div>
+
+  <!-- タイトル（大きく・くっきり） -->
+  <h3 class="text-base font-bold text-white leading-snug">高等支援学校でいじめ、同級生からお金を取られスマホ購入代を支払わされて不登校に…５件の因果関係認定 - Yahoo!ニュース</h3>
+
+  <!-- ジャンルタグ -->
+  <div class="flex flex-wrap gap-1"><span class="rounded-full bg-slate-700/60 px-2 py-0.5 text-xs text-slate-400">不登校</span></div>
+
+  <!-- 向いている形式 -->
+  <div class="flex flex-wrap gap-1"></div>
+
+  <!-- 切り口メモ -->
+  <div class="rounded-xl bg-black/25 border-l-2 border-white/30 px-3 py-2.5">
+    <p class="text-xs font-semibold text-slate-400 mb-1">✏️ 推奨切り口</p>
+    <p class="text-xs text-slate-200 leading-relaxed"></p>
+  </div>
+</div>
+<div class="rounded-2xl border bg-gradient-to-br from-orange-900/50 to-amber-900/30 border-orange-600/50 p-5 flex flex-col gap-4 relative">
+  <!-- ランクバッジ -->
+  <div class="flex items-center gap-2">
+    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-orange-600 text-white text-xs font-black shrink-0">3</span>
+    <span class="text-orange-300 text-xs font-semibold tracking-widest">Rank 3</span>
+    <span class="ml-auto text-2xl">🥉</span>
+  </div>
+
+  <!-- タイトル（大きく・くっきり） -->
+  <h3 class="text-base font-bold text-white leading-snug">5件“いじめ”認定…不登校との因果関係も ひのくに高等支援学校の調査委（熊本ニュース KAB ONLINE） - Yahoo!ニュース</h3>
+
+  <!-- ジャンルタグ -->
+  <div class="flex flex-wrap gap-1"><span class="rounded-full bg-slate-700/60 px-2 py-0.5 text-xs text-slate-400">不登校</span></div>
+
+  <!-- 向いている形式 -->
+  <div class="flex flex-wrap gap-1"></div>
+
+  <!-- 切り口メモ -->
+  <div class="rounded-xl bg-black/25 border-l-2 border-white/30 px-3 py-2.5">
+    <p class="text-xs font-semibold text-slate-400 mb-1">✏️ 推奨切り口</p>
+    <p class="text-xs text-slate-200 leading-relaxed"></p>
+  </div>
+</div></div>
+  </section>
+
+  <!-- インサイト -->
+  
+
+  <!-- Instagram ネタ案 -->
+  
+
+  <!-- スタエフ -->
+  
+
+
+</div>
+
+<!-- ════════════════════════════════════════════════════════ PAGE 2 -->
+<div data-panel="2" class="space-y-8">
+  <div class="flex items-center gap-3 mb-2">
+    <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-orange-600/20 border border-orange-500/40 text-lg">📰</div>
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-widest text-orange-400">外部トレンド・教育ニュース</p>
+      <h2 class="text-lg font-bold text-orange-200">外部トレンド・教育ニュース</h2>
+    </div>
+    <span class="ml-auto rounded-full bg-orange-900/50 px-3 py-1 text-xs text-orange-300">13件</span>
+  </div>
+  <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+<div class="rounded-2xl border border-slate-700/50 bg-[#111827] p-4 flex flex-col gap-3 hover:border-slate-600/70 transition-colors">
+
+  <!-- ヘッダー行: 出典 + 日付 + X統計 + リンク -->
+  <div class="flex items-center gap-2 flex-wrap">
+    <span class="rounded-full border px-2 py-0.5 text-xs font-medium bg-slate-700/70 text-slate-200 border-slate-600/50">📄 Google News</span>
+    <span class="text-xs text-slate-500 truncate flex-1">Google News（不登校・いじめ）</span>
+    
+    <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE05cHEyemZoTTJFVGMtVk1FLTJ0RERUaWxvSzItcXVyNWcyRmRFdkVBTmlyTDhwZnJ4ajhwOUdBN0RpMDU0MVRBUzI3T1R1TmUzM3AtNEpXc1FuSGtmeFRTeGFsSUM1azdvcmRkOFQwZWRPd1RNTnp3WDByVkQ0X0U?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-slate-700/60 hover:bg-slate-600/60 px-2 py-1 text-xs text-blue-400 transition-colors">🔗 開く</a>
+  </div>
+
+  <!-- タイトル -->
+  <h3 class="text-base font-bold text-slate-100 leading-snug">高等支援学校でいじめ、同級生からお金を取られスマホ購入代を支払わされて不登校に…５件の因果関係認定 - Yahoo!ニュース</h3>
+
+  <!-- 概要 -->
+  <p class="text-xs text-slate-400 leading-relaxed">高等支援学校でいじめ、同級生からお金を取られスマホ購入代を支払わされて不登校に…５件の因果関係認定&amp;nbsp;&amp;nbsp;Yahoo!ニュース</p>
+
+  <!-- ジャンル + 感情（一目でわかる行） -->
+  <div class="flex flex-wrap gap-1 items-center">
+    <span class="rounded-full bg-slate-700/70 px-2 py-0.5 text-xs text-slate-300">不登校</span>
+    <span class="text-slate-600 text-xs mx-1">|</span>
+    
+  </div>
+
+  <!-- 向いている形式 -->
+  <div class="flex flex-wrap gap-1"></div>
+
+  <!-- 切り口メモ（最重要情報） -->
+  <div class="rounded-xl bg-slate-800/80 border-l-2 border-violet-500 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-0.5">✏️ 切り口</p>
+    <p class="text-xs text-slate-300 leading-relaxed"></p>
+  </div>
+
+</div>
+<div class="rounded-2xl border border-slate-700/50 bg-[#111827] p-4 flex flex-col gap-3 hover:border-slate-600/70 transition-colors">
+
+  <!-- ヘッダー行: 出典 + 日付 + X統計 + リンク -->
+  <div class="flex items-center gap-2 flex-wrap">
+    <span class="rounded-full border px-2 py-0.5 text-xs font-medium bg-slate-700/70 text-slate-200 border-slate-600/50">📄 Google News</span>
+    <span class="text-xs text-slate-500 truncate flex-1">Google News（不登校・いじめ）</span>
+    
+    <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE5tNGl0cHpmWWxhdVJ5RmJBeE5FcTZPdDJQWmxHZk5UY2JZRFZJOHFQa1RwMXVBVXA5TFBDQktvTnZSVFZKcGJER1REakdIVEU2WkRUcHBRcWcway12RUVDZ1Q4VklMMFhvMHZPTFFuY3pxYWVmRTJZdHgxRlctY28?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-slate-700/60 hover:bg-slate-600/60 px-2 py-1 text-xs text-blue-400 transition-colors">🔗 開く</a>
+  </div>
+
+  <!-- タイトル -->
+  <h3 class="text-base font-bold text-slate-100 leading-snug">5件“いじめ”認定…不登校との因果関係も ひのくに高等支援学校の調査委（熊本ニュース KAB ONLINE） - Yahoo!ニュース</h3>
+
+  <!-- 概要 -->
+  <p class="text-xs text-slate-400 leading-relaxed">5件“いじめ”認定…不登校との因果関係も ひのくに高等支援学校の調査委（熊本ニュース KAB ONLINE）&amp;nbsp;&amp;nbsp;Yahoo!ニュース</p>
+
+  <!-- ジャンル + 感情（一目でわかる行） -->
+  <div class="flex flex-wrap gap-1 items-center">
+    <span class="rounded-full bg-slate-700/70 px-2 py-0.5 text-xs text-slate-300">不登校</span>
+    <span class="text-slate-600 text-xs mx-1">|</span>
+    
+  </div>
+
+  <!-- 向いている形式 -->
+  <div class="flex flex-wrap gap-1"></div>
+
+  <!-- 切り口メモ（最重要情報） -->
+  <div class="rounded-xl bg-slate-800/80 border-l-2 border-violet-500 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-0.5">✏️ 切り口</p>
+    <p class="text-xs text-slate-300 leading-relaxed"></p>
+  </div>
+
+</div>
+<div class="rounded-2xl border border-slate-700/50 bg-[#111827] p-4 flex flex-col gap-3 hover:border-slate-600/70 transition-colors">
+
+  <!-- ヘッダー行: 出典 + 日付 + X統計 + リンク -->
+  <div class="flex items-center gap-2 flex-wrap">
+    <span class="rounded-full border px-2 py-0.5 text-xs font-medium bg-slate-700/70 text-slate-200 border-slate-600/50">📄 Google News</span>
+    <span class="text-xs text-slate-500 truncate flex-1">Google News（不登校・いじめ）</span>
+    
+    <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE9fbkFTTWs2b1ZKXzdfRmFTclQtOVRrSU9Yc2pUWnNtWDVqSHl3cmI0WHA3ZjBTa3d1SUg0cVRucUFabHU5bFJTNkNpaDhLVm5uSGlJZXZ3TTNGYUx0MUZYVDlkR3FNdWlrVXc0WUtRdU1kOXQyejhnOHFFYVJGSW8?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-slate-700/60 hover:bg-slate-600/60 px-2 py-1 text-xs text-blue-400 transition-colors">🔗 開く</a>
+  </div>
+
+  <!-- タイトル -->
+  <h3 class="text-base font-bold text-slate-100 leading-snug">「不登校の原因に」いじめ5件を認定 熊本・ひのくに高等支援学校 第三者委が調査報告書（熊本日日新聞） - Yahoo!ニュース</h3>
+
+  <!-- 概要 -->
+  <p class="text-xs text-slate-400 leading-relaxed">「不登校の原因に」いじめ5件を認定 熊本・ひのくに高等支援学校 第三者委が調査報告書（熊本日日新聞）&amp;nbsp;&amp;nbsp;Yahoo!ニュース</p>
+
+  <!-- ジャンル + 感情（一目でわかる行） -->
+  <div class="flex flex-wrap gap-1 items-center">
+    <span class="rounded-full bg-slate-700/70 px-2 py-0.5 text-xs text-slate-300">不登校</span>
+    <span class="text-slate-600 text-xs mx-1">|</span>
+    
+  </div>
+
+  <!-- 向いている形式 -->
+  <div class="flex flex-wrap gap-1"></div>
+
+  <!-- 切り口メモ（最重要情報） -->
+  <div class="rounded-xl bg-slate-800/80 border-l-2 border-violet-500 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-0.5">✏️ 切り口</p>
+    <p class="text-xs text-slate-300 leading-relaxed"></p>
+  </div>
+
+</div>
+<div class="rounded-2xl border border-slate-700/50 bg-[#111827] p-4 flex flex-col gap-3 hover:border-slate-600/70 transition-colors">
+
+  <!-- ヘッダー行: 出典 + 日付 + X統計 + リンク -->
+  <div class="flex items-center gap-2 flex-wrap">
+    <span class="rounded-full border px-2 py-0.5 text-xs font-medium bg-slate-700/70 text-slate-200 border-slate-600/50">📄 Google News</span>
+    <span class="text-xs text-slate-500 truncate flex-1">Google News（不登校・いじめ）</span>
+    
+    <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5jMkJ0Y2Z1c28wMjdNbDhyQ0lhYlNja3ZlTVl4aVhuaXBrSGxyRUU0TG9TV1ZpdE1jNXpYQjM1ZDdHTTlVSTcwazRLb0lMX1NVWVh3b1d3cVRkMzhMX0dTVVZsRm9zZDg?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-slate-700/60 hover:bg-slate-600/60 px-2 py-1 text-xs text-blue-400 transition-colors">🔗 開く</a>
+  </div>
+
+  <!-- タイトル -->
+  <h3 class="text-base font-bold text-slate-100 leading-snug">【いじめ調査】熊本・ひのくに高等支援学校 いじめ調査報告書を公表 同級生による5件のいじめと不登校の因果関係を認定 - TBS NEWS DIG</h3>
+
+  <!-- 概要 -->
+  <p class="text-xs text-slate-400 leading-relaxed">【いじめ調査】熊本・ひのくに高等支援学校 いじめ調査報告書を公表 同級生による5件のいじめと不登校の因果関係を認定&amp;nbsp;&amp;nbsp;TBS NEWS DIG</p>
+
+  <!-- ジャンル + 感情（一目でわかる行） -->
+  <div class="flex flex-wrap gap-1 items-center">
+    <span class="rounded-full bg-slate-700/70 px-2 py-0.5 text-xs text-slate-300">不登校</span>
+    <span class="text-slate-600 text-xs mx-1">|</span>
+    
+  </div>
+
+  <!-- 向いている形式 -->
+  <div class="flex flex-wrap gap-1"></div>
+
+  <!-- 切り口メモ（最重要情報） -->
+  <div class="rounded-xl bg-slate-800/80 border-l-2 border-violet-500 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-0.5">✏️ 切り口</p>
+    <p class="text-xs text-slate-300 leading-relaxed"></p>
+  </div>
+
+</div>
+<div class="rounded-2xl border border-slate-700/50 bg-[#111827] p-4 flex flex-col gap-3 hover:border-slate-600/70 transition-colors">
+
+  <!-- ヘッダー行: 出典 + 日付 + X統計 + リンク -->
+  <div class="flex items-center gap-2 flex-wrap">
+    <span class="rounded-full border px-2 py-0.5 text-xs font-medium bg-slate-700/70 text-slate-200 border-slate-600/50">📄 Google News</span>
+    <span class="text-xs text-slate-500 truncate flex-1">Google News（不登校・いじめ）</span>
+    
+    <a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE9nZnloTGVXbnZnVktwRUdxZEZpVmxRYk85RzlSTklEem9HV0FwdHZHd29YRDZLY1F2NElCanJTeVhUX2V3b1hNUmtKT0pZLThDVkRlWDREN3YzYnlfQ18xag?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-slate-700/60 hover:bg-slate-600/60 px-2 py-1 text-xs text-blue-400 transition-colors">🔗 開く</a>
+  </div>
+
+  <!-- タイトル -->
+  <h3 class="text-base font-bold text-slate-100 leading-snug">【いじめ調査】熊本・ひのくに高等支援学校 いじめ調査報告書を公表 同級生による5件のいじめと不登校の因果関係を認定 - TBS NEWS DIG</h3>
+
+  <!-- 概要 -->
+  <p class="text-xs text-slate-400 leading-relaxed">【いじめ調査】熊本・ひのくに高等支援学校 いじめ調査報告書を公表 同級生による5件のいじめと不登校の因果関係を認定&amp;nbsp;&amp;nbsp;TBS NEWS DIG</p>
+
+  <!-- ジャンル + 感情（一目でわかる行） -->
+  <div class="flex flex-wrap gap-1 items-center">
+    <span class="rounded-full bg-slate-700/70 px-2 py-0.5 text-xs text-slate-300">不登校</span>
+    <span class="text-slate-600 text-xs mx-1">|</span>
+    
+  </div>
+
+  <!-- 向いている形式 -->
+  <div class="flex flex-wrap gap-1"></div>
+
+  <!-- 切り口メモ（最重要情報） -->
+  <div class="rounded-xl bg-slate-800/80 border-l-2 border-violet-500 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-0.5">✏️ 切り口</p>
+    <p class="text-xs text-slate-300 leading-relaxed"></p>
+  </div>
+
+</div>
+<div class="rounded-2xl border border-slate-700/50 bg-[#111827] p-4 flex flex-col gap-3 hover:border-slate-600/70 transition-colors">
+
+  <!-- ヘッダー行: 出典 + 日付 + X統計 + リンク -->
+  <div class="flex items-center gap-2 flex-wrap">
+    <span class="rounded-full border px-2 py-0.5 text-xs font-medium bg-slate-700/70 text-slate-200 border-slate-600/50">📄 Google News</span>
+    <span class="text-xs text-slate-500 truncate flex-1">Google News（不登校・いじめ）</span>
+    
+    <a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQRGxwUjJORk9VUjljRWI4d2I5MTdsajJuek93TGFIUVNnd19EcWM1Y0RJM2NGYkdQMmFrRzJxZ0xMR0RoUFEtWnhsLXNFMFNJQmhMeHBWNFFjdmdhSnZVSTY3WkpubU13UFR1bVU0eGlWZmx4WjRqMjh6cnZaSl9tdjdCQ3QtUE0t?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-slate-700/60 hover:bg-slate-600/60 px-2 py-1 text-xs text-blue-400 transition-colors">🔗 開く</a>
+  </div>
+
+  <!-- タイトル -->
+  <h3 class="text-base font-bold text-slate-100 leading-snug">【いじめ調査】熊本・ひのくに高等支援学校 いじめ調査報告書を公表 同級生による5件のいじめと不登校の因果関係を認定 - Yahoo!ニュース</h3>
+
+  <!-- 概要 -->
+  <p class="text-xs text-slate-400 leading-relaxed">【いじめ調査】熊本・ひのくに高等支援学校 いじめ調査報告書を公表 同級生による5件のいじめと不登校の因果関係を認定&amp;nbsp;&amp;nbsp;Yahoo!ニュース</p>
+
+  <!-- ジャンル + 感情（一目でわかる行） -->
+  <div class="flex flex-wrap gap-1 items-center">
+    <span class="rounded-full bg-slate-700/70 px-2 py-0.5 text-xs text-slate-300">不登校</span>
+    <span class="text-slate-600 text-xs mx-1">|</span>
+    
+  </div>
+
+  <!-- 向いている形式 -->
+  <div class="flex flex-wrap gap-1"></div>
+
+  <!-- 切り口メモ（最重要情報） -->
+  <div class="rounded-xl bg-slate-800/80 border-l-2 border-violet-500 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-0.5">✏️ 切り口</p>
+    <p class="text-xs text-slate-300 leading-relaxed"></p>
+  </div>
+
+</div>
+<div class="rounded-2xl border border-slate-700/50 bg-[#111827] p-4 flex flex-col gap-3 hover:border-slate-600/70 transition-colors">
+
+  <!-- ヘッダー行: 出典 + 日付 + X統計 + リンク -->
+  <div class="flex items-center gap-2 flex-wrap">
+    <span class="rounded-full border px-2 py-0.5 text-xs font-medium bg-slate-700/70 text-slate-200 border-slate-600/50">📄 Google News</span>
+    <span class="text-xs text-slate-500 truncate flex-1">Google News（不登校・いじめ）</span>
+    
+    <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE9OMm5wbW9UemtHNVNoNldjbUlVOWgzMmZRSndkU1ZBdHhGb3VaaWZwdUtzOUJ4TmEzVlJJYTNPZFJrWVpQNXFNLWZTazZPWWxCcUk3R0x6SUlrUzJDdl90eXB4ZUFsaXYxRElpZXpPUE5CVk1aTWRtNFREN1dwMEU?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-slate-700/60 hover:bg-slate-600/60 px-2 py-1 text-xs text-blue-400 transition-colors">🔗 開く</a>
+  </div>
+
+  <!-- タイトル -->
+  <h3 class="text-base font-bold text-slate-100 leading-snug">いじめ“謝罪の場”の後、被害者が不登校に 福岡県教育委員会で検証されず…専門家は批判「事態を悪化させた可能性」 - Yahoo!ニュース</h3>
+
+  <!-- 概要 -->
+  <p class="text-xs text-slate-400 leading-relaxed">いじめ“謝罪の場”の後、被害者が不登校に 福岡県教育委員会で検証されず…専門家は批判「事態を悪化させた可能性」&amp;nbsp;&amp;nbsp;Yahoo!ニュース</p>
+
+  <!-- ジャンル + 感情（一目でわかる行） -->
+  <div class="flex flex-wrap gap-1 items-center">
+    <span class="rounded-full bg-slate-700/70 px-2 py-0.5 text-xs text-slate-300">学校制度</span><span class="rounded-full bg-slate-700/70 px-2 py-0.5 text-xs text-slate-300">不登校</span>
+    <span class="text-slate-600 text-xs mx-1">|</span>
+    
+  </div>
+
+  <!-- 向いている形式 -->
+  <div class="flex flex-wrap gap-1"></div>
+
+  <!-- 切り口メモ（最重要情報） -->
+  <div class="rounded-xl bg-slate-800/80 border-l-2 border-violet-500 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-0.5">✏️ 切り口</p>
+    <p class="text-xs text-slate-300 leading-relaxed"></p>
+  </div>
+
+</div>
+<div class="rounded-2xl border border-slate-700/50 bg-[#111827] p-4 flex flex-col gap-3 hover:border-slate-600/70 transition-colors">
+
+  <!-- ヘッダー行: 出典 + 日付 + X統計 + リンク -->
+  <div class="flex items-center gap-2 flex-wrap">
+    <span class="rounded-full border px-2 py-0.5 text-xs font-medium bg-slate-700/70 text-slate-200 border-slate-600/50">📄 Google News</span>
+    <span class="text-xs text-slate-500 truncate flex-1">Google News（不登校・いじめ）</span>
+    
+    <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE5PNjUwaDZsNmFHRGV4cmRKWmptaFZ5WXE2eVE1T2ZYUkR3ZEZPZ0V5QkJsNE1tTGlOS0I0VkVqV3lpdUR6RVFia19FWTdqRzBLX1g0X3RDeGdXaDRncElKT3N3b1J0VUwxRnpZNkZtUTExTmVpMUJtaXprelVWTFk?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-slate-700/60 hover:bg-slate-600/60 px-2 py-1 text-xs text-blue-400 transition-colors">🔗 開く</a>
+  </div>
+
+  <!-- タイトル -->
+  <h3 class="text-base font-bold text-slate-100 leading-snug">「筑波大学附属中 陰湿いじめで娘は退学した」被害生徒の母が告発《偏差値68、著名人を多数輩出》【先出し全文】 - Yahoo!ニュース</h3>
+
+  <!-- 概要 -->
+  <p class="text-xs text-slate-400 leading-relaxed">「筑波大学附属中 陰湿いじめで娘は退学した」被害生徒の母が告発《偏差値68、著名人を多数輩出》【先出し全文】&amp;nbsp;&amp;nbsp;Yahoo!ニュース</p>
+
+  <!-- ジャンル + 感情（一目でわかる行） -->
+  <div class="flex flex-wrap gap-1 items-center">
+    <span class="rounded-full bg-slate-700/70 px-2 py-0.5 text-xs text-slate-300">教育全般</span>
+    <span class="text-slate-600 text-xs mx-1">|</span>
+    
+  </div>
+
+  <!-- 向いている形式 -->
+  <div class="flex flex-wrap gap-1"></div>
+
+  <!-- 切り口メモ（最重要情報） -->
+  <div class="rounded-xl bg-slate-800/80 border-l-2 border-violet-500 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-0.5">✏️ 切り口</p>
+    <p class="text-xs text-slate-300 leading-relaxed"></p>
+  </div>
+
+</div>
+<div class="rounded-2xl border border-slate-700/50 bg-[#111827] p-4 flex flex-col gap-3 hover:border-slate-600/70 transition-colors">
+
+  <!-- ヘッダー行: 出典 + 日付 + X統計 + リンク -->
+  <div class="flex items-center gap-2 flex-wrap">
+    <span class="rounded-full border px-2 py-0.5 text-xs font-medium bg-slate-700/70 text-slate-200 border-slate-600/50">📄 Google News</span>
+    <span class="text-xs text-slate-500 truncate flex-1">Google News（不登校・いじめ）</span>
+    
+    <a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxPcUY2NGZqaWNOVVhBemRUMFVSbzJtRU11aFBzeEtJVURZUTRiRWRnOUFlX0NqbktxNldOX19yQi1wOFNCblRaVXBicmdjcURyVzVTeGo3aFZsQThKUHdVQ0I5V0hzcGY1MnV1c25neDlqeS1sUXFDTWotU3ZtLTlIeEFR?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-slate-700/60 hover:bg-slate-600/60 px-2 py-1 text-xs text-blue-400 transition-colors">🔗 開く</a>
+  </div>
+
+  <!-- タイトル -->
+  <h3 class="text-base font-bold text-slate-100 leading-snug">不登校に関する支援 - city.fukuoka.lg.jp</h3>
+
+  <!-- 概要 -->
+  <p class="text-xs text-slate-400 leading-relaxed">不登校に関する支援&amp;nbsp;&amp;nbsp;city.fukuoka.lg.jp</p>
+
+  <!-- ジャンル + 感情（一目でわかる行） -->
+  <div class="flex flex-wrap gap-1 items-center">
+    <span class="rounded-full bg-slate-700/70 px-2 py-0.5 text-xs text-slate-300">不登校</span>
+    <span class="text-slate-600 text-xs mx-1">|</span>
+    
+  </div>
+
+  <!-- 向いている形式 -->
+  <div class="flex flex-wrap gap-1"></div>
+
+  <!-- 切り口メモ（最重要情報） -->
+  <div class="rounded-xl bg-slate-800/80 border-l-2 border-violet-500 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-0.5">✏️ 切り口</p>
+    <p class="text-xs text-slate-300 leading-relaxed"></p>
+  </div>
+
+</div>
+<div class="rounded-2xl border border-slate-700/50 bg-[#111827] p-4 flex flex-col gap-3 hover:border-slate-600/70 transition-colors">
+
+  <!-- ヘッダー行: 出典 + 日付 + X統計 + リンク -->
+  <div class="flex items-center gap-2 flex-wrap">
+    <span class="rounded-full border px-2 py-0.5 text-xs font-medium bg-slate-700/70 text-slate-200 border-slate-600/50">📄 Google News</span>
+    <span class="text-xs text-slate-500 truncate flex-1">Google News（教員・学校）</span>
+    
+    <a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE5jV0hPdVBONXJlNTcwblZhQ3R0S3FWd1pKQ3NOVGFKMk5tNDZMQUJUb09PSnY1MVNVdk8zOUMwWjRhMl85YW5pRjBpZUNpQzdrWGJ2UmJveTU5Mm9oUm1mY21iOTZ2OHNhZXJUVzhR?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-slate-700/60 hover:bg-slate-600/60 px-2 py-1 text-xs text-blue-400 transition-colors">🔗 開く</a>
+  </div>
+
+  <!-- タイトル -->
+  <h3 class="text-base font-bold text-slate-100 leading-snug">🌸＼おおいた教職フェア開催／🌸臨時・非常勤講師希望者対象 - 大分県ホームページ</h3>
+
+  <!-- 概要 -->
+  <p class="text-xs text-slate-400 leading-relaxed">🌸＼おおいた教職フェア開催／🌸臨時・非常勤講師希望者対象&amp;nbsp;&amp;nbsp;大分県ホームページ</p>
+
+  <!-- ジャンル + 感情（一目でわかる行） -->
+  <div class="flex flex-wrap gap-1 items-center">
+    <span class="rounded-full bg-slate-700/70 px-2 py-0.5 text-xs text-slate-300">教育全般</span>
+    <span class="text-slate-600 text-xs mx-1">|</span>
+    
+  </div>
+
+  <!-- 向いている形式 -->
+  <div class="flex flex-wrap gap-1"></div>
+
+  <!-- 切り口メモ（最重要情報） -->
+  <div class="rounded-xl bg-slate-800/80 border-l-2 border-violet-500 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-0.5">✏️ 切り口</p>
+    <p class="text-xs text-slate-300 leading-relaxed"></p>
+  </div>
+
+</div>
+<div class="rounded-2xl border border-slate-700/50 bg-[#111827] p-4 flex flex-col gap-3 hover:border-slate-600/70 transition-colors">
+
+  <!-- ヘッダー行: 出典 + 日付 + X統計 + リンク -->
+  <div class="flex items-center gap-2 flex-wrap">
+    <span class="rounded-full border px-2 py-0.5 text-xs font-medium bg-slate-700/70 text-slate-200 border-slate-600/50">📄 Google News</span>
+    <span class="text-xs text-slate-500 truncate flex-1">Google News（教員不足）</span>
+    
+    <a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE5MXzRwNTFZUEVSVkZaQmo1NlRHZ1pxVHB6V0J5ck1OaHlJMUVMZU5JSWpDS19mVnNObWpaU3VRNzNJSkJkdjVsRXROWUxtdDNDOUJvU09kYUZOeVRjei1BNFM1Vlp1S0VXcnZqZFkyTQ?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-slate-700/60 hover:bg-slate-600/60 px-2 py-1 text-xs text-blue-400 transition-colors">🔗 開く</a>
+  </div>
+
+  <!-- タイトル -->
+  <h3 class="text-base font-bold text-slate-100 leading-snug">今変わらなくて、いつ変わる？ 学校教育最前線 教育研究家 妹尾昌俊 - 東洋経済オンライン</h3>
+
+  <!-- 概要 -->
+  <p class="text-xs text-slate-400 leading-relaxed">今変わらなくて、いつ変わる？ 学校教育最前線 教育研究家 妹尾昌俊&amp;nbsp;&amp;nbsp;東洋経済オンライン</p>
+
+  <!-- ジャンル + 感情（一目でわかる行） -->
+  <div class="flex flex-wrap gap-1 items-center">
+    <span class="rounded-full bg-slate-700/70 px-2 py-0.5 text-xs text-slate-300">教育全般</span>
+    <span class="text-slate-600 text-xs mx-1">|</span>
+    
+  </div>
+
+  <!-- 向いている形式 -->
+  <div class="flex flex-wrap gap-1"></div>
+
+  <!-- 切り口メモ（最重要情報） -->
+  <div class="rounded-xl bg-slate-800/80 border-l-2 border-violet-500 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-0.5">✏️ 切り口</p>
+    <p class="text-xs text-slate-300 leading-relaxed"></p>
+  </div>
+
+</div>
+<div class="rounded-2xl border border-slate-700/50 bg-[#111827] p-4 flex flex-col gap-3 hover:border-slate-600/70 transition-colors">
+
+  <!-- ヘッダー行: 出典 + 日付 + X統計 + リンク -->
+  <div class="flex items-center gap-2 flex-wrap">
+    <span class="rounded-full border px-2 py-0.5 text-xs font-medium bg-slate-700/70 text-slate-200 border-slate-600/50">📄 Google News</span>
+    <span class="text-xs text-slate-500 truncate flex-1">Google News（教員不足）</span>
+    
+    <a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE5oZ2FDTWFvSEttb1NFM3NzU1dhZDA0SmtwWUVMRjgzMGRrVk42VV9BLS0za2pUVmZMVzllSkpWbUhQRldVdW5kU0cxWmdLazRpSlE?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-slate-700/60 hover:bg-slate-600/60 px-2 py-1 text-xs text-blue-400 transition-colors">🔗 開く</a>
+  </div>
+
+  <!-- タイトル -->
+  <h3 class="text-base font-bold text-slate-100 leading-snug">新人でも担任､すでに授業でも大活躍《学校は無茶ぶりが当たり前？》若手を離職･休職させない4つのポイント - 東洋経済オンライン</h3>
+
+  <!-- 概要 -->
+  <p class="text-xs text-slate-400 leading-relaxed">新人でも担任､すでに授業でも大活躍《学校は無茶ぶりが当たり前？》若手を離職･休職させない4つのポイント&amp;nbsp;&amp;nbsp;東洋経済オンライン</p>
+
+  <!-- ジャンル + 感情（一目でわかる行） -->
+  <div class="flex flex-wrap gap-1 items-center">
+    <span class="rounded-full bg-slate-700/70 px-2 py-0.5 text-xs text-slate-300">学級経営</span>
+    <span class="text-slate-600 text-xs mx-1">|</span>
+    
+  </div>
+
+  <!-- 向いている形式 -->
+  <div class="flex flex-wrap gap-1"></div>
+
+  <!-- 切り口メモ（最重要情報） -->
+  <div class="rounded-xl bg-slate-800/80 border-l-2 border-violet-500 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-0.5">✏️ 切り口</p>
+    <p class="text-xs text-slate-300 leading-relaxed"></p>
+  </div>
+
+</div>
+<div class="rounded-2xl border border-slate-700/50 bg-[#111827] p-4 flex flex-col gap-3 hover:border-slate-600/70 transition-colors">
+
+  <!-- ヘッダー行: 出典 + 日付 + X統計 + リンク -->
+  <div class="flex items-center gap-2 flex-wrap">
+    <span class="rounded-full border px-2 py-0.5 text-xs font-medium bg-slate-700/70 text-slate-200 border-slate-600/50">📄 Google News</span>
+    <span class="text-xs text-slate-500 truncate flex-1">Google News（不登校・いじめ）</span>
+    
+    <a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE8tR1NLbmdrMHFTdG9BbzZGVlkzZm0zeFRFZDQzWnRFb2JYbFN5QVlCYlFvMEtTQ0pvOU1lSGo3eThwNGJfYVZSYkZPSUl4SFA1eFRCVzd1b2VCRm40c2hvVTNmN2hFbDhjTkhRMWpoWmNCQk9XbXM4T1FqRQ?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-slate-700/60 hover:bg-slate-600/60 px-2 py-1 text-xs text-blue-400 transition-colors">🔗 開く</a>
+  </div>
+
+  <!-- タイトル -->
+  <h3 class="text-base font-bold text-slate-100 leading-snug">令和8年度 子どもの心配ごと長岡市内の相談機関一覧 - city.nagaoka.niigata.jp</h3>
+
+  <!-- 概要 -->
+  <p class="text-xs text-slate-400 leading-relaxed">令和8年度 子どもの心配ごと長岡市内の相談機関一覧&amp;nbsp;&amp;nbsp;city.nagaoka.niigata.jp</p>
+
+  <!-- ジャンル + 感情（一目でわかる行） -->
+  <div class="flex flex-wrap gap-1 items-center">
+    <span class="rounded-full bg-slate-700/70 px-2 py-0.5 text-xs text-slate-300">教育全般</span>
+    <span class="text-slate-600 text-xs mx-1">|</span>
+    
+  </div>
+
+  <!-- 向いている形式 -->
+  <div class="flex flex-wrap gap-1"></div>
+
+  <!-- 切り口メモ（最重要情報） -->
+  <div class="rounded-xl bg-slate-800/80 border-l-2 border-violet-500 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-0.5">✏️ 切り口</p>
+    <p class="text-xs text-slate-300 leading-relaxed"></p>
+  </div>
+
+</div></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════ PAGE 3 -->
+<div data-panel="3" class="space-y-10">
+  <div class="flex items-center gap-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-rose-600/20 border border-rose-500/40 text-lg">💬</div>
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-widest text-rose-400">直近7日間 注目コメント</p>
+      <h2 class="text-lg font-bold text-rose-200">一週間以内のホットコメント</h2>
+    </div>
+  </div>
+
+  <!-- アンチ系 -->
+  <section>
+    <div class="mb-4 flex items-center gap-2">
+      <span class="text-base">😡</span>
+      <h3 class="text-base font-bold text-red-300">アンチ系コメント</h3>
+      <span class="rounded-full bg-red-900/50 px-2 py-0.5 text-xs text-red-300">4件</span>
+      <p class="ml-2 text-xs text-slate-500">批判・懐疑・反論系のコメントをピックアップ</p>
+    </div>
+    <div class="grid gap-5 md:grid-cols-2">
+<div class="rounded-2xl border border-red-700/40 bg-gradient-to-br from-[#1f0a0a] to-[#2a0f0f] p-5 flex flex-col gap-3">
+  <div>
+    <div class="flex items-center gap-2 mb-1">
+      <span class="rounded-full bg-red-900/60 border border-red-700/40 px-2 py-0.5 text-xs text-red-300">😡 アンチ系</span>
+      <span class="text-xs text-slate-500">2026-04-18</span>
+      <span class="ml-auto text-xs text-slate-500">❤️ 3</span>
+    </div>
+    <p class="text-xs text-slate-500 mb-0.5">投稿：「学級開きで「絶対やってはいけないこと」3選」</p>
+    <a href="https://www.instagram.com/p/sample001/" target="_blank" class="text-xs text-blue-400 hover:text-blue-300 underline">🔗 投稿を開く</a>
+  </div>
+  <blockquote class="border-l-2 border-red-500 pl-3 py-1 bg-red-950/40 rounded-r-xl">
+    <p class="text-sm text-slate-200 leading-relaxed">「こんなの当たり前のことで、わざわざ投稿する必要ありますか？現場をなめてると思います。こういう薄い内容が拡散されるのが本当に嫌です。」</p>
+    <footer class="text-xs text-slate-500 mt-1">— @anonymous_teacher</footer>
+  </blockquote>
+  <div class="flex items-center gap-2">
+    <span class="text-xs text-slate-500">感情：</span>
+    <span class="rounded-full bg-slate-700/50 px-2 py-0.5 text-xs text-slate-300">批判・怒り</span>
+  </div>
+  <div class="rounded-xl bg-amber-900/20 border border-amber-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-amber-400 mb-1">🛡️ 対応メモ</p>
+    <p class="text-xs text-slate-300 leading-relaxed">スルーでOK。ただし「当たり前だからこそ確認する価値がある」という視点で、次の投稿のフックとして使える。同様の声が続くなら丁寧に返答。</p>
+  </div>
+  <div class="rounded-xl bg-violet-900/20 border border-violet-700/30 px-3 py-2"><p class="text-xs font-semibold text-violet-400 mb-1">💡 コンテンツ活用ポイント</p><p class="text-xs text-slate-300 leading-relaxed">スタエフで『当たり前だと思われてる教育論』というテーマで語れる</p></div>
+</div>
+<div class="rounded-2xl border border-red-700/40 bg-gradient-to-br from-[#1f0a0a] to-[#2a0f0f] p-5 flex flex-col gap-3">
+  <div>
+    <div class="flex items-center gap-2 mb-1">
+      <span class="rounded-full bg-red-900/60 border border-red-700/40 px-2 py-0.5 text-xs text-red-300">😡 アンチ系</span>
+      <span class="text-xs text-slate-500">2026-04-17</span>
+      <span class="ml-auto text-xs text-slate-500">❤️ 18</span>
+    </div>
+    <p class="text-xs text-slate-500 mb-0.5">投稿：「保護者からのクレーム、最初の30秒で決まる対応術」</p>
+    <a href="https://www.instagram.com/p/sample002/" target="_blank" class="text-xs text-blue-400 hover:text-blue-300 underline">🔗 投稿を開く</a>
+  </div>
+  <blockquote class="border-l-2 border-red-500 pl-3 py-1 bg-red-950/40 rounded-r-xl">
+    <p class="text-sm text-slate-200 leading-relaxed">「先生側の視点しかなくてバイアスがすごい。保護者にも事情があるんです。こういう投稿が教員と保護者の溝を深めてると思います。」</p>
+    <footer class="text-xs text-slate-500 mt-1">— @parent_voice_2024</footer>
+  </blockquote>
+  <div class="flex items-center gap-2">
+    <span class="text-xs text-slate-500">感情：</span>
+    <span class="rounded-full bg-slate-700/50 px-2 py-0.5 text-xs text-slate-300">批判・反論</span>
+  </div>
+  <div class="rounded-xl bg-amber-900/20 border border-amber-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-amber-400 mb-1">🛡️ 対応メモ</p>
+    <p class="text-xs text-slate-300 leading-relaxed">いいねが18件ついており無視できない。「保護者視点も当然大切で、両者の対話こそが鍵」という投稿で回収するとファンが増える可能性がある。</p>
+  </div>
+  <div class="rounded-xl bg-violet-900/20 border border-violet-700/30 px-3 py-2"><p class="text-xs font-semibold text-violet-400 mb-1">💡 コンテンツ活用ポイント</p><p class="text-xs text-slate-300 leading-relaxed">『保護者の本音と先生の本音、両方語る』企画投稿でポジティブに回収できる</p></div>
+</div>
+<div class="rounded-2xl border border-red-700/40 bg-gradient-to-br from-[#1f0a0a] to-[#2a0f0f] p-5 flex flex-col gap-3">
+  <div>
+    <div class="flex items-center gap-2 mb-1">
+      <span class="rounded-full bg-red-900/60 border border-red-700/40 px-2 py-0.5 text-xs text-red-300">😡 アンチ系</span>
+      <span class="text-xs text-slate-500">2026-04-16</span>
+      <span class="ml-auto text-xs text-slate-500">❤️ 42</span>
+    </div>
+    <p class="text-xs text-slate-500 mb-0.5">投稿：「先生が病む前に知っておきたいこと」</p>
+    <a href="https://www.instagram.com/p/sample003/" target="_blank" class="text-xs text-blue-400 hover:text-blue-300 underline">🔗 投稿を開く</a>
+  </div>
+  <blockquote class="border-l-2 border-red-500 pl-3 py-1 bg-red-950/40 rounded-r-xl">
+    <p class="text-sm text-slate-200 leading-relaxed">「きれいごとばかりでうんざりします。こういう投稿で救われる先生がいるのかもしれないけど、現場の深刻さをわかってないと感じます。もっと本質を語ってほしい。」</p>
+    <footer class="text-xs text-slate-500 mt-1">— @burnout_teacher</footer>
+  </blockquote>
+  <div class="flex items-center gap-2">
+    <span class="text-xs text-slate-500">感情：</span>
+    <span class="rounded-full bg-slate-700/50 px-2 py-0.5 text-xs text-slate-300">失望・不満</span>
+  </div>
+  <div class="rounded-xl bg-amber-900/20 border border-amber-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-amber-400 mb-1">🛡️ 対応メモ</p>
+    <p class="text-xs text-slate-300 leading-relaxed">いいねが42件と多く、共感している人が多い。「きれいごとに聞こえてしまったとしたら申し訳ない」という謙虚な返答＋より深い本音トークへの誘導が有効。</p>
+  </div>
+  <div class="rounded-xl bg-violet-900/20 border border-violet-700/30 px-3 py-2"><p class="text-xs font-semibold text-violet-400 mb-1">💡 コンテンツ活用ポイント</p><p class="text-xs text-slate-300 leading-relaxed">『きれいごとではなく本音で語る教員の現実』というスタエフエピソードのネタに昇華できる</p></div>
+</div>
+<div class="rounded-2xl border border-red-700/40 bg-gradient-to-br from-[#1f0a0a] to-[#2a0f0f] p-5 flex flex-col gap-3">
+  <div>
+    <div class="flex items-center gap-2 mb-1">
+      <span class="rounded-full bg-red-900/60 border border-red-700/40 px-2 py-0.5 text-xs text-red-300">😡 アンチ系</span>
+      <span class="text-xs text-slate-500">2026-04-19</span>
+      <span class="ml-auto text-xs text-slate-500">❤️ 7</span>
+    </div>
+    <p class="text-xs text-slate-500 mb-0.5">投稿：「新年度の職員室、先生の本音をぶっちゃける」</p>
+    <a href="https://www.instagram.com/p/sample004/" target="_blank" class="text-xs text-blue-400 hover:text-blue-300 underline">🔗 投稿を開く</a>
+  </div>
+  <blockquote class="border-l-2 border-red-500 pl-3 py-1 bg-red-950/40 rounded-r-xl">
+    <p class="text-sm text-slate-200 leading-relaxed">「SNSで稼ぎながら「現場の先生の声を届ける」とか言ってる人を信用できません。本当に大変なら学校を離れずSNS発信なんてしていられないはずでは？」</p>
+    <footer class="text-xs text-slate-500 mt-1">— @skeptical_edu</footer>
+  </blockquote>
+  <div class="flex items-center gap-2">
+    <span class="text-xs text-slate-500">感情：</span>
+    <span class="rounded-full bg-slate-700/50 px-2 py-0.5 text-xs text-slate-300">懐疑・不信</span>
+  </div>
+  <div class="rounded-xl bg-amber-900/20 border border-amber-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-amber-400 mb-1">🛡️ 対応メモ</p>
+    <p class="text-xs text-slate-300 leading-relaxed">「なぜSNS発信をしているのか」という問いかけに誠実に答えることで信頼が生まれる。動機を正直に語るストーリーを作るチャンス。</p>
+  </div>
+  <div class="rounded-xl bg-violet-900/20 border border-violet-700/30 px-3 py-2"><p class="text-xs font-semibold text-violet-400 mb-1">💡 コンテンツ活用ポイント</p><p class="text-xs text-slate-300 leading-relaxed">『なぜ現役教員がSNSで発信するのか、本音を話す』という自己開示投稿のネタになる</p></div>
+</div></div>
+  </section>
+
+  <div class="h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent"></div>
+
+  <!-- 長文相談系 -->
+  <section>
+    <div class="mb-4 flex items-center gap-2">
+      <span class="text-base">📨</span>
+      <h3 class="text-base font-bold text-sky-300">長文相談系コメント</h3>
+      <span class="rounded-full bg-sky-900/50 px-2 py-0.5 text-xs text-sky-300">4件</span>
+      <p class="ml-2 text-xs text-slate-500">コンテンツ化ポテンシャルの高い相談コメント</p>
+    </div>
+    <div class="grid gap-5 md:grid-cols-2">
+<div class="rounded-2xl border border-sky-700/40 bg-gradient-to-br from-[#07182a] to-[#0c1e30] p-5 flex flex-col gap-3">
+  <div>
+    <div class="flex items-center gap-2 mb-1">
+      <span class="rounded-full bg-sky-900/60 border border-sky-700/40 px-2 py-0.5 text-xs text-sky-300">📨 長文相談</span>
+      <span class="text-xs text-slate-500">2026-04-18</span>
+      <span class="ml-auto text-xs text-slate-500">❤️ 89</span>
+    </div>
+    <p class="text-xs text-slate-500 mb-0.5">投稿：「学級開きで「絶対やってはいけないこと」3選」</p>
+    <a href="https://www.instagram.com/p/sample001/" target="_blank" class="text-xs text-blue-400 hover:text-blue-300 underline">🔗 投稿を開く</a>
+  </div>
+  <div class="flex items-center gap-2"><span class="text-xs text-slate-500 shrink-0">テーマ：</span><span class="rounded-full bg-slate-700/50 px-2 py-0.5 text-xs text-slate-200 font-medium">新任担任×前担任トラブルの引き継ぎ対応</span><span class="text-xs text-slate-400">/不安・期待</span></div>
+  <blockquote class="border-l-2 border-sky-500 pl-3 py-1 bg-sky-950/40 rounded-r-xl">
+    <p class="text-sm text-slate-200 leading-relaxed">「ダイ先生、初めてコメントします。今年度から初めて担任を持つことになりました。配属は3年生（9歳）のクラスで28人います。学級開きで何から準備すればいいか全くわからず、この投稿を見てすごく参考になりました。ただ、私のクラスには前担任とのトラブルで保護者からの不信感が残っているという引き継ぎがあり、最初の懇談会をどう乗り越えるかが今一番の不安です。何かアドバイスをいただけると嬉しいです。長文すみません。」</p>
+    <footer class="text-xs text-slate-500 mt-1">— @new_teacher_2026</footer>
+  </blockquote>
+  <div class="flex items-center gap-2">
+    <span class="text-xs text-slate-500">コンテンツ化ポテンシャル：</span>
+    <span class="text-xs font-bold text-emerald-300">高</span>
+  </div>
+  <div class="rounded-xl bg-emerald-900/20 border border-emerald-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-emerald-400 mb-1">🎙️ 活用提案</p>
+    <p class="text-xs text-slate-300 leading-relaxed">スタエフの「お悩み相談回」のメイン相談として使える。同じ悩みを抱える新任が多く、共感爆発が期待できる。</p>
+  </div>
+  <div><p class="text-xs text-slate-500 mb-1">おすすめ形式：</p><div class="flex flex-wrap gap-1"><span class="rounded-full px-2 py-0.5 text-xs bg-sky-900/70 text-sky-300">スタエフ</span><span class="rounded-full px-2 py-0.5 text-xs bg-violet-900/70 text-violet-300">Instagram</span></div></div>
+</div>
+<div class="rounded-2xl border border-sky-700/40 bg-gradient-to-br from-[#07182a] to-[#0c1e30] p-5 flex flex-col gap-3">
+  <div>
+    <div class="flex items-center gap-2 mb-1">
+      <span class="rounded-full bg-sky-900/60 border border-sky-700/40 px-2 py-0.5 text-xs text-sky-300">📨 長文相談</span>
+      <span class="text-xs text-slate-500">2026-04-17</span>
+      <span class="ml-auto text-xs text-slate-500">❤️ 203</span>
+    </div>
+    <p class="text-xs text-slate-500 mb-0.5">投稿：「保護者対応で失敗しないための思考法」</p>
+    <a href="https://www.instagram.com/p/sample002/" target="_blank" class="text-xs text-blue-400 hover:text-blue-300 underline">🔗 投稿を開く</a>
+  </div>
+  <div class="flex items-center gap-2"><span class="text-xs text-slate-500 shrink-0">テーマ：</span><span class="rounded-full bg-slate-700/50 px-2 py-0.5 text-xs text-slate-200 font-medium">クレーム保護者の執拗な電話対応と管理職不対応</span><span class="text-xs text-slate-400">/疲弊・助けを求める</span></div>
+  <blockquote class="border-l-2 border-sky-500 pl-3 py-1 bg-sky-950/40 rounded-r-xl">
+    <p class="text-sm text-slate-200 leading-relaxed">「ダイ先生こんにちは。小学校4年担任5年目の者です。今年度、特定の保護者（Aさん）から週に3〜4回、長い時には1時間近い電話がかかってきます。内容は「うちの子がクラスでいじめられている」というものですが、子ども同士の確認ではそのような事実は確認できておらず、管理職にも相談済みです。ただ管理職からは「保護者の気持ちに寄り添って」と言われるだけで具体的な対応策を教えてもらえず、精神的に限界を感じています。このような場合、どのように対応すればよいでしょうか。本当に苦しいです。」</p>
+    <footer class="text-xs text-slate-500 mt-1">— @teacher_5years</footer>
+  </blockquote>
+  <div class="flex items-center gap-2">
+    <span class="text-xs text-slate-500">コンテンツ化ポテンシャル：</span>
+    <span class="text-xs font-bold text-amber-300">非常に高</span>
+  </div>
+  <div class="rounded-xl bg-emerald-900/20 border border-emerald-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-emerald-400 mb-1">🎙️ 活用提案</p>
+    <p class="text-xs text-slate-300 leading-relaxed">YouTubeライブのメインテーマとして使える。「管理職が助けてくれない時に教師ができること」というタイトルでかなりの視聴が見込める。</p>
+  </div>
+  <div><p class="text-xs text-slate-500 mb-1">おすすめ形式：</p><div class="flex flex-wrap gap-1"><span class="rounded-full px-2 py-0.5 text-xs bg-red-900/70 text-red-300">YouTubeライブ</span><span class="rounded-full px-2 py-0.5 text-xs bg-sky-900/70 text-sky-300">スタエフ</span></div></div>
+</div>
+<div class="rounded-2xl border border-sky-700/40 bg-gradient-to-br from-[#07182a] to-[#0c1e30] p-5 flex flex-col gap-3">
+  <div>
+    <div class="flex items-center gap-2 mb-1">
+      <span class="rounded-full bg-sky-900/60 border border-sky-700/40 px-2 py-0.5 text-xs text-sky-300">📨 長文相談</span>
+      <span class="text-xs text-slate-500">2026-04-15</span>
+      <span class="ml-auto text-xs text-slate-500">❤️ 156</span>
+    </div>
+    <p class="text-xs text-slate-500 mb-0.5">投稿：「不登校の子への最初の一歩」</p>
+    <a href="https://www.instagram.com/p/sample003/" target="_blank" class="text-xs text-blue-400 hover:text-blue-300 underline">🔗 投稿を開く</a>
+  </div>
+  <div class="flex items-center gap-2"><span class="text-xs text-slate-500 shrink-0">テーマ：</span><span class="rounded-full bg-slate-700/50 px-2 py-0.5 text-xs text-slate-200 font-medium">新年度から不登校・家庭が閉鎖的なケース</span><span class="text-xs text-slate-400">/焦り・無力感・責任感</span></div>
+  <blockquote class="border-l-2 border-sky-500 pl-3 py-1 bg-sky-950/40 rounded-r-xl">
+    <p class="text-sm text-slate-200 leading-relaxed">「先生、5年生の担任をしています。クラスに4月から一度も登校できていない子がいます。家庭への電話には出てもらえるのですが、家庭訪問は断られています。スクールカウンセラーにもつなぎましたが、本人が面談を拒否しています。このまま連絡を取り続けるだけでいいのか、何か自分にできることがあるのではないかと毎日考えています。担任として何ができるか教えてもらえませんか。」</p>
+    <footer class="text-xs text-slate-500 mt-1">— @class_teacher_5th</footer>
+  </blockquote>
+  <div class="flex items-center gap-2">
+    <span class="text-xs text-slate-500">コンテンツ化ポテンシャル：</span>
+    <span class="text-xs font-bold text-emerald-300">高</span>
+  </div>
+  <div class="rounded-xl bg-emerald-900/20 border border-emerald-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-emerald-400 mb-1">🎙️ 活用提案</p>
+    <p class="text-xs text-slate-300 leading-relaxed">「不登校対応の初動3ステップ」フィード投稿＋詳細はスタエフという2段構えのコンテンツに最適。</p>
+  </div>
+  <div><p class="text-xs text-slate-500 mb-1">おすすめ形式：</p><div class="flex flex-wrap gap-1"><span class="rounded-full px-2 py-0.5 text-xs bg-violet-900/70 text-violet-300">Instagram</span><span class="rounded-full px-2 py-0.5 text-xs bg-sky-900/70 text-sky-300">スタエフ</span></div></div>
+</div>
+<div class="rounded-2xl border border-sky-700/40 bg-gradient-to-br from-[#07182a] to-[#0c1e30] p-5 flex flex-col gap-3">
+  <div>
+    <div class="flex items-center gap-2 mb-1">
+      <span class="rounded-full bg-sky-900/60 border border-sky-700/40 px-2 py-0.5 text-xs text-sky-300">📨 長文相談</span>
+      <span class="text-xs text-slate-500">2026-04-14</span>
+      <span class="ml-auto text-xs text-slate-500">❤️ 178</span>
+    </div>
+    <p class="text-xs text-slate-500 mb-0.5">投稿：「部活指導ゼロでも評価された理由」</p>
+    <a href="https://www.instagram.com/p/sample004/" target="_blank" class="text-xs text-blue-400 hover:text-blue-300 underline">🔗 投稿を開く</a>
+  </div>
+  <div class="flex items-center gap-2"><span class="text-xs text-slate-500 shrink-0">テーマ：</span><span class="rounded-full bg-slate-700/50 px-2 py-0.5 text-xs text-slate-200 font-medium">部活断れない・評価脅しへの対処</span><span class="text-xs text-slate-400">/疲弊・諦め・助けを求める</span></div>
+  <blockquote class="border-l-2 border-sky-500 pl-3 py-1 bg-sky-950/40 rounded-r-xl">
+    <p class="text-sm text-slate-200 leading-relaxed">「先生の投稿をいつも拝見しています。私は30代の教員ですが、副校長から「部活動に積極的でないと評価に影響する」と言われました。私自身は担当していない競技の部活顧問を押し付けられており、土日の活動でプライベートが全くありません。先生のように断れる環境がうらやましいです。自分の学校でも断りたいのですが、波風を立てずに断る具体的な言い方を教えてもらえませんか。現実的に難しいのはわかっているんですが…。」</p>
+    <footer class="text-xs text-slate-500 mt-1">— @tired_teacher_30s</footer>
+  </blockquote>
+  <div class="flex items-center gap-2">
+    <span class="text-xs text-slate-500">コンテンツ化ポテンシャル：</span>
+    <span class="text-xs font-bold text-emerald-300">高</span>
+  </div>
+  <div class="rounded-xl bg-emerald-900/20 border border-emerald-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-emerald-400 mb-1">🎙️ 活用提案</p>
+    <p class="text-xs text-slate-300 leading-relaxed">「部活を断るための具体的な言い方テンプレ」投稿は保存率が爆上がりするはず。YouTubeライブでロールプレイ形式で語るのも有効。</p>
+  </div>
+  <div><p class="text-xs text-slate-500 mb-1">おすすめ形式：</p><div class="flex flex-wrap gap-1"><span class="rounded-full px-2 py-0.5 text-xs bg-violet-900/70 text-violet-300">Instagram</span><span class="rounded-full px-2 py-0.5 text-xs bg-red-900/70 text-red-300">YouTubeライブ</span></div></div>
+</div></div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════════════════════════ PAGE 4 -->
+<div data-panel="4" class="space-y-8">
+  <div class="flex items-center gap-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-600/20 border border-amber-500/40 text-lg">📅</div>
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-widest text-amber-400">昨年同時期 バズり投稿</p>
+      <h2 class="text-lg font-bold text-amber-200">昨年同時期のバズ投稿</h2>
+    </div>
+    <span class="ml-auto rounded-full bg-emerald-900/50 px-3 py-1 text-xs text-emerald-300">🗓️ 今年も旬 4件</span>
+  </div>
+  <p class="text-sm text-slate-500 -mt-6">昨年の同時期（4月前後）に高エンゲージメントを記録した投稿をピックアップ。転用・リメイクの参考にしてください。</p>
+  <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+<div class="rounded-2xl border border-amber-700/40 bg-gradient-to-br from-[#1a1500] to-[#221d00] p-5 flex flex-col gap-3">
+  <div>
+    <div class="flex flex-wrap items-center gap-2 mb-1">
+      <span class="text-xs text-amber-400 font-medium">2025年4月7日</span>
+      <span class="text-xs text-slate-500">📸 IMAGE</span>
+      <span class="rounded-full bg-emerald-900/60 border border-emerald-700/40 px-2 py-0.5 text-xs text-emerald-300">🗓️ 今年も旬</span>
+    </div>
+    <h3 class="text-sm font-bold text-amber-200 leading-snug">4月の学級開き、やって良かったこと・悪かったこと【本音】</h3>
+    <a href="https://www.instagram.com/p/past_sample001/" target="_blank" class="text-xs text-blue-400 hover:text-blue-300 underline">🔗 投稿を開く</a>
+  </div>
+  <div class="grid grid-cols-3 gap-2 text-center">
+    <div class="rounded-xl bg-slate-800/60 py-2">
+      <p class="text-lg font-black text-violet-300">1,243</p>
+      <p class="text-xs text-slate-500">いいね</p>
+    </div>
+    <div class="rounded-xl bg-slate-800/60 py-2">
+      <p class="text-lg font-black text-pink-300">94</p>
+      <p class="text-xs text-slate-500">コメント</p>
+    </div>
+    <div class="rounded-xl bg-slate-800/60 py-2">
+      <p class="text-lg font-black text-amber-300">1,525</p>
+      <p class="text-xs text-slate-500">エンゲージメント</p>
+    </div>
+  </div>
+  <div class="rounded-xl bg-slate-800/60 p-3">
+    <p class="text-xs text-slate-500 mb-1">キャプション冒頭：</p>
+    <p class="text-xs text-slate-300 font-mono whitespace-pre-line leading-relaxed">【4月の学級開き、正直に言います】
+
+去年やって良かったこと、正直失敗だったこと。
+両方ぶっちゃけます。
+
+#学級経営 #新年度 #学級開き #先生あるある</p>
+  </div>
+  <div class="flex flex-wrap gap-1"><span class="rounded-full bg-slate-700/60 border border-slate-600/40 px-2 py-0.5 text-xs text-slate-300">学級開き</span><span class="rounded-full bg-slate-700/60 border border-slate-600/40 px-2 py-0.5 text-xs text-slate-300">新年度</span><span class="rounded-full bg-slate-700/60 border border-slate-600/40 px-2 py-0.5 text-xs text-slate-300">教員不足</span></div>
+  <div class="rounded-xl bg-amber-900/20 border border-amber-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-amber-400 mb-1">✅ 伸びた理由</p>
+    <p class="text-xs text-slate-300 leading-relaxed">失敗談を入れたことで「私もそうだった」系の共感コメントが殺到。保存数が過去最多だった。</p>
+  </div>
+  <div class="rounded-xl bg-violet-900/20 border border-violet-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-1">♻️ 今年の転用アイデア</p>
+    <p class="text-xs text-slate-300 leading-relaxed">今年も同じ切り口でリール化するとバズ確実。「2025年版→2026年版」のアップデートも効果的。</p>
+  </div>
+</div>
+<div class="rounded-2xl border border-amber-700/40 bg-gradient-to-br from-[#1a1500] to-[#221d00] p-5 flex flex-col gap-3">
+  <div>
+    <div class="flex flex-wrap items-center gap-2 mb-1">
+      <span class="text-xs text-amber-400 font-medium">2025年4月12日</span>
+      <span class="text-xs text-slate-500">🎬 VIDEO</span>
+      <span class="rounded-full bg-emerald-900/60 border border-emerald-700/40 px-2 py-0.5 text-xs text-emerald-300">🗓️ 今年も旬</span>
+    </div>
+    <h3 class="text-sm font-bold text-amber-200 leading-snug">新任1年目の4月、あの頃の私に伝えたいこと</h3>
+    <a href="https://www.instagram.com/p/past_sample002/" target="_blank" class="text-xs text-blue-400 hover:text-blue-300 underline">🔗 投稿を開く</a>
+  </div>
+  <div class="grid grid-cols-3 gap-2 text-center">
+    <div class="rounded-xl bg-slate-800/60 py-2">
+      <p class="text-lg font-black text-violet-300">987</p>
+      <p class="text-xs text-slate-500">いいね</p>
+    </div>
+    <div class="rounded-xl bg-slate-800/60 py-2">
+      <p class="text-lg font-black text-pink-300">112</p>
+      <p class="text-xs text-slate-500">コメント</p>
+    </div>
+    <div class="rounded-xl bg-slate-800/60 py-2">
+      <p class="text-lg font-black text-amber-300">1,323</p>
+      <p class="text-xs text-slate-500">エンゲージメント</p>
+    </div>
+  </div>
+  <div class="rounded-xl bg-slate-800/60 p-3">
+    <p class="text-xs text-slate-500 mb-1">キャプション冒頭：</p>
+    <p class="text-xs text-slate-300 font-mono whitespace-pre-line leading-relaxed">【新任1年目の4月に戻れるなら、これだけ伝えたい】
+
+当時の私は本当に何もわからなかった。
+
+#新任教員 #先生1年目 #教員採用 #教育</p>
+  </div>
+  <div class="flex flex-wrap gap-1"><span class="rounded-full bg-slate-700/60 border border-slate-600/40 px-2 py-0.5 text-xs text-slate-300">新任教員</span><span class="rounded-full bg-slate-700/60 border border-slate-600/40 px-2 py-0.5 text-xs text-slate-300">新年度</span><span class="rounded-full bg-slate-700/60 border border-slate-600/40 px-2 py-0.5 text-xs text-slate-300">教員不足</span></div>
+  <div class="rounded-xl bg-amber-900/20 border border-amber-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-amber-400 mb-1">✅ 伸びた理由</p>
+    <p class="text-xs text-slate-300 leading-relaxed">「新任の頃の自分へ」という手紙形式が刺さった。新任・採用試験受験生からの保存とDMが急増した。</p>
+  </div>
+  <div class="rounded-xl bg-violet-900/20 border border-violet-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-1">♻️ 今年の転用アイデア</p>
+    <p class="text-xs text-slate-300 leading-relaxed">今年の新任に向けたバージョンで出すと同様の反響が見込める。4月上旬に出すのが最適タイミング。</p>
+  </div>
+</div>
+<div class="rounded-2xl border border-amber-700/40 bg-gradient-to-br from-[#1a1500] to-[#221d00] p-5 flex flex-col gap-3">
+  <div>
+    <div class="flex flex-wrap items-center gap-2 mb-1">
+      <span class="text-xs text-amber-400 font-medium">2025年4月21日</span>
+      <span class="text-xs text-slate-500">📸 IMAGE</span>
+      <span class="rounded-full bg-emerald-900/60 border border-emerald-700/40 px-2 py-0.5 text-xs text-emerald-300">🗓️ 今年も旬</span>
+    </div>
+    <h3 class="text-sm font-bold text-amber-200 leading-snug">担任を持って3週間、正直しんどい話</h3>
+    <a href="https://www.instagram.com/p/past_sample003/" target="_blank" class="text-xs text-blue-400 hover:text-blue-300 underline">🔗 投稿を開く</a>
+  </div>
+  <div class="grid grid-cols-3 gap-2 text-center">
+    <div class="rounded-xl bg-slate-800/60 py-2">
+      <p class="text-lg font-black text-violet-300">1,876</p>
+      <p class="text-xs text-slate-500">いいね</p>
+    </div>
+    <div class="rounded-xl bg-slate-800/60 py-2">
+      <p class="text-lg font-black text-pink-300">203</p>
+      <p class="text-xs text-slate-500">コメント</p>
+    </div>
+    <div class="rounded-xl bg-slate-800/60 py-2">
+      <p class="text-lg font-black text-amber-300">2,485</p>
+      <p class="text-xs text-slate-500">エンゲージメント</p>
+    </div>
+  </div>
+  <div class="rounded-xl bg-slate-800/60 p-3">
+    <p class="text-xs text-slate-500 mb-1">キャプション冒頭：</p>
+    <p class="text-xs text-slate-300 font-mono whitespace-pre-line leading-relaxed">【担任3週間、正直ぶっちゃけます】
+
+毎年この時期にしんどくなる先生が多い。
+気合いだけじゃ乗り越えられないことがある。
+
+#先生の本音 #教員の働き方 #新年度</p>
+  </div>
+  <div class="flex flex-wrap gap-1"><span class="rounded-full bg-slate-700/60 border border-slate-600/40 px-2 py-0.5 text-xs text-slate-300">教員の働き方</span><span class="rounded-full bg-slate-700/60 border border-slate-600/40 px-2 py-0.5 text-xs text-slate-300">メンタルヘルス</span><span class="rounded-full bg-slate-700/60 border border-slate-600/40 px-2 py-0.5 text-xs text-slate-300">新年度</span></div>
+  <div class="rounded-xl bg-amber-900/20 border border-amber-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-amber-400 mb-1">✅ 伸びた理由</p>
+    <p class="text-xs text-slate-300 leading-relaxed">「3週間目」というタイミングの絶妙さ。4月後半の中だるみ・疲弊感に刺さった。コメント欄が自然と「私もしんどい」の共有スペースになった。</p>
+  </div>
+  <div class="rounded-xl bg-violet-900/20 border border-violet-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-1">♻️ 今年の転用アイデア</p>
+    <p class="text-xs text-slate-300 leading-relaxed">4月下旬（21〜28日あたり）に同じ切り口で出すと再現性が高い。今年のリアルな状況を加えて更新版を出す。</p>
+  </div>
+</div>
+<div class="rounded-2xl border border-amber-700/40 bg-gradient-to-br from-[#1a1500] to-[#221d00] p-5 flex flex-col gap-3">
+  <div>
+    <div class="flex flex-wrap items-center gap-2 mb-1">
+      <span class="text-xs text-amber-400 font-medium">2025年4月9日</span>
+      <span class="text-xs text-slate-500">📑 CAROUSEL_ALBUM</span>
+      <span class="rounded-full bg-emerald-900/60 border border-emerald-700/40 px-2 py-0.5 text-xs text-emerald-300">🗓️ 今年も旬</span>
+    </div>
+    <h3 class="text-sm font-bold text-amber-200 leading-snug">保護者の最初の印象を決める「最初の学級通信」の書き方</h3>
+    <a href="https://www.instagram.com/p/past_sample004/" target="_blank" class="text-xs text-blue-400 hover:text-blue-300 underline">🔗 投稿を開く</a>
+  </div>
+  <div class="grid grid-cols-3 gap-2 text-center">
+    <div class="rounded-xl bg-slate-800/60 py-2">
+      <p class="text-lg font-black text-violet-300">743</p>
+      <p class="text-xs text-slate-500">いいね</p>
+    </div>
+    <div class="rounded-xl bg-slate-800/60 py-2">
+      <p class="text-lg font-black text-pink-300">58</p>
+      <p class="text-xs text-slate-500">コメント</p>
+    </div>
+    <div class="rounded-xl bg-slate-800/60 py-2">
+      <p class="text-lg font-black text-amber-300">917</p>
+      <p class="text-xs text-slate-500">エンゲージメント</p>
+    </div>
+  </div>
+  <div class="rounded-xl bg-slate-800/60 p-3">
+    <p class="text-xs text-slate-500 mb-1">キャプション冒頭：</p>
+    <p class="text-xs text-slate-300 font-mono whitespace-pre-line leading-relaxed">【最初の学級通信で保護者の心を掴む方法】
+
+最初の1枚で、その先生への信頼度が決まります。
+実際に使えるテンプレ付き📝
+
+#学級通信 #保護者対応 #学級経営</p>
+  </div>
+  <div class="flex flex-wrap gap-1"><span class="rounded-full bg-slate-700/60 border border-slate-600/40 px-2 py-0.5 text-xs text-slate-300">保護者対応</span><span class="rounded-full bg-slate-700/60 border border-slate-600/40 px-2 py-0.5 text-xs text-slate-300">学級経営</span><span class="rounded-full bg-slate-700/60 border border-slate-600/40 px-2 py-0.5 text-xs text-slate-300">新年度</span></div>
+  <div class="rounded-xl bg-amber-900/20 border border-amber-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-amber-400 mb-1">✅ 伸びた理由</p>
+    <p class="text-xs text-slate-300 leading-relaxed">「テンプレ付き」が保存率を大幅に押し上げた。実用系コンテンツの強さを証明した投稿。</p>
+  </div>
+  <div class="rounded-xl bg-violet-900/20 border border-violet-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-1">♻️ 今年の転用アイデア</p>
+    <p class="text-xs text-slate-300 leading-relaxed">今年版のテンプレをアップデートして再投稿。「2026年バージョン」と明記するだけで保存率が上がる。</p>
+  </div>
+</div>
+<div class="rounded-2xl border border-amber-700/40 bg-gradient-to-br from-[#1a1500] to-[#221d00] p-5 flex flex-col gap-3">
+  <div>
+    <div class="flex flex-wrap items-center gap-2 mb-1">
+      <span class="text-xs text-amber-400 font-medium">2025年4月16日</span>
+      <span class="text-xs text-slate-500">🎬 VIDEO</span>
+      
+    </div>
+    <h3 class="text-sm font-bold text-amber-200 leading-snug">部活を断ったら起きたこと、全部話します</h3>
+    <a href="https://www.instagram.com/p/past_sample005/" target="_blank" class="text-xs text-blue-400 hover:text-blue-300 underline">🔗 投稿を開く</a>
+  </div>
+  <div class="grid grid-cols-3 gap-2 text-center">
+    <div class="rounded-xl bg-slate-800/60 py-2">
+      <p class="text-lg font-black text-violet-300">2,341</p>
+      <p class="text-xs text-slate-500">いいね</p>
+    </div>
+    <div class="rounded-xl bg-slate-800/60 py-2">
+      <p class="text-lg font-black text-pink-300">287</p>
+      <p class="text-xs text-slate-500">コメント</p>
+    </div>
+    <div class="rounded-xl bg-slate-800/60 py-2">
+      <p class="text-lg font-black text-amber-300">3,202</p>
+      <p class="text-xs text-slate-500">エンゲージメント</p>
+    </div>
+  </div>
+  <div class="rounded-xl bg-slate-800/60 p-3">
+    <p class="text-xs text-slate-500 mb-1">キャプション冒頭：</p>
+    <p class="text-xs text-slate-300 font-mono whitespace-pre-line leading-relaxed">【部活を断ったらこうなりました】
+
+怖くて断れない先生へ。
+実際に断った私のリアルを話します。
+
+#部活問題 #教員の働き方 #部活動地域移行</p>
+  </div>
+  <div class="flex flex-wrap gap-1"><span class="rounded-full bg-slate-700/60 border border-slate-600/40 px-2 py-0.5 text-xs text-slate-300">部活問題</span><span class="rounded-full bg-slate-700/60 border border-slate-600/40 px-2 py-0.5 text-xs text-slate-300">教員の働き方</span><span class="rounded-full bg-slate-700/60 border border-slate-600/40 px-2 py-0.5 text-xs text-slate-300">部活動地域移行</span></div>
+  <div class="rounded-xl bg-amber-900/20 border border-amber-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-amber-400 mb-1">✅ 伸びた理由</p>
+    <p class="text-xs text-slate-300 leading-relaxed">「断ったらどうなる？」という恐怖への直接的な答えが刺さった。全年齢・全校種の先生からコメントが集まった。シェア数が過去最多。</p>
+  </div>
+  <div class="rounded-xl bg-violet-900/20 border border-violet-700/30 px-3 py-2">
+    <p class="text-xs font-semibold text-violet-400 mb-1">♻️ 今年の転用アイデア</p>
+    <p class="text-xs text-slate-300 leading-relaxed">部活地域移行のニュースと連動させて「2026年版・断り方の最新事情」として出すと伸びる。</p>
+  </div>
+</div></div>
+</div>
+
+</main>
+
+<footer class="mt-16 border-t border-slate-800 bg-[#0d1424]/80 py-6">
+  <div class="mx-auto max-w-7xl px-4 text-center">
+    <p class="text-xs text-slate-600">Generated by ダイ先生 コンテンツ分析ツール powered by GPT-4o — 2026/04/19 23:07</p>
+  </div>
+</footer>
+
+<script>
+function switchTab(id) {
+  document.querySelectorAll('[data-panel]').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('[data-tab-btn]').forEach(b => b.classList.remove('active'));
+  document.querySelector('[data-panel="' + id + '"]').classList.add('active');
+  document.querySelector('[data-tab-btn="' + id + '"]').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
