@@ -20,43 +20,59 @@ JST = timezone(timedelta(hours=9))
 # ── RSS フィード一覧（優先度順） ────────────────────────────────────────────
 _GN_BASE = "https://news.google.com/rss/search?hl=ja&gl=JP&ceid=JP:ja&q="
 
-# Google News RSS（キーワード検索）
-# → 地方紙・全国紙・Yahoo!ニュースなど多様なソースから教育記事だけを取得できる
+# Google News RSS（教師向けテーマに特化）
+# ターゲット：現役教師・教員志望者
+# 優先：働き方・教員不足・部活・学校制度改革
+# 低優先：いじめ・不登校（保護者向けが多いため）
 RSS_FEEDS: list[dict] = [
-    # ① 教員・教師ニュース（最優先）
+    # ① 教員の働き方・残業・給特法（最優先：教師が最も関心を持つテーマ）
     {
-        "url": _GN_BASE + "教員+学校+先生+-コラム",
+        "url": _GN_BASE + "教員+働き方+残業+給特法",
         "source_type": "Google News",
-        "source_name": "Google News（教員・学校）",
+        "source_name": "Google News（教員の働き方）",
         "priority": 1,
     },
-    # ② 教員不足・働き方（社会問題系）
+    # ② 教員不足・採用・なり手不足
     {
-        "url": _GN_BASE + "教員不足+給特法+学校",
+        "url": _GN_BASE + "教員不足+教員採用+なり手",
         "source_type": "Google News",
-        "source_name": "Google News（教員不足）",
+        "source_name": "Google News（教員不足・採用）",
         "priority": 2,
     },
-    # ③ 不登校・いじめ
+    # ③ 部活動改革・地域移行・顧問問題
     {
-        "url": _GN_BASE + "不登校+いじめ+学校",
+        "url": _GN_BASE + "部活動+地域移行+顧問+教員",
         "source_type": "Google News",
-        "source_name": "Google News（不登校・いじめ）",
+        "source_name": "Google News（部活動改革）",
         "priority": 3,
     },
-    # ④ 保護者・PTA・学校制度
+    # ④ 学校制度・文科省・教育改革（政策系）
     {
-        "url": _GN_BASE + "保護者+PTA+学校+教育委員会",
+        "url": _GN_BASE + "文科省+教育改革+学校+教員",
         "source_type": "Google News",
-        "source_name": "Google News（保護者・制度）",
+        "source_name": "Google News（教育政策）",
         "priority": 4,
     },
-    # ⑤ 部活・特別支援・GIGAスクール
+    # ⑤ 教師のメンタル・病気休職・バーンアウト
     {
-        "url": _GN_BASE + "部活+特別支援+GIGAスクール",
+        "url": _GN_BASE + "教員+メンタル+休職+バーンアウト+精神疾患",
         "source_type": "Google News",
-        "source_name": "Google News（部活・ICT）",
+        "source_name": "Google News（教員メンタル）",
         "priority": 5,
+    },
+    # ⑥ ICT・GIGAスクール・AI教育（授業改善系）
+    {
+        "url": _GN_BASE + "GIGAスクール+ICT+AI+授業+教員",
+        "source_type": "Google News",
+        "source_name": "Google News（ICT・AI教育）",
+        "priority": 6,
+    },
+    # ⑦ 特別支援・インクルーシブ・発達障害（現場対応系）
+    {
+        "url": _GN_BASE + "特別支援+インクルーシブ+発達障害+教員",
+        "source_type": "Google News",
+        "source_name": "Google News（特別支援）",
+        "priority": 7,
     },
 ]
 
