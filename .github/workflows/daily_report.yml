@@ -44,6 +44,7 @@ jobs:
       # ── 4. レポート生成 ───────────────────────────────────────────────────
       - name: レポート生成・メール送信
         env:
+          TZ: "Asia/Tokyo"
           # Gemini（無料）
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL:   "gemini-2.0-flash"
@@ -62,6 +63,8 @@ jobs:
 
       # ── 5. 生成した HTML を git commit して push ─────────────────────────
       - name: レポートを git にコミット
+        env:
+          TZ: "Asia/Tokyo"
         run: |
           git config --global user.name  "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
