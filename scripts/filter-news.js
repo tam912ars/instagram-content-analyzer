@@ -67,10 +67,21 @@ function scoreArticle(article) {
   return { score: total, category };
 }
 
+const DAYS_LIMIT = 30; // 何日以内の記事を対象とするか
+
+function isRecent(publishedAt) {
+  if (!publishedAt) return true; // 日付不明は除外しない
+  const published = new Date(publishedAt);
+  if (isNaN(published.getTime())) return true; // パース失敗も除外しない
+  const diffDays = (Date.now() - published.getTime()) / (1000 * 60 * 60 * 24);
+  return diffDays <= DAYS_LIMIT;
+}
+
 export function filterNews(articles, topN = 3) {
-  // スコアリング
+  // スコアリング + 日付フィルタ
   const scored = articles
     .map(article => {
+      if (!isRecent(article.publishedAt)) return null; // 30日超は除外
       const result = scoreArticle(article);
       if (result === -1) return null;
       return { ...article, score: result.score, category: result.category };
