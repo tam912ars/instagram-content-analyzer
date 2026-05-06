@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- preconnect は最上部に配置（fonts.gstatic.com も追加） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <title>ダイ先生 毎朝自動レポート — 図解</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            /* フォントフォールバックスタックを充実させ未読込時も安定表示 */
+            sans: ["'Noto Sans JP'", 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+</head>
+
+<body class="min-h-screen bg-slate-50 font-sans text-slate-700">
+
+  <!-- ════════════════════════════════════════════════════════
+       HEADER
+  ════════════════════════════════════════════════════════ -->
+  <header class="bg-white border-b border-slate-200 shadow-sm">
+    <div class="h-1 bg-gradient-to-r from-sky-400 via-indigo-500 to-violet-500" aria-hidden="true"></div>
+
+    <div class="mx-auto max-w-4xl px-6 py-10 text-center">
+      <p class="text-xs font-bold tracking-[0.2em] uppercase text-sky-500 mb-3">
+        Daily SNS Report
+      </p>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-800 leading-tight">
+        ダイ先生 毎朝自動レポート
+      </h1>
+      <p class="mt-3 text-sm text-slate-500 leading-relaxed">
+        毎朝 6:30、教育系ニュースを自動収集 →
+        <span class="text-indigo-500 font-semibold">AI が投稿案を生成</span> →
+        Gmail で届く
+      </p>
+      <div class="mt-5 flex justify-center gap-2 flex-wrap">
+        <span class="rounded-full bg-sky-50 border border-sky-200 text-sky-600 text-xs px-3 py-1">📰 ニュース自動収集</span>
+        <span class="rounded-full bg-indigo-50 border border-indigo-200 text-indigo-600 text-xs px-3 py-1">🤖 AI 投稿案生成</span>
+        <span class="rounded-full bg-violet-50 border border-violet-200 text-violet-600 text-xs px-3 py-1">✉️ Gmail 自動配信</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════════════════════════
+       MAIN
+  ════════════════════════════════════════════════════════ -->
+  <main class="mx-auto max-w-4xl px-4 py-10 space-y-10">
+
+    <!-- ── STEP 1 グループ（ラベル + カードを密結合） ── -->
+    <div class="space-y-4">
+
+      <!-- STEP 1 ラベル：role="heading" aria-level="2" でアクセシビリティ対応 -->
+      <div class="flex items-center gap-3" role="heading" aria-level="2">
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="flex h-7 w-7 items-center justify-center rounded-full bg-sky-500 text-white text-xs font-black"
+                aria-hidden="true">1</span>
+          <span class="text-sm font-bold text-slate-600">ニュース収集</span>
+        </div>
+        <div class="flex-1 h-px bg-slate-200" aria-hidden="true"></div>
+        <span class="text-xs text-slate-400 shrink-0">Top 3 ピックアップ</span>
+      </div>
+
+      <!-- NEWS CARDS（3枚横並び） -->
+      <section class="news-section grid grid-cols-1 sm:grid-cols-3 gap-5"
+               aria-label="収集したニュース一覧">
+
+        <!-- NEWS 01 -->
+        <article class="news-card news-card--01 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+          <div class="news-card__header bg-sky-500 px-4 py-2.5 flex items-center justify-between">
+            <span class="text-white text-xs font-black tracking-widest">NEWS 01</span>
+            <span class="rounded-full bg-white/20 text-white text-xs px-2 py-0.5">DUMMY</span>
+          </div>
+          <div class="px-4 py-4 flex flex-col gap-3 flex-1">
+            <div>
+              <!-- text-[10px] → text-xs（iOSの12px強制拡大対策） -->
+              <p class="text-xs font-bold text-sky-500 uppercase tracking-wider mb-1">① タイトル</p>
+              <h3 class="news-title text-sm font-bold text-slate-800 leading-snug">
+                全国1000校超で「代替教員なし」産育休でクラス担任が空白に
+              </h3>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-sky-500 uppercase tracking-wider mb-1">② 概要（500文字以内）</p>
+              <p class="news-summary text-xs text-slate-500 leading-relaxed">
+                産休・育休取得による代替教員の確保が全国で困難になっており、担任不在のまま新年度を迎えた学校が1000校を超えた。教員不足が深刻化するなか、子どもたちへの影響を懸念する声が広がっている。
+              </p>
+            </div>
+            <div class="mt-auto pt-2 border-t border-slate-100">
+              <a href="#!"
+                 class="news-link inline-flex items-center gap-1 text-xs text-sky-600 font-medium hover:text-sky-800 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400 rounded"
+                 aria-label="記事「全国1000校超で代替教員なし」を読む">
+                🔗 記事を読む →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- NEWS 02 -->
+        <article class="news-card news-card--02 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+          <div class="news-card__header bg-indigo-500 px-4 py-2.5 flex items-center justify-between">
+            <span class="text-white text-xs font-black tracking-widest">NEWS 02</span>
+            <span class="rounded-full bg-white/20 text-white text-xs px-2 py-0.5">DUMMY</span>
+          </div>
+          <div class="px-4 py-4 flex flex-col gap-3 flex-1">
+            <div>
+              <p class="text-xs font-bold text-indigo-500 uppercase tracking-wider mb-1">① タイトル</p>
+              <h3 class="news-title text-sm font-bold text-slate-800 leading-snug">
+                新年度の職員室「名前を覚える前に業務が始まる」新任教員の孤立が深刻
+              </h3>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-indigo-500 uppercase tracking-wider mb-1">② 概要（500文字以内）</p>
+              <p class="news-summary text-xs text-slate-500 leading-relaxed">
+                新年度初日から膨大な業務に直面する新任教員の孤立感を訴えた投稿が拡散。同じ経験を持つ教員たちの共感コメントが殺到し、4月の過酷な現場環境が改めて可視化された。
+              </p>
+            </div>
+            <div class="mt-auto pt-2 border-t border-slate-100">
+              <a href="#!"
+                 class="news-link inline-flex items-center gap-1 text-xs text-sky-600 font-medium hover:text-sky-800 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400 rounded"
+                 aria-label="記事「新年度の職員室 名前を覚える前に業務が始まる」を読む">
+                🔗 記事を読む →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- NEWS 03 -->
+        <article class="news-card news-card--03 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+          <div class="news-card__header bg-violet-500 px-4 py-2.5 flex items-center justify-between">
+            <span class="text-white text-xs font-black tracking-widest">NEWS 03</span>
+            <span class="rounded-full bg-white/20 text-white text-xs px-2 py-0.5">DUMMY</span>
+          </div>
+          <div class="px-4 py-4 flex flex-col gap-3 flex-1">
+            <div>
+              <p class="text-xs font-bold text-violet-500 uppercase tracking-wider mb-1">① タイトル</p>
+              <h3 class="news-title text-sm font-bold text-slate-800 leading-snug">
+                部活動の地域移行、実態は「教師が無償ボランティア」として継続
+              </h3>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-violet-500 uppercase tracking-wider mb-1">② 概要（500文字以内）</p>
+              <p class="news-summary text-xs text-slate-500 leading-relaxed">
+                部活動の地域移行が進む中、実際には教師がボランティアとして従前と変わらず指導を継続している実態が報告。制度と現場のギャップが改めて浮き彫りとなっている。
+              </p>
+            </div>
+            <div class="mt-auto pt-2 border-t border-slate-100">
+              <a href="#!"
+                 class="news-link inline-flex items-center gap-1 text-xs text-sky-600 font-medium hover:text-sky-800 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400 rounded"
+                 aria-label="記事「部活動の地域移行 実態は教師が無償ボランティア」を読む">
+                🔗 記事を読む →
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </div><!-- /STEP 1 グループ -->
+
+    <!-- ── STEP 2 グループ（ラベル + カードを密結合） ── -->
+    <div class="space-y-4">
+
+      <!-- STEP 2 ラベル -->
+      <div class="flex items-center gap-3" role="heading" aria-level="2">
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="flex h-7 w-7 items-center justify-center rounded-full bg-indigo-500 text-white text-xs font-black"
+                aria-hidden="true">2</span>
+          <span class="text-sm font-bold text-slate-600">投稿案生成</span>
+        </div>
+        <div class="flex-1 h-px bg-slate-200" aria-hidden="true"></div>
+        <span class="text-xs text-slate-400 shrink-0">X / Threads</span>
+      </div>
+
+      <!-- POST SECTION -->
+      <section class="post-section space-y-4" aria-label="生成された投稿案一覧">
+
+        <!-- セクション見出しバナー -->
+        <div class="rounded-2xl bg-gradient-to-r from-indigo-500 to-violet-500 px-6 py-4 flex items-center justify-between">
+          <div>
+            <p class="text-xs font-semibold text-indigo-200 tracking-wider uppercase mb-0.5">Auto Generated</p>
+            <p class="text-lg font-black text-white">X / Threads 投稿案 自動生成</p>
+          </div>
+          <span class="text-3xl opacity-60" aria-hidden="true">✍️</span>
+        </div>
+
+        <div class="space-y-3">
+
+          <!-- POST 01 -->
+          <article class="post-card post-card--01 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="flex items-stretch">
+              <!-- rounded-l-2xl を削除（親の overflow-hidden でクリップされ無効のため） -->
+              <div class="w-1.5 shrink-0 bg-sky-400" aria-hidden="true"></div>
+              <div class="flex-1 p-5">
+                <div class="flex items-start gap-4">
+                  <div class="post-number flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-sky-700 text-sm font-black"
+                       aria-label="投稿案 01">
+                    01
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="post-type text-sm font-bold text-slate-800">ニュース × 当事者感情 × 問い</p>
+                    <p class="post-content mt-2 text-sm text-slate-400 leading-relaxed bg-slate-50 rounded-lg px-3 py-2 border border-slate-100">
+                      （例）「○○ というニュースを読んで、胸が痛くなりました。あなたはどう感じますか？」
+                    </p>
+                  </div>
+                  <span class="shrink-0 rounded-full bg-sky-50 text-sky-600 border border-sky-200 px-2.5 py-1 text-xs font-medium whitespace-nowrap">
+                    X / Threads
+                  </span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- POST 02 -->
+          <article class="post-card post-card--02 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="flex items-stretch">
+              <div class="w-1.5 shrink-0 bg-indigo-400" aria-hidden="true"></div>
+              <div class="flex-1 p-5">
+                <div class="flex items-start gap-4">
+                  <div class="post-number flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-100 text-indigo-700 text-sm font-black"
+                       aria-label="投稿案 02">
+                    02
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="post-type text-sm font-bold text-slate-800">教師の働き方への問題提起</p>
+                    <p class="post-content mt-2 text-sm text-slate-400 leading-relaxed bg-slate-50 rounded-lg px-3 py-2 border border-slate-100">
+                      （例）「先生が疲弊していたら、子どもたちに笑顔を届けられない。教師の働き方を変えるために、今できることを考えてみました。」
+                    </p>
+                  </div>
+                  <span class="shrink-0 rounded-full bg-sky-50 text-sky-600 border border-sky-200 px-2.5 py-1 text-xs font-medium whitespace-nowrap">
+                    X / Threads
+                  </span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- POST 03 -->
+          <article class="post-card post-card--03 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="flex items-stretch">
+              <div class="w-1.5 shrink-0 bg-violet-400" aria-hidden="true"></div>
+              <div class="flex-1 p-5">
+                <div class="flex items-start gap-4">
+                  <div class="post-number flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-violet-100 text-violet-700 text-sm font-black"
+                       aria-label="投稿案 03">
+                    03
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="post-type text-sm font-bold text-slate-800">現場教師への共感ポスト</p>
+                    <p class="post-content mt-2 text-sm text-slate-400 leading-relaxed bg-slate-50 rounded-lg px-3 py-2 border border-slate-100">
+                      （例）「毎日本当にお疲れさまです。報われない日も、それでも子どものために頑張っているあなたを尊敬しています。」
+                    </p>
+                  </div>
+                  <span class="shrink-0 rounded-full bg-sky-50 text-sky-600 border border-sky-200 px-2.5 py-1 text-xs font-medium whitespace-nowrap">
+                    X / Threads
+                  </span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- POST 04 -->
+          <article class="post-card post-card--04 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="flex items-stretch">
+              <div class="w-1.5 shrink-0 bg-emerald-400" aria-hidden="true"></div>
+              <div class="flex-1 p-5">
+                <div class="flex items-start gap-4">
+                  <div class="post-number flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700 text-sm font-black"
+                       aria-label="投稿案 04">
+                    04
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="post-type text-sm font-bold text-slate-800">社会への問いを投げるポスト</p>
+                    <p class="post-content mt-2 text-sm text-slate-400 leading-relaxed bg-slate-50 rounded-lg px-3 py-2 border border-slate-100">
+                      （例）「教師が足りない社会で、誰が子どもたちの未来を育てるのか。この問いに、私たちはまだ答えていない。」
+                    </p>
+                  </div>
+                  <span class="shrink-0 rounded-full bg-sky-50 text-sky-600 border border-sky-200 px-2.5 py-1 text-xs font-medium whitespace-nowrap">
+                    X / Threads
+                  </span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- POST 05 -->
+          <article class="post-card post-card--05 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="flex items-stretch">
+              <div class="w-1.5 shrink-0 bg-rose-400" aria-hidden="true"></div>
+              <div class="flex-1 p-5">
+                <div class="flex items-start gap-4">
+                  <div class="post-number flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-rose-100 text-rose-700 text-sm font-black"
+                       aria-label="投稿案 05">
+                    05
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="post-type text-sm font-bold text-slate-800">LINE導線・相談導線につなげるポスト</p>
+                    <p class="post-content mt-2 text-sm text-slate-400 leading-relaxed bg-slate-50 rounded-lg px-3 py-2 border border-slate-100">
+                      （例）「もし今、職場のことや子どもへの向き合い方で悩んでいるなら、ぜひ LINE で話しかけてください。一緒に考えます。」
+                    </p>
+                  </div>
+                  <span class="shrink-0 rounded-full bg-sky-50 text-sky-600 border border-sky-200 px-2.5 py-1 text-xs font-medium whitespace-nowrap">
+                    X / Threads
+                  </span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+    </div><!-- /STEP 2 グループ -->
+
+    <!-- 注記 -->
+    <div class="rounded-xl bg-amber-50 border border-amber-200 px-4 py-3 flex items-start gap-3">
+      <span class="text-base shrink-0 mt-0.5" aria-hidden="true">📌</span>
+      <p class="text-xs text-amber-700 leading-relaxed">
+        このページはツールの<strong>完成イメージ図解</strong>です。ニュース取得・AI 生成・メール送信の実処理は別モジュールで実装されます。各カードの
+        <code class="bg-amber-100 px-1 rounded text-xs">post-content</code> 部分に実際の生成文が入ります。
+      </p>
+    </div>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════════ -->
+  <footer class="mt-10 border-t border-slate-200 bg-white py-6">
+    <div class="mx-auto max-w-4xl px-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-400">
+      <p>ダイ先生 毎朝自動レポートツール — 完成イメージ図解</p>
+      <div class="flex items-center gap-3">
+        <span class="rounded-full bg-slate-100 px-2.5 py-1">news-section</span>
+        <span class="text-slate-300" aria-hidden="true">→</span>
+        <span class="rounded-full bg-slate-100 px-2.5 py-1">post-section</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

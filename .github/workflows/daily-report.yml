@@ -1,0 +1,81 @@
+name: 毎朝自動レポート（Node.js版）
+
+on:
+  # Phase 1: schedule は無効化。動作確認できたら有効化する
+  # schedule:
+  #   - cron: '30 21 * * *'   # JST 6:30 AM
+
+  # 手動実行でテスト
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'ドライラン（ファイル保存・push なし）'
+        type: boolean
+        default: false
+
+# 同時実行を防ぐ（git push の競合対策）
+concurrency:
+  group: daily-report-node
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # git push に必要
+
+    steps:
+      # ── 1. チェックアウト ────────────────────────────────────
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── 2. Node.js セットアップ ──────────────────────────────
+      - name: Node.js セットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # ── 3. 依存パッケージのインストール ──────────────────────
+      - name: npm install
+        run: npm ci
+
+      # ── 4. レポート生成 ──────────────────────────────────────
+      - name: レポート生成
+        env:
+          TZ: Asia/Tokyo
+          # Phase 2 で追加予定
+          # GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # Phase 3 で追加予定
+          # GMAIL_USER:         ${{ secrets.GMAIL_USER }}
+          # GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          # RECIPIENT_EMAIL:    ${{ vars.RECIPIENT_EMAIL }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            node scripts/generate-report.js --dry-run
+          else
+            node scripts/generate-report.js
+          fi
+
+      # ── 5. git commit & push ──────────────────────────────────
+      - name: レポートを git にコミット
+        if: ${{ inputs.dry_run != true }}
+        env:
+          TZ: Asia/Tokyo
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase
+          git add reports/
+          git diff --staged --quiet \
+            && echo "変更なし。コミットをスキップします。" \
+            || git commit -m "📊 レポート自動生成 (Node.js): $(date +'%Y-%m-%d') [skip ci]"
+
+      - name: Push
+        if: ${{ inputs.dry_run != true }}
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref_name }}

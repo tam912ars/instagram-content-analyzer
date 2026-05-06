@@ -1,0 +1,13 @@
+{
+  "name": "education-news-report",
+  "version": "1.0.0",
+  "description": "ダイ先生 毎朝自動レポートツール（Node.js版）",
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/generate-report.js",
+    "dry-run": "node scripts/generate-report.js --dry-run"
+  },
+  "dependencies": {
+    "rss-parser": "^3.13.0"
+  }
+}
