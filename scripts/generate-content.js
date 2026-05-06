@@ -10,7 +10,7 @@
 
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const MODEL  = process.env.GEMINI_MODEL ?? 'gemini-2.0-flash';
+const MODEL  = process.env.GEMINI_MODEL ?? 'gemini-1.5-flash';
 const API_KEY = process.env.GEMINI_API_KEY ?? '';
 
 // レート制限対策: 呼び出し間に待機（ms）
