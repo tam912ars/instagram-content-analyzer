@@ -59,22 +59,15 @@ function newsCard(rank, article) {
       </h3>
     </div>
 
-    <!-- ② 概要 -->
-    <div>
-      <p class="text-xs font-bold ${s.label} uppercase tracking-wider mb-1 flex items-center gap-1.5">
-        ② 概要
-        ${article.summary
-          ? '<span class="font-normal text-xs text-emerald-600 bg-emerald-50 border border-emerald-200 rounded-full px-1.5 py-0.5">AI解説</span>'
-          : '<span class="font-normal text-xs text-slate-400 bg-slate-50 border border-slate-200 rounded-full px-1.5 py-0.5">RSS</span>'
-        }
-      </p>
-      <p class="news-summary text-xs text-slate-600 leading-relaxed">
-        ${esc(article.summary ?? article.description) || '<span class="italic text-slate-400">AI要約は Phase 2（GEMINI_API_KEY 設定後）に自動生成されます</span>'}
-      </p>
-    </div>
 
-    <!-- 出典 -->
-    ${article.source ? `<p class="text-xs text-slate-400">出典: ${esc(article.source)}</p>` : ''}
+    <!-- カテゴリ + 出典 -->
+    <div class="flex items-center gap-2 flex-wrap">
+      ${article.category
+        ? `<span class="text-xs bg-${s.badge.replace('bg-','').replace('-500','')}-50 text-${s.label.replace('text-','')} border border-${s.border.replace('border-','')} rounded-full px-2 py-0.5 font-medium">${esc(article.category)}</span>`
+        : ''
+      }
+      ${article.source ? `<p class="text-xs text-slate-400">出典: ${esc(article.source)}</p>` : ''}
+    </div>
 
     <!-- リンク -->
     <div class="mt-auto pt-2 border-t border-slate-100">

@@ -11,11 +11,18 @@ const parser = new Parser({ timeout: 10000 });
 const GN = (q) =>
   `https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=ja&gl=JP&ceid=JP:ja`;
 
+// 教員ターゲットのカテゴリ別RSSソース
 const RSS_SOURCES = [
-  { name: 'Google News（教員不足）',  url: GN('教員不足 OR 代替教員') },
-  { name: 'Google News（教師働き方）', url: GN('教師 働き方 OR 残業 OR 給特法') },
-  { name: 'Google News（部活動）',    url: GN('部活動 地域移行 OR 部活 教師') },
-  { name: 'NHK News（社会）',         url: 'https://www3.nhk.or.jp/rss/news/cat4.xml' },
+  // 働き方・雇用（教員不足・残業・離職など）
+  { name: 'Google News（働き方・雇用）', url: GN('教員不足 OR 給特法 OR 教師 残業 OR 離職') },
+  // 部活動・地域移行
+  { name: 'Google News（部活動）',       url: GN('部活動 地域移行 OR 部活 教師') },
+  // 学校DX・ICT活用
+  { name: 'Google News（学校DX・ICT）',  url: GN('学校 ICT OR DX OR デジタル OR AI 教師 OR 授業') },
+  // 特別支援教育・インクルーシブ
+  { name: 'Google News（特別支援）',     url: GN('特別支援教育 OR 発達障害 学校 OR 教師') },
+  // NHK社会ニュース（補完）
+  { name: 'NHK News（社会）',            url: 'https://www3.nhk.or.jp/rss/news/cat4.xml' },
 ];
 
 export async function fetchNews() {
