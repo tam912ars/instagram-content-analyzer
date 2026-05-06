@@ -44,6 +44,26 @@ const KEYWORD_RULES = [
   { words: ['学校', '教育', '授業', '学級'],                  score: 2,  category: null },
 ];
 
+// 除外ドメイン（URLに含まれる場合）
+const EXCLUDED_DOMAINS = [
+  'mext.go.jp',
+  'resemom.jp',
+  'rised.jp',
+  'mbp-japan.com',
+  'prtimes.jp',
+  'atpress.ne.jp',
+];
+
+// 除外メディア名（Google News ではURLがGoogle経由になるためタイトルで判定）
+const EXCLUDED_MEDIA = [
+  'リセマム',       // 保護者・受験生向け
+  'リシード',       // EdTech企業系
+  'mext.go.jp',    // 文科省公式
+  'プレスリリース',
+  'PR TIMES',
+  'mbp-japan',
+];
+
 // 保護者・生徒向けコンテンツを除外するネガティブキーワード
 const NEGATIVE_WORDS = [
   '受験', '塾', '模試', '偏差値', '大学入試', '共通テスト',
@@ -53,7 +73,13 @@ const NEGATIVE_WORDS = [
 function scoreArticle(article) {
   const text = `${article.title} ${article.description}`;
 
-  // ネガティブキーワードが含まれる記事は大幅減点
+  // 除外ドメイン（URL直接参照の場合）
+  if (article.url && EXCLUDED_DOMAINS.some(d => article.url.includes(d))) return -1;
+
+  // 除外メディア（タイトル末尾の「- メディア名」で判定）
+  if (EXCLUDED_MEDIA.some(m => article.title.includes(m))) return -1;
+
+  // ネガティブキーワードが含まれる記事はスキップ
   if (NEGATIVE_WORDS.some(w => text.includes(w))) return -1;
 
   let total = 0;
