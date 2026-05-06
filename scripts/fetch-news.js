@@ -12,7 +12,7 @@ const GN = (q) =>
   `https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=ja&gl=JP&ceid=JP:ja`;
 
 const RSS_SOURCES = [
-  // ── メインソース ──────────────────────────────────────────
+  // ── 主要メディア ──────────────────────────────────────────
   {
     name: 'Yahoo ニュース（国内）',
     url:  'https://news.yahoo.co.jp/rss/topics/domestic.xml',
@@ -21,19 +21,29 @@ const RSS_SOURCES = [
     name: 'NHK News（社会）',
     url:  'https://www3.nhk.or.jp/rss/news/cat4.xml',
   },
+
+  // ── 教育専門・地方紙（Google News 経由）────────────────────
   {
-    name: 'LiveDoor News（教育）',
-    url:  'https://news.livedoor.com/topics/rss/edu.xml',
+    name: '教育新聞（Google News経由）',
+    url:  GN('"教育新聞" 教員 OR 学校 OR 教師'),
   },
   {
-    name: '教育新聞',
-    url:  'https://www.kyoiku-shimbun.co.jp/?feed=rss2',
+    name: '47NEWS 地方紙',
+    url:  'https://www.47news.jp/rss.xml',
+  },
+  {
+    name: 'LiveDoor News',
+    url:  'https://news.livedoor.com/rss/',
   },
 
-  // ── バックアップ（上記が少ない場合に補完）──────────────────
+  // ── テーマ別補完（Google News）────────────────────────────
   {
-    name: 'Google News（教員・学校）',
-    url:  GN('教員 OR 学校 OR 教師 働き方 OR 不足 OR 部活'),
+    name: 'Google News（教員働き方）',
+    url:  GN('教員 働き方 OR 不足 OR 部活 OR 給特法'),
+  },
+  {
+    name: 'Google News（学校DX・特別支援）',
+    url:  GN('学校 ICT OR 特別支援 OR 発達障害 教師'),
   },
 ];
 
