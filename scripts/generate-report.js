@@ -18,7 +18,7 @@ import { filterNews }       from './filter-news.js';
 import { buildReport }      from './build-report.js';
 import { generatePosts } from './generate-content.js';
 
-const USE_AI = Boolean(process.env.GEMINI_API_KEY);
+const USE_AI = Boolean(process.env.GROQ_API_KEY);
 
 // JST で今日の日付を取得（YYYY-MM-DD）
 const today = new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Tokyo' });
@@ -28,8 +28,8 @@ const isDryRun = process.argv.includes('--dry-run');
 async function main() {
   console.log(`\n=== 毎朝自動レポート生成 [${today}] ===`);
   // GEMINI_API_KEY の検出状況を出力（値は非表示）
-  const keyLen = (process.env.GEMINI_API_KEY ?? '').length;
-  console.log(`GEMINI_API_KEY: ${keyLen > 0 ? `検出済み（${keyLen}文字）` : '⚠️ 未設定または空'}`);
+  const keyLen = (process.env.GROQ_API_KEY ?? '').length;
+  console.log(`GROQ_API_KEY: ${keyLen > 0 ? `検出済み（${keyLen}文字）` : '⚠️ 未設定または空'}`);
   console.log(`モード: ${USE_AI ? '🤖 AI あり（Phase 2）' : '📄 AI なし（Phase 1）'}`);
   if (isDryRun) console.log('【ドライランモード】ファイルは保存されません\n');
 

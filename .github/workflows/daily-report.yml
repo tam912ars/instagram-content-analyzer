@@ -46,8 +46,8 @@ jobs:
       - name: レポート生成
         env:
           TZ: Asia/Tokyo
-          # Phase 2: Gemini AI（設定されていれば AI モードで動作）
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # Phase 2: Groq AI（無料・llama-3.3-70b）
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           # Phase 3 で追加予定
           # GMAIL_USER:         ${{ secrets.GMAIL_USER }}
           # GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}

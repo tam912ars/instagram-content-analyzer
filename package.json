@@ -8,7 +8,7 @@
     "dry-run": "node scripts/generate-report.js --dry-run"
   },
   "dependencies": {
-    "@google/genai": "^1.52.0",
+    "groq-sdk": "^1.1.2",
     "rss-parser": "^3.13.0"
   }
 }

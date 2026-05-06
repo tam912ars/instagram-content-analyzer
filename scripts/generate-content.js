@@ -1,24 +1,25 @@
 /**
  * generate-content.js
- * Gemini AI による X/Threads 投稿案5本の生成
- * @google/genai（新SDK）使用
+ * Groq API による X/Threads 投稿案5本の生成
+ * 無料枠: 14,400 req/day, 30 RPM
+ * モデル: llama-3.3-70b-versatile（日本語対応）
  */
 
-import { GoogleGenAI } from '@google/genai';
+import Groq from 'groq-sdk';
 
-const MODEL   = process.env.GEMINI_MODEL ?? 'gemini-2.0-flash';
-const API_KEY = process.env.GEMINI_API_KEY ?? '';
+const MODEL   = process.env.GROQ_MODEL ?? 'llama-3.3-70b-versatile';
+const API_KEY = process.env.GROQ_API_KEY ?? '';
 
 function getClient() {
-  if (!API_KEY) throw new Error('GEMINI_API_KEY が設定されていません');
-  return new GoogleGenAI({ apiKey: API_KEY });
+  if (!API_KEY) throw new Error('GROQ_API_KEY が設定されていません');
+  return new Groq({ apiKey: API_KEY });
 }
 
 /**
  * Top3ニュースをもとにX/Threads投稿案を5本生成
  */
 export async function generatePosts(newsItems) {
-  const ai = getClient();
+  const groq = getClient();
 
   const newsText = newsItems
     .map((n, i) => `【ニュース${i + 1}】\nタイトル: ${n.title}`)
@@ -55,11 +56,13 @@ ${newsText}
 `.trim();
 
   try {
-    const response = await ai.models.generateContent({
-      model: MODEL,
-      contents: prompt,
+    const completion = await groq.chat.completions.create({
+      model:    MODEL,
+      messages: [{ role: 'user', content: prompt }],
+      temperature: 0.7,
     });
-    const text = response.text.trim();
+
+    const text    = completion.choices[0].message.content.trim();
     const cleaned = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim();
     const parsed  = JSON.parse(cleaned);
     return parsed.posts;
@@ -71,7 +74,7 @@ ${newsText}
 
 function getPlaceholderPosts() {
   return [
-    { type: 'ニュース×当事者感情×問い',         content: '（AI生成に失敗しました。APIキーと利用上限をご確認ください）' },
+    { type: 'ニュース×当事者感情×問い',         content: '（AI生成に失敗しました。GROQ_API_KEYと利用上限をご確認ください）' },
     { type: '教師の働き方への問題提起',           content: '（AI生成に失敗しました）' },
     { type: '現場教師への共感ポスト',             content: '（AI生成に失敗しました）' },
     { type: '社会への問いを投げるポスト',         content: '（AI生成に失敗しました）' },
