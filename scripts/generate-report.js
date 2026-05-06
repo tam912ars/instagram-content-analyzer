@@ -3,7 +3,7 @@
  * メインエントリーポイント（オーケストレータ）
  *
  * Phase 1: RSS取得 → キーワード選定 → HTML生成 → ファイル保存
- * Phase 2: Gemini AI 要約・投稿案生成を追加予定
+ * Phase 2: Groq AI 投稿案生成（ダイ先生スタイル）
  * Phase 3: メール送信を追加予定
  *
  * 実行方法:
@@ -27,7 +27,7 @@ const isDryRun = process.argv.includes('--dry-run');
 
 async function main() {
   console.log(`\n=== 毎朝自動レポート生成 [${today}] ===`);
-  // GEMINI_API_KEY の検出状況を出力（値は非表示）
+  // GROQ_API_KEY の検出状況を出力（値は非表示）
   const keyLen = (process.env.GROQ_API_KEY ?? '').length;
   console.log(`GROQ_API_KEY: ${keyLen > 0 ? `検出済み（${keyLen}文字）` : '⚠️ 未設定または空'}`);
   console.log(`モード: ${USE_AI ? '🤖 AI あり（Phase 2）' : '📄 AI なし（Phase 1）'}`);
@@ -44,15 +44,15 @@ async function main() {
   console.log(`  → ${top3.length}件 選定`);
   top3.forEach((a, i) => console.log(`  ${i + 1}. [score:${a.score}] ${a.title.slice(0, 40)}…`));
 
-  // ── Step 3: AI 投稿案生成（GEMINI_API_KEY がある場合のみ）──────
+  // ── Step 3: AI 投稿案生成（GROQ_API_KEY がある場合のみ）──────
   let posts = null;
 
   if (USE_AI) {
-    console.log('[Step 3] Gemini AI: 投稿案5本生成');
+    console.log('[Step 3] Groq AI: ダイ先生スタイル投稿案生成（ニュース3本分）');
     posts = await generatePosts(top3);
-    console.log(`  → ${posts.length}本 生成`);
+    console.log(`  → ${posts.length}セット 生成（各ニュース: Threads + X）`);
   } else {
-    console.log('[Step 3] スキップ（GEMINI_API_KEY 未設定 → Phase 1 モード）');
+    console.log('[Step 3] スキップ（GROQ_API_KEY 未設定 → Phase 1 モード）');
   }
 
   // ── Step 4: HTML レポート生成 ──────────────────────────────

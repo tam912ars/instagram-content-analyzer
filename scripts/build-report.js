@@ -78,65 +78,101 @@ function newsCard(rank, article) {
 }
 
 /**
- * 投稿案カード
- * @param {number} num  - 1〜5
- * @param {string} type - 投稿タイプ名
- * @param {string|null} content - AI生成テキスト（null = プレースホルダー）
+ * 投稿案カード（ニュース1本 = Threads + X の2カラム）
+ * @param {number} num    - 1〜3（ニュース番号）
+ * @param {object} post   - { emotion, weight, threads, x } または null
  */
-function postCard(num, type, content = null) {
-  const colors = ['sky', 'indigo', 'violet', 'emerald', 'rose'];
+function postCard(num, post = null) {
+  const colors = ['sky', 'indigo', 'violet'];
   const c = colors[num - 1] ?? 'slate';
+  const isAI = post && post.threads && !post.threads.startsWith('（AI生成に失敗');
 
-  const bodyHtml = content
-    ? `<p class="post-content mt-2 text-sm text-slate-700 leading-relaxed whitespace-pre-wrap
-                bg-slate-50 rounded-lg px-3 py-2 border border-slate-100">
-         ${esc(content)}
-       </p>`
-    : `<p class="post-content mt-2 text-sm text-slate-400 leading-relaxed italic
-                bg-slate-50 rounded-lg px-3 py-2 border border-slate-100">
-         🤖 GEMINI_API_KEY を設定すると AI が自動生成します
-       </p>`;
+  const weightBadge = post?.weight === '軽い'
+    ? `<span class="text-xs rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 font-medium">軽いテーマ</span>`
+    : `<span class="text-xs rounded-full bg-rose-50 text-rose-700 border border-rose-200 px-2 py-0.5 font-medium">重いテーマ</span>`;
 
-  const badge = content
-    ? `<span class="shrink-0 rounded-full bg-green-100 text-green-700 border border-green-200
-                    px-2.5 py-1 text-xs font-medium whitespace-nowrap">AI生成</span>`
-    : `<span class="shrink-0 rounded-full bg-slate-100 text-slate-500 border border-slate-200
-                    px-2.5 py-1 text-xs font-medium whitespace-nowrap">準備中</span>`;
+  const aiBadge = isAI
+    ? `<span class="shrink-0 rounded-full bg-green-100 text-green-700 border border-green-200 px-2.5 py-1 text-xs font-medium">AI生成</span>`
+    : `<span class="shrink-0 rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">準備中</span>`;
+
+  const placeholder = `<p class="text-sm text-slate-400 italic bg-slate-50 rounded-lg px-3 py-2 border border-slate-100">
+      🤖 GROQ_API_KEY を設定すると AI が自動生成します
+    </p>`;
+
+  const threadsBlock = isAI
+    ? `<div class="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap bg-indigo-50 rounded-lg px-3 py-3 border border-indigo-100">${esc(post.threads)}</div>
+       <button onclick="copyText(this)" data-text="${esc(post.threads)}"
+               class="mt-1.5 text-xs text-indigo-500 hover:text-indigo-700 font-medium transition-colors">
+         コピー
+       </button>`
+    : placeholder;
+
+  const xBlock = isAI
+    ? `<div class="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap bg-sky-50 rounded-lg px-3 py-3 border border-sky-100">${esc(post.x)}</div>
+       <button onclick="copyText(this)" data-text="${esc(post.x)}"
+               class="mt-1.5 text-xs text-sky-500 hover:text-sky-700 font-medium transition-colors">
+         コピー
+       </button>`
+    : placeholder;
 
   return `
 <article class="post-card post-card--0${num} bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
   <div class="flex items-stretch">
     <div class="w-1.5 shrink-0 bg-${c}-400" aria-hidden="true"></div>
     <div class="flex-1 p-5">
-      <div class="flex items-start gap-4">
-        <div class="post-number flex h-10 w-10 shrink-0 items-center justify-center
-                    rounded-xl bg-${c}-100 text-${c}-700 text-sm font-black"
-             aria-label="投稿案 0${num}">
-          0${num}
+
+      <!-- ヘッダー -->
+      <div class="flex items-start gap-3 mb-4">
+        <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl
+                    bg-${c}-100 text-${c}-700 text-sm font-black"
+             aria-label="ニュース ${num} の投稿案">
+          ${num < 10 ? '0' + num : num}
         </div>
         <div class="flex-1 min-w-0">
-          <p class="post-type text-sm font-bold text-slate-800">${esc(type)}</p>
-          ${bodyHtml}
+          <p class="text-sm font-bold text-slate-800">ニュース ${num} の投稿案</p>
+          ${post?.emotion ? `<p class="text-xs text-slate-500 mt-0.5">感情軸: ${esc(post.emotion)}</p>` : ''}
         </div>
-        ${badge}
+        <div class="flex items-center gap-2 shrink-0">
+          ${post ? weightBadge : ''}
+          ${aiBadge}
+        </div>
+      </div>
+
+      <!-- 本文: Threads | X の2カラム -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+        <!-- Threads -->
+        <div class="flex flex-col gap-1">
+          <p class="text-xs font-bold text-indigo-600 uppercase tracking-wider flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 192 192" aria-hidden="true">
+              <path d="M141.5 85.5c-1.5-8-6.5-15.5-14-20.5-9-6-20.5-7.5-31-4.5-3 1-6 2.5-8.5 4.5-.5-2.5-.5-5-1-7.5H70v82h17.5v-45c1-9 7.5-17 16.5-19 7-1.5 14.5.5 19 6.5 3 4 4 9 4 13.5v44h17.5V89c0-1.5 0-2.5-3-3.5z"/>
+            </svg>
+            Threads
+          </p>
+          ${threadsBlock}
+        </div>
+
+        <!-- X -->
+        <div class="flex flex-col gap-1">
+          <p class="text-xs font-bold text-sky-600 uppercase tracking-wider flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.731-8.843L2.25 2.25h6.856l4.261 5.632 5.877-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+            X（旧Twitter）
+          </p>
+          ${xBlock}
+        </div>
+
       </div>
     </div>
   </div>
 </article>`;
 }
 
-const POST_TYPES = [
-  'ニュース × 当事者感情 × 問い',
-  '教師の働き方への問題提起',
-  '現場教師への共感ポスト',
-  '社会への問いを投げるポスト',
-  'LINE導線・相談導線につなげるポスト',
-];
-
 /**
- * @param {Array}  articles  - Top3ニュース（summary フィールド付き）
+ * @param {Array}  articles  - Top3ニュース
  * @param {string} isoDate   - "YYYY-MM-DD"
- * @param {Array}  posts     - AI生成投稿案 [{type, content}, ...] または null
+ * @param {Array}  posts     - AI生成投稿案 [{news_index, emotion, weight, threads, x}, ...] または null
  */
 export function buildReport(articles, isoDate, posts = null) {
   const d        = new Date(isoDate + 'T00:00:00+09:00');
@@ -146,10 +182,10 @@ export function buildReport(articles, isoDate, posts = null) {
 
   const newsHtml  = articles.map((a, i) => newsCard(i + 1, a)).join('\n');
 
-  // posts があれば実際の内容、なければプレースホルダー
-  const postsHtml = POST_TYPES.map((defaultType, i) => {
-    const post = posts?.[i];
-    return postCard(i + 1, post?.type ?? defaultType, post?.content ?? null);
+  // posts は [{news_index, emotion, weight, threads, x}, ...] 形式（ニュース3本分）
+  const postsHtml = articles.map((_, i) => {
+    const post = posts?.find(p => p.news_index === i + 1) ?? posts?.[i] ?? null;
+    return postCard(i + 1, post);
   }).join('\n');
 
   return `<!DOCTYPE html>
@@ -173,6 +209,25 @@ export function buildReport(articles, isoDate, posts = null) {
     }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <script>
+    function copyText(btn) {
+      const text = btn.dataset.text;
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = 'コピー完了！';
+        btn.classList.add('text-green-600');
+        setTimeout(() => { btn.textContent = orig; btn.classList.remove('text-green-600'); }, 1500);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = 'コピー完了！';
+        setTimeout(() => { btn.textContent = 'コピー'; }, 1500);
+      });
+    }
+  </script>
 </head>
 
 <body class="min-h-screen bg-slate-50 font-sans text-slate-700">
@@ -264,8 +319,8 @@ export function buildReport(articles, isoDate, posts = null) {
       <span class="text-base shrink-0 mt-0.5" aria-hidden="true">${posts ? '✅' : '📌'}</span>
       <p class="text-xs ${posts ? 'text-green-700' : 'text-amber-700'} leading-relaxed">
         ${posts
-          ? '<strong>Phase 2 稼働中</strong>：Gemini AI による要約・投稿案の自動生成が有効です。<br><strong>Phase 3</strong> でメール送信（URL のみ）を追加予定です。'
-          : '<strong>Phase 1 稼働中</strong>：RSS取得・HTML生成・GitHub Pages 公開まで完了。<br><strong>Phase 2</strong>：GitHub Secrets に <code>GEMINI_API_KEY</code> を設定すると AI 生成が有効になります。'
+          ? '<strong>Phase 2 稼働中</strong>：Groq AI（llama-3.3-70b）によるダイ先生スタイル投稿案の自動生成が有効です。<br><strong>Phase 3</strong> でメール送信（URL のみ）を追加予定です。'
+          : '<strong>Phase 1 稼働中</strong>：RSS取得・HTML生成・GitHub Pages 公開まで完了。<br><strong>Phase 2</strong>：GitHub Secrets に <code>GROQ_API_KEY</code> を設定すると AI 生成が有効になります。'
         }
       </p>
     </div>
