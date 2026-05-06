@@ -1,71 +1,27 @@
 /**
  * generate-content.js
- * Gemini AI による記事要約 + X/Threads 投稿案5本の生成
- * Phase 2: @google/generative-ai 使用
- *
- * 環境変数:
- *   GEMINI_API_KEY  - Gemini API キー（必須）
- *   GEMINI_MODEL    - モデル名（省略時: gemini-2.0-flash）
+ * Gemini AI による X/Threads 投稿案5本の生成
+ * @google/genai（新SDK）使用
  */
 
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenAI } from '@google/genai';
 
-const MODEL  = process.env.GEMINI_MODEL ?? 'gemini-1.5-flash';
+const MODEL   = process.env.GEMINI_MODEL ?? 'gemini-2.0-flash';
 const API_KEY = process.env.GEMINI_API_KEY ?? '';
 
-// レート制限対策: 呼び出し間に待機（ms）
-const CALL_DELAY_MS = 4000;
-
-const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-
-function getModel() {
+function getClient() {
   if (!API_KEY) throw new Error('GEMINI_API_KEY が設定されていません');
-  const genAI = new GoogleGenerativeAI(API_KEY);
-  return genAI.getGenerativeModel({ model: MODEL });
-}
-
-/**
- * 記事1本の解説要約を生成（500字程度）
- */
-export async function summarizeArticle(title, description) {
-  const model = getModel();
-  const prompt = `
-あなたは教育ジャーナリストです。
-以下の教育ニュースについて、現役教員・保護者・教育関係者が読んで「背景・課題・影響」を理解できるよう、
-500字程度で解説してください。
-
-【解説に含めること】
-- ニュースの背景・経緯
-- 現場（教師・学校）への具体的な影響
-- なぜこの問題が起きているのか
-- 今後の課題や注目ポイント
-
-【出力ルール】
-- 解説文のみを返す（見出し・箇条書き・前置き不要）
-- 500字程度（400〜600字の範囲）
-- わかりやすい日本語で書く
-
-タイトル: ${title}
-参考情報: ${description}
-`.trim();
-
-  try {
-    const result = await model.generateContent(prompt);
-    return result.response.text().trim().slice(0, 700);
-  } catch (err) {
-    console.warn(`  ⚠️  要約失敗（${title.slice(0, 20)}…）: ${err.message}`);
-    return description || title;
-  }
+  return new GoogleGenAI({ apiKey: API_KEY });
 }
 
 /**
  * Top3ニュースをもとにX/Threads投稿案を5本生成
  */
 export async function generatePosts(newsItems) {
-  const model = getModel();
+  const ai = getClient();
 
   const newsText = newsItems
-    .map((n, i) => `【ニュース${i + 1}】\nタイトル: ${n.title}\n概要: ${n.summary ?? n.description}`)
+    .map((n, i) => `【ニュース${i + 1}】\nタイトル: ${n.title}`)
     .join('\n\n');
 
   const prompt = `
@@ -99,42 +55,26 @@ ${newsText}
 `.trim();
 
   try {
-    const result = await model.generateContent(prompt);
-    const text = result.response.text().trim();
-
-    // JSONブロック（```json ... ```）が含まれる場合は除去
+    const response = await ai.models.generateContent({
+      model: MODEL,
+      contents: prompt,
+    });
+    const text = response.text.trim();
     const cleaned = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim();
     const parsed  = JSON.parse(cleaned);
     return parsed.posts;
   } catch (err) {
     console.warn(`  ⚠️  投稿案生成失敗: ${err.message}`);
-    return getPlaceholderPosts();  // フォールバック
+    return getPlaceholderPosts();
   }
 }
 
-/**
- * API失敗時のフォールバック
- */
 function getPlaceholderPosts() {
   return [
-    { type: 'ニュース×当事者感情×問い',     content: '（AI生成に失敗しました。APIキーと利用上限をご確認ください）' },
-    { type: '教師の働き方への問題提起',       content: '（AI生成に失敗しました）' },
-    { type: '現場教師への共感ポスト',         content: '（AI生成に失敗しました）' },
-    { type: '社会への問いを投げるポスト',     content: '（AI生成に失敗しました）' },
+    { type: 'ニュース×当事者感情×問い',         content: '（AI生成に失敗しました。APIキーと利用上限をご確認ください）' },
+    { type: '教師の働き方への問題提起',           content: '（AI生成に失敗しました）' },
+    { type: '現場教師への共感ポスト',             content: '（AI生成に失敗しました）' },
+    { type: '社会への問いを投げるポスト',         content: '（AI生成に失敗しました）' },
     { type: 'LINE導線・相談導線につなげるポスト', content: '（AI生成に失敗しました）' },
   ];
-}
-
-/**
- * ニュース3本の要約を順番に生成（レート制限を考慮して直列実行）
- */
-export async function summarizeAll(articles) {
-  const results = [];
-  for (let i = 0; i < articles.length; i++) {
-    console.log(`  要約中 (${i + 1}/${articles.length}): ${articles[i].title.slice(0, 30)}…`);
-    const summary = await summarizeArticle(articles[i].title, articles[i].description);
-    results.push({ ...articles[i], summary });
-    if (i < articles.length - 1) await sleep(CALL_DELAY_MS);
-  }
-  return results;
 }
