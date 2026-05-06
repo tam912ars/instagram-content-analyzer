@@ -3,510 +3,395 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ダイ先生 毎朝自動レポート — 2026年5月7日</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <title>ダイ先生 今日の注目ニュース — 2026年05月07日</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ["'Noto Sans JP'", 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+            sans: ["'Noto Sans JP'", 'sans-serif'],
           },
         },
       },
     }
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
-  <script>
-    function copyText(btn) {
-      const text = btn.dataset.text;
-      navigator.clipboard.writeText(text).then(() => {
-        const orig = btn.textContent;
-        btn.textContent = 'コピー完了！';
-        btn.classList.add('text-green-600');
-        setTimeout(() => { btn.textContent = orig; btn.classList.remove('text-green-600'); }, 1500);
-      }).catch(() => {
-        const ta = document.createElement('textarea');
-        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
-        document.body.appendChild(ta); ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        btn.textContent = 'コピー完了！';
-        setTimeout(() => { btn.textContent = 'コピー'; }, 1500);
-      });
-    }
-  </script>
 </head>
+<body class="min-h-screen bg-slate-100 text-slate-800 font-sans">
 
-<body class="min-h-screen bg-slate-50 font-sans text-slate-700">
+<!-- ── Sticky header ── -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm">
+  <div class="mx-auto max-w-3xl px-4 py-3 flex items-center gap-3">
+    <div class="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-700 via-violet-700 to-purple-700 text-white font-black text-sm shrink-0">D</div>
+    <div class="flex-1 min-w-0">
+      <span class="font-bold text-slate-800 text-sm">ダイ先生</span>
+      <span class="text-slate-400 text-xs ml-2">教師向けニュースレポート</span>
+    </div>
+    <span class="text-xs text-slate-500 shrink-0 hidden sm:block">2026年05月07日（木）</span>
+  </div>
+</header>
 
-  <!-- ── Sticky header ── -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm">
-    <div class="h-1 bg-gradient-to-r from-sky-400 via-indigo-500 to-violet-500" aria-hidden="true"></div>
-    <div class="mx-auto max-w-3xl px-4 py-3 flex items-center gap-3">
-      <div class="flex h-8 w-8 items-center justify-center rounded-xl
-                  bg-gradient-to-br from-indigo-700 via-violet-700 to-purple-700
-                  text-white font-black text-sm shrink-0" aria-hidden="true">D</div>
+<!-- ── ヒーローヘッダー ── -->
+<div class="bg-gradient-to-br from-indigo-700 via-violet-700 to-purple-700 text-white">
+  <div class="mx-auto max-w-3xl px-6 py-10">
+    <p class="text-indigo-200 text-xs font-semibold tracking-widest uppercase mb-3">Daily Education News</p>
+    <h1 class="text-3xl sm:text-4xl font-black mb-2 leading-tight">
+      2026年05月07日（木）
+    </h1>
+    <p class="text-indigo-200 text-sm">
+      教師向けニュース <span class="text-white font-bold">15件</span> を収集 ·
+      注目度の高い <span class="text-amber-300 font-bold">Top 5</span> をピックアップ
+    </p>
+  </div>
+</div>
+
+<main class="mx-auto max-w-3xl px-4 py-8 space-y-8">
+
+  <!-- ── 目次 ── -->
+  <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+    <div class="px-5 pt-4 pb-2 flex items-center gap-2 border-b border-slate-100">
+      <span class="text-lg">📰</span>
+      <h2 class="text-sm font-bold text-slate-700">今日のTop 5 一覧</h2>
+    </div>
+    <ul class="px-5 pb-2">
+      <li class="flex items-center gap-3 py-2.5 border-b border-slate-100 last:border-0"><span class="shrink-0 text-lg">🥇</span><span class="text-sm text-slate-700 leading-snug">部活動の地域移行、理想と現実の狭間で――「働き方改革」は誰のためのものか（ナナホシ） - エキスパート - Yahoo!ニュース</span></li><li class="flex items-center gap-3 py-2.5 border-b border-slate-100 last:border-0"><span class="shrink-0 text-lg">🥈</span><span class="text-sm text-slate-700 leading-snug">教員採用試験「1倍割れ」深刻な教員不足に立ち向かう宮崎大学「ひなた教師セミナー」の取り組みと成果 - UMKテレビ宮崎</span></li><li class="flex items-center gap-3 py-2.5 border-b border-slate-100 last:border-0"><span class="shrink-0 text-lg">🥉</span><span class="text-sm text-slate-700 leading-snug">教員の残業代問題はどう決着？ 給特法改正の経緯と今後を全解説 - 教育新聞</span></li><li class="flex items-center gap-3 py-2.5 border-b border-slate-100 last:border-0"><span class="shrink-0 text-lg">4️⃣</span><span class="text-sm text-slate-700 leading-snug">文科省や教育委員会が《教員の働き方の「見えない化」》を加速？「見える化」するはずの旗振り役に足りない視点 - Yahoo!ニュース</span></li><li class="flex items-center gap-3 py-2.5 border-b border-slate-100 last:border-0"><span class="shrink-0 text-lg">5️⃣</span><span class="text-sm text-slate-700 leading-snug">教員の校務での生成AI利用率が過半数を超える GIGAスクールで普及したクラウドで安全な生成AI利用を望む - m2ri.jp</span></li>
+    </ul>
+  </section>
+
+  <!-- ── セクションタイトル ── -->
+  <div class="flex items-center gap-3">
+    <div>
+      <h2 class="text-lg font-bold text-slate-800">詳細レポート</h2>
+      <div class="mt-1 w-16 h-[3px] rounded bg-gradient-to-r from-amber-400 via-pink-400 to-indigo-400"></div>
+    </div>
+    <span class="ml-auto text-xs text-slate-400">生成: 2026/05/07 07:13</span>
+  </div>
+
+  <!-- ── Top 5 ニュースカード ── -->
+  <div class="space-y-5">
+    
+<article class="bg-white rounded-2xl shadow-sm border border-slate-200 border-l-4 border-amber-400 overflow-hidden">
+
+  <!-- カードヘッダー -->
+  <div class="bg-gradient-to-r from-amber-50 to-orange-50 px-5 pt-4 pb-3.5">
+    <div class="flex items-start gap-3">
+      <!-- ランクバッジ -->
+      <div class="flex flex-col items-center gap-1 shrink-0 mt-0.5">
+        <span class="text-2xl leading-none">🥇</span>
+        <span class="rounded-full bg-amber-500 text-white px-2 py-0.5 text-xs font-bold">1位</span>
+      </div>
+      <!-- タイトル + メタ情報 -->
       <div class="flex-1 min-w-0">
-        <span class="font-bold text-slate-800 text-sm">ダイ先生</span>
-        <span class="text-slate-400 text-xs ml-2">教師向けニュースレポート</span>
-      </div>
-      <span class="text-xs text-slate-500 shrink-0 hidden sm:block">2026年5月7日（木）</span>
-    </div>
-  </header>
-
-  <!-- ── Hero ── -->
-  <div class="bg-gradient-to-br from-indigo-700 via-violet-700 to-purple-700 text-white">
-    <div class="mx-auto max-w-3xl px-6 py-10">
-      <p class="text-indigo-200 text-xs font-semibold tracking-[0.2em] uppercase mb-3">
-        Daily Education News
-      </p>
-      <h1 class="text-3xl sm:text-4xl font-black mb-2 leading-tight">
-        2026年5月7日（木）
-      </h1>
-      <p class="text-indigo-200 text-sm">
-        教育ニュースから注目の
-        <span class="text-amber-300 font-bold">Top 3</span>
-        をピックアップ
-      </p>
-    </div>
-  </div>
-
-  <main class="mx-auto max-w-3xl px-4 py-8 space-y-10">
-
-    <!-- ── STEP 1: ニュース ── -->
-    <div class="space-y-4">
-      <div class="flex items-center gap-3" role="heading" aria-level="2">
-        <div class="flex items-center gap-2 shrink-0">
-          <span class="flex h-7 w-7 items-center justify-center rounded-full
-                       bg-sky-500 text-white text-xs font-black" aria-hidden="true">1</span>
-          <span class="text-sm font-bold text-slate-600">ニュース収集</span>
+        <h2 class="text-base font-bold text-slate-800 leading-snug mb-1.5">部活動の地域移行、理想と現実の狭間で――「働き方改革」は誰のためのものか（ナナホシ） - エキスパート - Yahoo!ニュース</h2>
+        <div class="flex items-center gap-2 flex-wrap text-xs text-slate-500">
+          <span class="font-medium text-slate-600">Google News（部活動改革）</span>
+          <span class="text-slate-300">·</span><span>2026-05-04</span>
         </div>
-        <div class="flex-1 h-px bg-slate-200" aria-hidden="true"></div>
-        <span class="text-xs text-slate-400 shrink-0">Top 3 ピックアップ</span>
       </div>
-
-      <section class="news-section grid grid-cols-1 sm:grid-cols-3 gap-5"
-               aria-label="収集したニュース一覧">
-        
-<article class="news-card news-card--01 bg-white rounded-2xl shadow-sm border border-slate-200
-                border-l-4 border-sky-400 overflow-hidden flex flex-col"
-         data-component="news-card" data-index="1">
-
-  <!-- カードヘッダー -->
-  <div class="bg-sky-50 px-4 py-2.5 flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <span class="text-xl" aria-hidden="true">🥇</span>
-      <span class="text-xs font-black tracking-widest text-slate-600">NEWS 01</span>
+      <a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxPM1liQlJjb3pERmE5QkpmQnZXa2NoVFFWaDJVLWlkVnBuekhHVW5JN3FoNzRITG5BZzZRV0MzNFFsN0ExR2FoRXAzWjkyUVVCazlpcWxYTl9DV016M1ladDR4X1FmTFdlOTkzWGhFWVRNRzE1Z3RhNHdTdUJxcW4wZFU1aXVmYTVn?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-white border border-slate-200 hover:bg-indigo-50 hover:border-indigo-300 px-3 py-1.5 text-xs text-indigo-600 font-medium transition-colors whitespace-nowrap shadow-sm">記事を見る →</a>
     </div>
-    <span class="rounded-full bg-sky-500 text-white text-xs px-2 py-0.5 font-bold">1位</span>
   </div>
 
   <!-- カードボディ -->
-  <div class="px-4 py-4 flex flex-col gap-3 flex-1">
+  <div class="px-5 py-4 space-y-3.5">
 
-    <!-- ① タイトル -->
+    <!-- タグ + 感情 -->
+    <div class="flex flex-wrap gap-1.5 items-center"><span class="rounded-full bg-slate-100 text-slate-600 border border-slate-200 px-2.5 py-0.5 text-xs">働き方</span><span class="rounded-full bg-slate-100 text-slate-600 border border-slate-200 px-2.5 py-0.5 text-xs">部活</span></div>
+
+    <!-- 概要 -->
+    <p class="text-sm text-slate-600 leading-relaxed">部活動の地域移行、理想と現実の狭間で――「働き方改革」は誰のためのものか（ナナホシ） - エキスパート&amp;nbsp;&amp;nbsp;Yahoo!ニュース</p>
+
+    <!-- スコア + エンゲージメント -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      
     <div>
-      <p class="text-xs font-bold text-sky-500 uppercase tracking-wider mb-1">① タイトル</p>
-      <h3 class="news-title text-sm font-bold text-slate-800 leading-snug">
-        教員不足で疲弊する学校にとって「次期学習指導要領」は理想論か？ 学校の選択肢を広げる&quot;画期的な改訂&quot;の中身を実現するために必要なこと（東洋経済education×ICT） - Yahoo!ニュース
-      </h3>
+      <div class="flex items-center justify-between mb-1">
+        <span class="text-xs text-slate-400 font-medium">📊 トレンドスコア</span>
+        <span class="text-sm font-bold text-amber-600">0<span class="text-xs font-normal text-slate-400">/100</span></span>
+      </div>
+      <div class="h-2.5 bg-slate-100 rounded-full overflow-hidden">
+        <div class="bg-amber-400 h-2.5 rounded-full" style="width:0%"></div>
+      </div>
+    </div>
+      
     </div>
 
+    <!-- 推奨フォーマット -->
+    
 
-    <!-- カテゴリ + 出典 -->
-    <div class="flex items-center gap-2 flex-wrap">
-      <span class="text-xs bg-sky-50 text-sky-500 border border-sky-400 rounded-full px-2 py-0.5 font-medium">働き方</span>
-      <p class="text-xs text-slate-400">出典: Google News（教員働き方）</p>
+    <!-- 投稿アイデア -->
+    
+
+    <!-- 注意レベル -->
+    
+    <div class="rounded-xl border bg-amber-50 border-amber-200 text-amber-700 px-4 py-2.5 flex items-start gap-2 flex-wrap">
+      <span class="text-xs font-bold shrink-0">🟡 注意レベル: 中</span>
+      
     </div>
 
-    <!-- リンク -->
-    <div class="mt-auto pt-2 border-t border-slate-100">
-      <a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxNRDByMjR4WnhrR0VmMDVXdTRXU2plWHUyR1Q5bDlUOUhwQUdQcTJvM3h2YmJtZjJfMVlYcnlLTjYzU0tESUN5TnF0TENmMk5NMXYzeFY1dERBSkx1akZHRmwzVW83YWlVVDVJY0pqMmtqOGUwNXpNUzhCOGd3bVViM0RacEswbjBC?oc=5" target="_blank" rel="noopener"
-          class="news-link inline-flex items-center gap-1 text-xs text-sky-600 font-medium
-                 hover:text-sky-800 transition-colors focus:outline-none focus:ring-2
-                 focus:ring-sky-400 rounded"
-          aria-label="記事「教員不足で疲弊する学校にとって「次期学習指導要領」は理想論か？ 学校の選択肢を広げる&quot;画期的な改訂&quot;の中身を実現するために必要なこと（東洋経済education×ICT） - Yahoo!ニュース」を読む">
-         🔗 記事を読む →
-       </a>
-    </div>
   </div>
 </article>
-
-<article class="news-card news-card--02 bg-white rounded-2xl shadow-sm border border-slate-200
-                border-l-4 border-indigo-400 overflow-hidden flex flex-col"
-         data-component="news-card" data-index="2">
+<article class="bg-white rounded-2xl shadow-sm border border-slate-200 border-l-4 border-slate-300 overflow-hidden">
 
   <!-- カードヘッダー -->
-  <div class="bg-indigo-50 px-4 py-2.5 flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <span class="text-xl" aria-hidden="true">🥈</span>
-      <span class="text-xs font-black tracking-widest text-slate-600">NEWS 02</span>
+  <div class="bg-gradient-to-r from-slate-50 to-gray-50 px-5 pt-4 pb-3.5">
+    <div class="flex items-start gap-3">
+      <!-- ランクバッジ -->
+      <div class="flex flex-col items-center gap-1 shrink-0 mt-0.5">
+        <span class="text-2xl leading-none">🥈</span>
+        <span class="rounded-full bg-slate-400 text-white px-2 py-0.5 text-xs font-bold">2位</span>
+      </div>
+      <!-- タイトル + メタ情報 -->
+      <div class="flex-1 min-w-0">
+        <h2 class="text-base font-bold text-slate-800 leading-snug mb-1.5">教員採用試験「1倍割れ」深刻な教員不足に立ち向かう宮崎大学「ひなた教師セミナー」の取り組みと成果 - UMKテレビ宮崎</h2>
+        <div class="flex items-center gap-2 flex-wrap text-xs text-slate-500">
+          <span class="font-medium text-slate-600">Google News（教員不足・採用）</span>
+          <span class="text-slate-300">·</span><span>2026-04-28</span>
+        </div>
+      </div>
+      <a href="https://news.google.com/rss/articles/CBMiY0FVX3lxTE0taHd0QTZ2QXk2eGdKQXpCX0JTTHlReXd5MXpjYk1vcXRTWnVHYklCZDhQRUstdDM4VW1GSzNoVDJvMnFzbUNPNTAwbmpYOEJCV2hWZ0FWQVU0cE5WSUExanZHZw?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-white border border-slate-200 hover:bg-indigo-50 hover:border-indigo-300 px-3 py-1.5 text-xs text-indigo-600 font-medium transition-colors whitespace-nowrap shadow-sm">記事を見る →</a>
     </div>
-    <span class="rounded-full bg-indigo-500 text-white text-xs px-2 py-0.5 font-bold">2位</span>
   </div>
 
   <!-- カードボディ -->
-  <div class="px-4 py-4 flex flex-col gap-3 flex-1">
+  <div class="px-5 py-4 space-y-3.5">
 
-    <!-- ① タイトル -->
+    <!-- タグ + 感情 -->
+    <div class="flex flex-wrap gap-1.5 items-center"><span class="rounded-full bg-slate-100 text-slate-600 border border-slate-200 px-2.5 py-0.5 text-xs">教員不足</span><span class="rounded-full bg-slate-100 text-slate-600 border border-slate-200 px-2.5 py-0.5 text-xs">教員採用</span></div>
+
+    <!-- 概要 -->
+    <p class="text-sm text-slate-600 leading-relaxed">教員採用試験「1倍割れ」深刻な教員不足に立ち向かう宮崎大学「ひなた教師セミナー」の取り組みと成果&amp;nbsp;&amp;nbsp;UMKテレビ宮崎</p>
+
+    <!-- スコア + エンゲージメント -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      
     <div>
-      <p class="text-xs font-bold text-indigo-500 uppercase tracking-wider mb-1">① タイトル</p>
-      <h3 class="news-title text-sm font-bold text-slate-800 leading-snug">
-        第9回 AIに全部任せた瞬間、教師は終わる - 教育新聞
-      </h3>
+      <div class="flex items-center justify-between mb-1">
+        <span class="text-xs text-slate-400 font-medium">📊 トレンドスコア</span>
+        <span class="text-sm font-bold text-slate-500">0<span class="text-xs font-normal text-slate-400">/100</span></span>
+      </div>
+      <div class="h-2.5 bg-slate-100 rounded-full overflow-hidden">
+        <div class="bg-slate-400 h-2.5 rounded-full" style="width:0%"></div>
+      </div>
+    </div>
+      
     </div>
 
+    <!-- 推奨フォーマット -->
+    
 
-    <!-- カテゴリ + 出典 -->
-    <div class="flex items-center gap-2 flex-wrap">
-      <span class="text-xs bg-indigo-50 text-indigo-500 border border-indigo-400 rounded-full px-2 py-0.5 font-medium">ICT</span>
-      <p class="text-xs text-slate-400">出典: 教育新聞（Google News経由）</p>
+    <!-- 投稿アイデア -->
+    
+
+    <!-- 注意レベル -->
+    
+    <div class="rounded-xl border bg-amber-50 border-amber-200 text-amber-700 px-4 py-2.5 flex items-start gap-2 flex-wrap">
+      <span class="text-xs font-bold shrink-0">🟡 注意レベル: 中</span>
+      
     </div>
 
-    <!-- リンク -->
-    <div class="mt-auto pt-2 border-t border-slate-100">
-      <a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE5ReDRpcndXNXBQSGtBTDJNdHJRN0piUC1zbmNpRDZhZ1FDNnBabF9GU3B4UkRZOG81a1ZCeEVEZkl2c045Q3htVXVyZnc1Nm8wYTAxS19B?oc=5" target="_blank" rel="noopener"
-          class="news-link inline-flex items-center gap-1 text-xs text-sky-600 font-medium
-                 hover:text-sky-800 transition-colors focus:outline-none focus:ring-2
-                 focus:ring-sky-400 rounded"
-          aria-label="記事「第9回 AIに全部任せた瞬間、教師は終わる - 教育新聞」を読む">
-         🔗 記事を読む →
-       </a>
-    </div>
   </div>
 </article>
-
-<article class="news-card news-card--03 bg-white rounded-2xl shadow-sm border border-slate-200
-                border-l-4 border-violet-400 overflow-hidden flex flex-col"
-         data-component="news-card" data-index="3">
+<article class="bg-white rounded-2xl shadow-sm border border-slate-200 border-l-4 border-orange-400 overflow-hidden">
 
   <!-- カードヘッダー -->
-  <div class="bg-violet-50 px-4 py-2.5 flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <span class="text-xl" aria-hidden="true">🥉</span>
-      <span class="text-xs font-black tracking-widest text-slate-600">NEWS 03</span>
+  <div class="bg-gradient-to-r from-orange-50 to-amber-50 px-5 pt-4 pb-3.5">
+    <div class="flex items-start gap-3">
+      <!-- ランクバッジ -->
+      <div class="flex flex-col items-center gap-1 shrink-0 mt-0.5">
+        <span class="text-2xl leading-none">🥉</span>
+        <span class="rounded-full bg-orange-500 text-white px-2 py-0.5 text-xs font-bold">3位</span>
+      </div>
+      <!-- タイトル + メタ情報 -->
+      <div class="flex-1 min-w-0">
+        <h2 class="text-base font-bold text-slate-800 leading-snug mb-1.5">教員の残業代問題はどう決着？ 給特法改正の経緯と今後を全解説 - 教育新聞</h2>
+        <div class="flex items-center gap-2 flex-wrap text-xs text-slate-500">
+          <span class="font-medium text-slate-600">Google News（教員の働き方）</span>
+          <span class="text-slate-300">·</span><span>2026-02-09</span>
+        </div>
+      </div>
+      <a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE1uTjJjNFcwdmlTWURrMExITnprLTY5THpFaGotWWxDNUVOd0VUallIbGhsbExLZlh2b19MLTRJanFENV9BT0NZbldWZm5mYnRfMllCMG5R?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-white border border-slate-200 hover:bg-indigo-50 hover:border-indigo-300 px-3 py-1.5 text-xs text-indigo-600 font-medium transition-colors whitespace-nowrap shadow-sm">記事を見る →</a>
     </div>
-    <span class="rounded-full bg-violet-500 text-white text-xs px-2 py-0.5 font-bold">3位</span>
   </div>
 
   <!-- カードボディ -->
-  <div class="px-4 py-4 flex flex-col gap-3 flex-1">
+  <div class="px-5 py-4 space-y-3.5">
 
-    <!-- ① タイトル -->
+    <!-- タグ + 感情 -->
+    <div class="flex flex-wrap gap-1.5 items-center"><span class="rounded-full bg-slate-100 text-slate-600 border border-slate-200 px-2.5 py-0.5 text-xs">働き方</span></div>
+
+    <!-- 概要 -->
+    <p class="text-sm text-slate-600 leading-relaxed">教員の残業代問題はどう決着？ 給特法改正の経緯と今後を全解説&amp;nbsp;&amp;nbsp;教育新聞</p>
+
+    <!-- スコア + エンゲージメント -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      
     <div>
-      <p class="text-xs font-bold text-violet-500 uppercase tracking-wider mb-1">① タイトル</p>
-      <h3 class="news-title text-sm font-bold text-slate-800 leading-snug">
-        GW明けに子どものメンタルが変化 親などの6割が感じる - 教育新聞
-      </h3>
+      <div class="flex items-center justify-between mb-1">
+        <span class="text-xs text-slate-400 font-medium">📊 トレンドスコア</span>
+        <span class="text-sm font-bold text-orange-600">0<span class="text-xs font-normal text-slate-400">/100</span></span>
+      </div>
+      <div class="h-2.5 bg-slate-100 rounded-full overflow-hidden">
+        <div class="bg-orange-400 h-2.5 rounded-full" style="width:0%"></div>
+      </div>
+    </div>
+      
     </div>
 
+    <!-- 推奨フォーマット -->
+    
 
-    <!-- カテゴリ + 出典 -->
-    <div class="flex items-center gap-2 flex-wrap">
-      <span class="text-xs bg-violet-50 text-violet-500 border border-violet-400 rounded-full px-2 py-0.5 font-medium">メンタル</span>
-      <p class="text-xs text-slate-400">出典: 教育新聞（Google News経由）</p>
+    <!-- 投稿アイデア -->
+    
+
+    <!-- 注意レベル -->
+    
+    <div class="rounded-xl border bg-amber-50 border-amber-200 text-amber-700 px-4 py-2.5 flex items-start gap-2 flex-wrap">
+      <span class="text-xs font-bold shrink-0">🟡 注意レベル: 中</span>
+      
     </div>
 
-    <!-- リンク -->
-    <div class="mt-auto pt-2 border-t border-slate-100">
-      <a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE9ScDIwY2NONkxmMHVZMW9NWkRCbXJPVFM5QzF4UWdCX2pNaDgxb0RQU1lNemxnWm5lVmdpTVlSbGZaV0tsQ0pTWUpMV3lRUmtXYnAxTTZ3?oc=5" target="_blank" rel="noopener"
-          class="news-link inline-flex items-center gap-1 text-xs text-sky-600 font-medium
-                 hover:text-sky-800 transition-colors focus:outline-none focus:ring-2
-                 focus:ring-sky-400 rounded"
-          aria-label="記事「GW明けに子どものメンタルが変化 親などの6割が感じる - 教育新聞」を読む">
-         🔗 記事を読む →
-       </a>
-    </div>
   </div>
 </article>
-      </section>
-    </div>
+<article class="bg-white rounded-2xl shadow-sm border border-slate-200 border-l-4 border-violet-400 overflow-hidden">
 
-    <!-- ── STEP 2: 投稿案 ── -->
-    <div class="space-y-4">
-      <div class="flex items-center gap-3" role="heading" aria-level="2">
-        <div class="flex items-center gap-2 shrink-0">
-          <span class="flex h-7 w-7 items-center justify-center rounded-full
-                       bg-indigo-500 text-white text-xs font-black" aria-hidden="true">2</span>
-          <span class="text-sm font-bold text-slate-600">投稿案生成</span>
-        </div>
-        <div class="flex-1 h-px bg-slate-200" aria-hidden="true"></div>
-        <span class="text-xs text-slate-400 shrink-0">X / Threads</span>
+  <!-- カードヘッダー -->
+  <div class="bg-gradient-to-r from-violet-50 to-purple-50 px-5 pt-4 pb-3.5">
+    <div class="flex items-start gap-3">
+      <!-- ランクバッジ -->
+      <div class="flex flex-col items-center gap-1 shrink-0 mt-0.5">
+        <span class="text-2xl leading-none">4️⃣</span>
+        <span class="rounded-full bg-violet-600 text-white px-2 py-0.5 text-xs font-bold">4位</span>
       </div>
-
-      <section class="post-section space-y-4" aria-label="投稿案一覧">
-        <div class="rounded-2xl bg-gradient-to-r from-indigo-500 to-violet-500
-                    px-6 py-4 flex items-center justify-between">
-          <div>
-            <p class="text-xs font-semibold text-indigo-200 tracking-wider uppercase mb-0.5">
-              Auto Generated
-            </p>
-            <p class="text-lg font-black text-white">X / Threads 投稿案 自動生成</p>
-          </div>
-          <span class="text-3xl opacity-60" aria-hidden="true">✍️</span>
-        </div>
-        <div class="space-y-3">
-          
-<article class="post-card post-card--01 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-  <div class="flex items-stretch">
-    <div class="w-1.5 shrink-0 bg-sky-400" aria-hidden="true"></div>
-    <div class="flex-1 p-5">
-
-      <!-- ヘッダー -->
-      <div class="flex items-start gap-3 mb-4">
-        <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl
-                    bg-sky-100 text-sky-700 text-sm font-black"
-             aria-label="ニュース 1 の投稿案">
-          01
-        </div>
-        <div class="flex-1 min-w-0">
-          <p class="text-sm font-bold text-slate-800">ニュース 1 の投稿案</p>
-          <p class="text-xs text-slate-500 mt-0.5">感情軸: 無力感</p>
-        </div>
-        <div class="flex items-center gap-2 shrink-0">
-          <span class="text-xs rounded-full bg-rose-50 text-rose-700 border border-rose-200 px-2 py-0.5 font-medium">重いテーマ</span>
-          <span class="shrink-0 rounded-full bg-green-100 text-green-700 border border-green-200 px-2.5 py-1 text-xs font-medium">AI生成</span>
+      <!-- タイトル + メタ情報 -->
+      <div class="flex-1 min-w-0">
+        <h2 class="text-base font-bold text-slate-800 leading-snug mb-1.5">文科省や教育委員会が《教員の働き方の「見えない化」》を加速？「見える化」するはずの旗振り役に足りない視点 - Yahoo!ニュース</h2>
+        <div class="flex items-center gap-2 flex-wrap text-xs text-slate-500">
+          <span class="font-medium text-slate-600">Google News（教育政策）</span>
+          <span class="text-slate-300">·</span><span>2026-03-23</span>
         </div>
       </div>
-
-      <!-- 本文: Threads | X の2カラム -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-        <!-- Threads -->
-        <div class="flex flex-col gap-1">
-          <p class="text-xs font-bold text-indigo-600 uppercase tracking-wider flex items-center gap-1">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 192 192" aria-hidden="true">
-              <path d="M141.5 85.5c-1.5-8-6.5-15.5-14-20.5-9-6-20.5-7.5-31-4.5-3 1-6 2.5-8.5 4.5-.5-2.5-.5-5-1-7.5H70v82h17.5v-45c1-9 7.5-17 16.5-19 7-1.5 14.5.5 19 6.5 3 4 4 9 4 13.5v44h17.5V89c0-1.5 0-2.5-3-3.5z"/>
-            </svg>
-            Threads
-          </p>
-          <div class="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap bg-indigo-50 rounded-lg px-3 py-3 border border-indigo-100">教員不足で疲弊する学校
-次期学習指導要領は理想論か?
-そう感じることもある
-でも、先生は現場で戦っている
-教師の負担を減らせれば、子どもたちの未来も明るくなる
-でも、そのためには何が必要だろう?
-社会が見る目が必要なのかもしれない
-学校だけの問題ではない
-誰かが声を上げてくれることを願っています
-</div>
-       <button onclick="copyText(this)" data-text="教員不足で疲弊する学校
-次期学習指導要領は理想論か?
-そう感じることもある
-でも、先生は現場で戦っている
-教師の負担を減らせれば、子どもたちの未来も明るくなる
-でも、そのためには何が必要だろう?
-社会が見る目が必要なのかもしれない
-学校だけの問題ではない
-誰かが声を上げてくれることを願っています
-"
-               class="mt-1.5 text-xs text-indigo-500 hover:text-indigo-700 font-medium transition-colors">
-         コピー
-       </button>
-        </div>
-
-        <!-- X -->
-        <div class="flex flex-col gap-1">
-          <p class="text-xs font-bold text-sky-600 uppercase tracking-wider flex items-center gap-1">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.731-8.843L2.25 2.25h6.856l4.261 5.632 5.877-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-            X（旧Twitter）
-          </p>
-          <div class="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap bg-sky-50 rounded-lg px-3 py-3 border border-sky-100">教員不足で次期学習指導要領は理想論か?
-理想と現実の乖離は教師を疲弊させる
-誰が教師を支えるのか?</div>
-       <button onclick="copyText(this)" data-text="教員不足で次期学習指導要領は理想論か?
-理想と現実の乖離は教師を疲弊させる
-誰が教師を支えるのか?"
-               class="mt-1.5 text-xs text-sky-500 hover:text-sky-700 font-medium transition-colors">
-         コピー
-       </button>
-        </div>
-
-      </div>
+      <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTFBRYk0za0cyYUtpRWduRndfWXBkQ1F4YTY0NWE5Vnc4S2NIdDhJR2Z0NUhaMFcwdWMzbVM1RHZydFFZbDdGb1FyYTEySDROcEtTMjdKU2w2LWU2alNINy1lcGF2STJ0dFVqVjdDRHZlaHh2YUotLU1hYVZXcFBHMWs?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-white border border-slate-200 hover:bg-indigo-50 hover:border-indigo-300 px-3 py-1.5 text-xs text-indigo-600 font-medium transition-colors whitespace-nowrap shadow-sm">記事を見る →</a>
     </div>
   </div>
-</article>
 
-<article class="post-card post-card--02 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-  <div class="flex items-stretch">
-    <div class="w-1.5 shrink-0 bg-indigo-400" aria-hidden="true"></div>
-    <div class="flex-1 p-5">
+  <!-- カードボディ -->
+  <div class="px-5 py-4 space-y-3.5">
 
-      <!-- ヘッダー -->
-      <div class="flex items-start gap-3 mb-4">
-        <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl
-                    bg-indigo-100 text-indigo-700 text-sm font-black"
-             aria-label="ニュース 2 の投稿案">
-          02
-        </div>
-        <div class="flex-1 min-w-0">
-          <p class="text-sm font-bold text-slate-800">ニュース 2 の投稿案</p>
-          <p class="text-xs text-slate-500 mt-0.5">感情軸: 不安感</p>
-        </div>
-        <div class="flex items-center gap-2 shrink-0">
-          <span class="text-xs rounded-full bg-rose-50 text-rose-700 border border-rose-200 px-2 py-0.5 font-medium">重いテーマ</span>
-          <span class="shrink-0 rounded-full bg-green-100 text-green-700 border border-green-200 px-2.5 py-1 text-xs font-medium">AI生成</span>
-        </div>
+    <!-- タグ + 感情 -->
+    <div class="flex flex-wrap gap-1.5 items-center"><span class="rounded-full bg-slate-100 text-slate-600 border border-slate-200 px-2.5 py-0.5 text-xs">働き方</span><span class="rounded-full bg-slate-100 text-slate-600 border border-slate-200 px-2.5 py-0.5 text-xs">学校制度</span></div>
+
+    <!-- 概要 -->
+    <p class="text-sm text-slate-600 leading-relaxed">文科省や教育委員会が《教員の働き方の「見えない化」》を加速？「見える化」するはずの旗振り役に足りない視点&amp;nbsp;&amp;nbsp;Yahoo!ニュース</p>
+
+    <!-- スコア + エンゲージメント -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      
+    <div>
+      <div class="flex items-center justify-between mb-1">
+        <span class="text-xs text-slate-400 font-medium">📊 トレンドスコア</span>
+        <span class="text-sm font-bold text-violet-600">0<span class="text-xs font-normal text-slate-400">/100</span></span>
       </div>
-
-      <!-- 本文: Threads | X の2カラム -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-        <!-- Threads -->
-        <div class="flex flex-col gap-1">
-          <p class="text-xs font-bold text-indigo-600 uppercase tracking-wider flex items-center gap-1">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 192 192" aria-hidden="true">
-              <path d="M141.5 85.5c-1.5-8-6.5-15.5-14-20.5-9-6-20.5-7.5-31-4.5-3 1-6 2.5-8.5 4.5-.5-2.5-.5-5-1-7.5H70v82h17.5v-45c1-9 7.5-17 16.5-19 7-1.5 14.5.5 19 6.5 3 4 4 9 4 13.5v44h17.5V89c0-1.5 0-2.5-3-3.5z"/>
-            </svg>
-            Threads
-          </p>
-          <div class="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap bg-indigo-50 rounded-lg px-3 py-3 border border-indigo-100">AIに全部任せた瞬間、教師は終わる
-そう言われることもある
-でも、教師の役割は単純に代替できるものではない
-教育は人と人との出会いだから
-AIは教育を補助するツールにすぎない
-でも、教師の存在意義については考えなければならない
-教師の仕事は単純に教えることだけではない
-子どもたちを育て、導くことが大切
-でも、そのためには教師自身が成長し続ける必要がある
-</div>
-       <button onclick="copyText(this)" data-text="AIに全部任せた瞬間、教師は終わる
-そう言われることもある
-でも、教師の役割は単純に代替できるものではない
-教育は人と人との出会いだから
-AIは教育を補助するツールにすぎない
-でも、教師の存在意義については考えなければならない
-教師の仕事は単純に教えることだけではない
-子どもたちを育て、導くことが大切
-でも、そのためには教師自身が成長し続ける必要がある
-"
-               class="mt-1.5 text-xs text-indigo-500 hover:text-indigo-700 font-medium transition-colors">
-         コピー
-       </button>
-        </div>
-
-        <!-- X -->
-        <div class="flex flex-col gap-1">
-          <p class="text-xs font-bold text-sky-600 uppercase tracking-wider flex items-center gap-1">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.731-8.843L2.25 2.25h6.856l4.261 5.632 5.877-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-            X（旧Twitter）
-          </p>
-          <div class="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap bg-sky-50 rounded-lg px-3 py-3 border border-sky-100">AIに教育を任せる時代
-教師の仕事は教えることだけなのか?
-教師の存在意義は何なのか?</div>
-       <button onclick="copyText(this)" data-text="AIに教育を任せる時代
-教師の仕事は教えることだけなのか?
-教師の存在意義は何なのか?"
-               class="mt-1.5 text-xs text-sky-500 hover:text-sky-700 font-medium transition-colors">
-         コピー
-       </button>
-        </div>
-
+      <div class="h-2.5 bg-slate-100 rounded-full overflow-hidden">
+        <div class="bg-violet-400 h-2.5 rounded-full" style="width:0%"></div>
       </div>
     </div>
+      
+    </div>
+
+    <!-- 推奨フォーマット -->
+    
+
+    <!-- 投稿アイデア -->
+    
+
+    <!-- 注意レベル -->
+    
+    <div class="rounded-xl border bg-amber-50 border-amber-200 text-amber-700 px-4 py-2.5 flex items-start gap-2 flex-wrap">
+      <span class="text-xs font-bold shrink-0">🟡 注意レベル: 中</span>
+      
+    </div>
+
   </div>
 </article>
+<article class="bg-white rounded-2xl shadow-sm border border-slate-200 border-l-4 border-sky-400 overflow-hidden">
 
-<article class="post-card post-card--03 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-  <div class="flex items-stretch">
-    <div class="w-1.5 shrink-0 bg-violet-400" aria-hidden="true"></div>
-    <div class="flex-1 p-5">
-
-      <!-- ヘッダー -->
-      <div class="flex items-start gap-3 mb-4">
-        <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl
-                    bg-violet-100 text-violet-700 text-sm font-black"
-             aria-label="ニュース 3 の投稿案">
-          03
-        </div>
-        <div class="flex-1 min-w-0">
-          <p class="text-sm font-bold text-slate-800">ニュース 3 の投稿案</p>
-          <p class="text-xs text-slate-500 mt-0.5">感情軸: 心配</p>
-        </div>
-        <div class="flex items-center gap-2 shrink-0">
-          <span class="text-xs rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 font-medium">軽いテーマ</span>
-          <span class="shrink-0 rounded-full bg-green-100 text-green-700 border border-green-200 px-2.5 py-1 text-xs font-medium">AI生成</span>
+  <!-- カードヘッダー -->
+  <div class="bg-gradient-to-r from-sky-50 to-blue-50 px-5 pt-4 pb-3.5">
+    <div class="flex items-start gap-3">
+      <!-- ランクバッジ -->
+      <div class="flex flex-col items-center gap-1 shrink-0 mt-0.5">
+        <span class="text-2xl leading-none">5️⃣</span>
+        <span class="rounded-full bg-sky-600 text-white px-2 py-0.5 text-xs font-bold">5位</span>
+      </div>
+      <!-- タイトル + メタ情報 -->
+      <div class="flex-1 min-w-0">
+        <h2 class="text-base font-bold text-slate-800 leading-snug mb-1.5">教員の校務での生成AI利用率が過半数を超える GIGAスクールで普及したクラウドで安全な生成AI利用を望む - m2ri.jp</h2>
+        <div class="flex items-center gap-2 flex-wrap text-xs text-slate-500">
+          <span class="font-medium text-slate-600">Google News（ICT・AI教育）</span>
+          <span class="text-slate-300">·</span><span>2026-03-05</span>
         </div>
       </div>
-
-      <!-- 本文: Threads | X の2カラム -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-        <!-- Threads -->
-        <div class="flex flex-col gap-1">
-          <p class="text-xs font-bold text-indigo-600 uppercase tracking-wider flex items-center gap-1">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 192 192" aria-hidden="true">
-              <path d="M141.5 85.5c-1.5-8-6.5-15.5-14-20.5-9-6-20.5-7.5-31-4.5-3 1-6 2.5-8.5 4.5-.5-2.5-.5-5-1-7.5H70v82h17.5v-45c1-9 7.5-17 16.5-19 7-1.5 14.5.5 19 6.5 3 4 4 9 4 13.5v44h17.5V89c0-1.5 0-2.5-3-3.5z"/>
-            </svg>
-            Threads
-          </p>
-          <div class="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap bg-indigo-50 rounded-lg px-3 py-3 border border-indigo-100">GW明けに子どものメンタルが変化
-親などの6割が感じる
-子どもたちのメンタルを支えるためには
-何ができるのだろう?
-小さなことから始めてみよう
-</div>
-       <button onclick="copyText(this)" data-text="GW明けに子どものメンタルが変化
-親などの6割が感じる
-子どもたちのメンタルを支えるためには
-何ができるのだろう?
-小さなことから始めてみよう
-"
-               class="mt-1.5 text-xs text-indigo-500 hover:text-indigo-700 font-medium transition-colors">
-         コピー
-       </button>
-        </div>
-
-        <!-- X -->
-        <div class="flex flex-col gap-1">
-          <p class="text-xs font-bold text-sky-600 uppercase tracking-wider flex items-center gap-1">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.731-8.843L2.25 2.25h6.856l4.261 5.632 5.877-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-            X（旧Twitter）
-          </p>
-          <div class="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap bg-sky-50 rounded-lg px-3 py-3 border border-sky-100">GW明けに子どものメンタルが変化
-親ができる小さなことの力</div>
-       <button onclick="copyText(this)" data-text="GW明けに子どものメンタルが変化
-親ができる小さなことの力"
-               class="mt-1.5 text-xs text-sky-500 hover:text-sky-700 font-medium transition-colors">
-         コピー
-       </button>
-        </div>
-
-      </div>
+      <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTFB0NVhubE1ZY1FsYnNxQTBJM3BjTnhUWGZxRF9Lby1JZnhLOXlZNy1kZ3J3cXhyTEoxN2tyS1hxWDlBUEd6VEtsNGRoQlhnNHlucW0tVmNyZERwUQ?oc=5" target="_blank" rel="noopener" class="shrink-0 rounded-lg bg-white border border-slate-200 hover:bg-indigo-50 hover:border-indigo-300 px-3 py-1.5 text-xs text-indigo-600 font-medium transition-colors whitespace-nowrap shadow-sm">記事を見る →</a>
     </div>
   </div>
+
+  <!-- カードボディ -->
+  <div class="px-5 py-4 space-y-3.5">
+
+    <!-- タグ + 感情 -->
+    <div class="flex flex-wrap gap-1.5 items-center"><span class="rounded-full bg-slate-100 text-slate-600 border border-slate-200 px-2.5 py-0.5 text-xs">GIGAスクール</span></div>
+
+    <!-- 概要 -->
+    <p class="text-sm text-slate-600 leading-relaxed">教員の校務での生成AI利用率が過半数を超える GIGAスクールで普及したクラウドで安全な生成AI利用を望む&amp;nbsp;&amp;nbsp;m2ri.jp</p>
+
+    <!-- スコア + エンゲージメント -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      
+    <div>
+      <div class="flex items-center justify-between mb-1">
+        <span class="text-xs text-slate-400 font-medium">📊 トレンドスコア</span>
+        <span class="text-sm font-bold text-sky-600">0<span class="text-xs font-normal text-slate-400">/100</span></span>
+      </div>
+      <div class="h-2.5 bg-slate-100 rounded-full overflow-hidden">
+        <div class="bg-sky-400 h-2.5 rounded-full" style="width:0%"></div>
+      </div>
+    </div>
+      
+    </div>
+
+    <!-- 推奨フォーマット -->
+    
+
+    <!-- 投稿アイデア -->
+    
+
+    <!-- 注意レベル -->
+    
+    <div class="rounded-xl border bg-amber-50 border-amber-200 text-amber-700 px-4 py-2.5 flex items-start gap-2 flex-wrap">
+      <span class="text-xs font-bold shrink-0">🟡 注意レベル: 中</span>
+      
+    </div>
+
+  </div>
 </article>
-        </div>
-      </section>
-    </div>
+  </div>
 
-    <!-- ── フェーズ表示 ── -->
-    <div class="rounded-xl bg-green-50 border-green-200
-                border px-4 py-3 flex items-start gap-3">
-      <span class="text-base shrink-0 mt-0.5" aria-hidden="true">✅</span>
-      <p class="text-xs text-green-700 leading-relaxed">
-        <strong>Phase 2 稼働中</strong>：Groq AI（llama-3.3-70b）によるダイ先生スタイル投稿案の自動生成が有効です。<br><strong>Phase 3</strong> でメール送信（URL のみ）を追加予定です。
-      </p>
-    </div>
+  <!-- ── 注記 ── -->
+  <div class="rounded-xl border border-slate-200 bg-white px-4 py-3 text-xs text-slate-400 text-center shadow-sm">
+    📌 投稿アイデアは AI による提案です。実際の発信時は内容をご確認ください。
+  </div>
 
-  </main>
+</main>
 
-  <footer class="mt-8 border-t border-slate-200 bg-white py-6">
-    <div class="mx-auto max-w-3xl px-4 flex flex-col sm:flex-row
-                items-center justify-between gap-2 text-xs text-slate-400">
-      <p>ダイ先生 毎朝自動レポートツール</p>
-      <p>生成日時: 2026/5/7 7:07:45</p>
-    </div>
-  </footer>
+<footer class="mt-8 border-t border-slate-200 bg-white py-6">
+  <div class="mx-auto max-w-3xl px-4 flex items-center justify-between flex-wrap gap-2">
+    <p class="text-xs text-slate-400">ダイ先生 コンテンツ分析ツール</p>
+    <p class="text-xs text-slate-400">生成日時: 2026/05/07 07:13</p>
+  </div>
+</footer>
 
 </body>
 </html>
