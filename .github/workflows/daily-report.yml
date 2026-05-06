@@ -46,8 +46,9 @@ jobs:
       - name: レポート生成
         env:
           TZ: Asia/Tokyo
-          # Phase 2 で追加予定
-          # GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # Phase 2: Gemini AI（設定されていれば AI モードで動作）
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-2.0-flash
           # Phase 3 で追加予定
           # GMAIL_USER:         ${{ secrets.GMAIL_USER }}
           # GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}

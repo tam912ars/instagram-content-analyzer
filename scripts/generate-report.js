@@ -13,9 +13,12 @@
 
 import { mkdirSync, writeFileSync } from 'fs';
 import path from 'path';
-import { fetchNews }   from './fetch-news.js';
-import { filterNews }  from './filter-news.js';
-import { buildReport } from './build-report.js';
+import { fetchNews }        from './fetch-news.js';
+import { filterNews }       from './filter-news.js';
+import { buildReport }      from './build-report.js';
+import { summarizeAll, generatePosts } from './generate-content.js';
+
+const USE_AI = Boolean(process.env.GEMINI_API_KEY);
 
 // JST で今日の日付を取得（YYYY-MM-DD）
 const today = new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Tokyo' });
@@ -24,6 +27,7 @@ const isDryRun = process.argv.includes('--dry-run');
 
 async function main() {
   console.log(`\n=== 毎朝自動レポート生成 [${today}] ===`);
+  console.log(`モード: ${USE_AI ? '🤖 AI あり（Phase 2）' : '📄 AI なし（Phase 1）'}`);
   if (isDryRun) console.log('【ドライランモード】ファイルは保存されません\n');
 
   // ── Step 1: ニュース取得 ───────────────────────────────────
@@ -37,27 +41,42 @@ async function main() {
   console.log(`  → ${top3.length}件 選定`);
   top3.forEach((a, i) => console.log(`  ${i + 1}. [score:${a.score}] ${a.title.slice(0, 40)}…`));
 
-  // ── Step 3: HTML レポート生成 ──────────────────────────────
-  console.log('[Step 3] HTML レポート生成');
-  const html = buildReport(top3, today);
+  // ── Step 3: AI 要約 + 投稿案生成（GEMINI_API_KEY がある場合のみ）──
+  let articlesWithSummary = top3;
+  let posts = null;
+
+  if (USE_AI) {
+    console.log('[Step 3] Gemini AI: 記事要約');
+    articlesWithSummary = await summarizeAll(top3);
+
+    console.log('[Step 3] Gemini AI: 投稿案5本生成');
+    await new Promise(r => setTimeout(r, 4000));  // レート制限対策
+    posts = await generatePosts(articlesWithSummary);
+    console.log(`  → ${posts.length}本 生成`);
+  } else {
+    console.log('[Step 3] スキップ（GEMINI_API_KEY 未設定 → Phase 1 モード）');
+  }
+
+  // ── Step 4: HTML レポート生成 ──────────────────────────────
+  console.log('[Step 4] HTML レポート生成');
+  const html = buildReport(articlesWithSummary, today, posts);
   console.log(`  → ${html.length.toLocaleString()} 文字`);
 
-  // ── Step 4: ファイル保存 ───────────────────────────────────
+  // ── Step 5: ファイル保存 ───────────────────────────────────
   if (isDryRun) {
-    console.log('[Step 4] スキップ（ドライラン）');
+    console.log('[Step 5] スキップ（ドライラン）');
   } else {
-    console.log('[Step 4] ファイル保存');
+    console.log('[Step 5] ファイル保存');
     const REPORTS_DIR = 'reports';
     mkdirSync(REPORTS_DIR, { recursive: true });
 
-    // 日次レポート
     const outputPath = path.join(REPORTS_DIR, `${today}.html`);
     writeFileSync(outputPath, html, 'utf8');
     console.log(`  → 保存: ${outputPath}`);
   }
 
-  // ── Step 5: メール送信（Phase 3 で実装予定）───────────────
-  console.log('[Step 5] メール送信 … Phase 3 で実装予定');
+  // ── Step 6: メール送信（Phase 3 で実装予定）───────────────
+  console.log('[Step 6] メール送信 … Phase 3 で実装予定');
 
   console.log(`\n=== 完了 [${today}] ===\n`);
 }

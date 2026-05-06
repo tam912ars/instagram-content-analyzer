@@ -2,7 +2,7 @@
  * build-report.js
  * HTMLレポートを生成する
  * Phase 1: AI不使用・RSS取得データのみ表示
- * Phase 2: Gemini API による要約・投稿案を追加予定
+ * Phase 2: Gemini AI による要約・投稿案を表示（現在）
  */
 
 // HTMLエスケープ
@@ -61,9 +61,11 @@ function newsCard(rank, article) {
 
     <!-- ② 概要 -->
     <div>
-      <p class="text-xs font-bold ${s.label} uppercase tracking-wider mb-1">② 概要</p>
+      <p class="text-xs font-bold ${s.label} uppercase tracking-wider mb-1">
+        ② 概要${article.summary ? ' <span class="font-normal text-slate-400">（AI要約）</span>' : ''}
+      </p>
       <p class="news-summary text-xs text-slate-500 leading-relaxed">
-        ${esc(article.description) || '（概要なし）'}
+        ${esc(article.summary ?? article.description) || '（概要なし）'}
       </p>
     </div>
 
@@ -78,9 +80,32 @@ function newsCard(rank, article) {
 </article>`;
 }
 
-function postPlaceholder(num, type) {
+/**
+ * 投稿案カード
+ * @param {number} num  - 1〜5
+ * @param {string} type - 投稿タイプ名
+ * @param {string|null} content - AI生成テキスト（null = プレースホルダー）
+ */
+function postCard(num, type, content = null) {
   const colors = ['sky', 'indigo', 'violet', 'emerald', 'rose'];
   const c = colors[num - 1] ?? 'slate';
+
+  const bodyHtml = content
+    ? `<p class="post-content mt-2 text-sm text-slate-700 leading-relaxed whitespace-pre-wrap
+                bg-slate-50 rounded-lg px-3 py-2 border border-slate-100">
+         ${esc(content)}
+       </p>`
+    : `<p class="post-content mt-2 text-sm text-slate-400 leading-relaxed italic
+                bg-slate-50 rounded-lg px-3 py-2 border border-slate-100">
+         🤖 GEMINI_API_KEY を設定すると AI が自動生成します
+       </p>`;
+
+  const badge = content
+    ? `<span class="shrink-0 rounded-full bg-green-100 text-green-700 border border-green-200
+                    px-2.5 py-1 text-xs font-medium whitespace-nowrap">AI生成</span>`
+    : `<span class="shrink-0 rounded-full bg-slate-100 text-slate-500 border border-slate-200
+                    px-2.5 py-1 text-xs font-medium whitespace-nowrap">準備中</span>`;
+
   return `
 <article class="post-card post-card--0${num} bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
   <div class="flex items-stretch">
@@ -94,13 +119,9 @@ function postPlaceholder(num, type) {
         </div>
         <div class="flex-1 min-w-0">
           <p class="post-type text-sm font-bold text-slate-800">${esc(type)}</p>
-          <p class="post-content mt-2 text-sm text-slate-400 leading-relaxed
-                    bg-slate-50 rounded-lg px-3 py-2 border border-slate-100 italic">
-            🤖 Phase 2 で Gemini AI により自動生成されます
-          </p>
+          ${bodyHtml}
         </div>
-        <span class="shrink-0 rounded-full bg-slate-100 text-slate-500 border border-slate-200
-                     px-2.5 py-1 text-xs font-medium whitespace-nowrap">準備中</span>
+        ${badge}
       </div>
     </div>
   </div>
@@ -115,14 +136,24 @@ const POST_TYPES = [
   'LINE導線・相談導線につなげるポスト',
 ];
 
-export function buildReport(articles, isoDate) {
+/**
+ * @param {Array}  articles  - Top3ニュース（summary フィールド付き）
+ * @param {string} isoDate   - "YYYY-MM-DD"
+ * @param {Array}  posts     - AI生成投稿案 [{type, content}, ...] または null
+ */
+export function buildReport(articles, isoDate, posts = null) {
   const d        = new Date(isoDate + 'T00:00:00+09:00');
   const dateJa   = d.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
   const weekday  = ['日', '月', '火', '水', '木', '金', '土'][d.getDay()];
   const genTime  = new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' });
 
   const newsHtml  = articles.map((a, i) => newsCard(i + 1, a)).join('\n');
-  const postsHtml = POST_TYPES.map((t, i) => postPlaceholder(i + 1, t)).join('\n');
+
+  // posts があれば実際の内容、なければプレースホルダー
+  const postsHtml = POST_TYPES.map((defaultType, i) => {
+    const post = posts?.[i];
+    return postCard(i + 1, post?.type ?? defaultType, post?.content ?? null);
+  }).join('\n');
 
   return `<!DOCTYPE html>
 <html lang="ja">
@@ -230,13 +261,15 @@ export function buildReport(articles, isoDate) {
       </section>
     </div>
 
-    <!-- ── Phase 1 注記 ── -->
-    <div class="rounded-xl bg-amber-50 border border-amber-200 px-4 py-3
-                flex items-start gap-3">
-      <span class="text-base shrink-0 mt-0.5" aria-hidden="true">📌</span>
-      <p class="text-xs text-amber-700 leading-relaxed">
-        <strong>Phase 1</strong>：RSS取得・HTML生成・GitHub Pages 公開まで完了。<br>
-        <strong>Phase 2</strong> で Gemini AI による要約・投稿案生成を追加予定です。
+    <!-- ── フェーズ表示 ── -->
+    <div class="rounded-xl ${posts ? 'bg-green-50 border-green-200' : 'bg-amber-50 border-amber-200'}
+                border px-4 py-3 flex items-start gap-3">
+      <span class="text-base shrink-0 mt-0.5" aria-hidden="true">${posts ? '✅' : '📌'}</span>
+      <p class="text-xs ${posts ? 'text-green-700' : 'text-amber-700'} leading-relaxed">
+        ${posts
+          ? '<strong>Phase 2 稼働中</strong>：Gemini AI による要約・投稿案の自動生成が有効です。<br><strong>Phase 3</strong> でメール送信（URL のみ）を追加予定です。'
+          : '<strong>Phase 1 稼働中</strong>：RSS取得・HTML生成・GitHub Pages 公開まで完了。<br><strong>Phase 2</strong>：GitHub Secrets に <code>GEMINI_API_KEY</code> を設定すると AI 生成が有効になります。'
+        }
       </p>
     </div>
 
