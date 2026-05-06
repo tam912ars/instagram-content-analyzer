@@ -25,25 +25,36 @@ function getModel() {
 }
 
 /**
- * 記事1本の要約を生成（150字以内）
+ * 記事1本の解説要約を生成（500字程度）
  */
 export async function summarizeArticle(title, description) {
   const model = getModel();
   const prompt = `
-教育系SNS発信者「ダイ先生」（現役教員パパ）向けに、以下の教育ニュースを150字以内で要約してください。
-教師・保護者・教育関係者が「なるほど」と感じる言葉を選んでください。
-要約文のみを返してください（前置き・説明不要）。
+あなたは教育ジャーナリストです。
+以下の教育ニュースについて、現役教員・保護者・教育関係者が読んで「背景・課題・影響」を理解できるよう、
+500字程度で解説してください。
+
+【解説に含めること】
+- ニュースの背景・経緯
+- 現場（教師・学校）への具体的な影響
+- なぜこの問題が起きているのか
+- 今後の課題や注目ポイント
+
+【出力ルール】
+- 解説文のみを返す（見出し・箇条書き・前置き不要）
+- 500字程度（400〜600字の範囲）
+- わかりやすい日本語で書く
 
 タイトル: ${title}
-本文: ${description}
+参考情報: ${description}
 `.trim();
 
   try {
     const result = await model.generateContent(prompt);
-    return result.response.text().trim().slice(0, 200);
+    return result.response.text().trim().slice(0, 700);
   } catch (err) {
     console.warn(`  ⚠️  要約失敗（${title.slice(0, 20)}…）: ${err.message}`);
-    return description.slice(0, 150);  // フォールバック: 元のdescription
+    return description || title;
   }
 }
 

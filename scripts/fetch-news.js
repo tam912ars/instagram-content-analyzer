@@ -39,13 +39,13 @@ async function fetchSingle({ name, url }) {
   try {
     const feed = await parser.parseURL(url);
     console.log(`  ✓ ${name}: ${feed.items.length}件`);
-    return feed.items.map(item => ({
-      title:       (item.title || '').trim(),
-      description: (item.contentSnippet || item.description || '').trim().slice(0, 200),
-      url:         item.link || '',
-      publishedAt: item.pubDate || '',
-      source:      name,
-    }));
+    return feed.items.map(item => {
+      const title = (item.title || '').trim();
+      const raw   = (item.contentSnippet || item.description || '').trim();
+      // タイトルと同一またはタイトルを含むだけの description は除外
+      const description = (raw === title || raw.startsWith(title)) ? '' : raw.slice(0, 300);
+      return { title, description, url: item.link || '', publishedAt: item.pubDate || '', source: name };
+    });
   } catch (err) {
     console.warn(`  ✗ ${name} 取得失敗: ${err.message}`);
     return [];

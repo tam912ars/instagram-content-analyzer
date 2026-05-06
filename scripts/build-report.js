@@ -61,11 +61,15 @@ function newsCard(rank, article) {
 
     <!-- ② 概要 -->
     <div>
-      <p class="text-xs font-bold ${s.label} uppercase tracking-wider mb-1">
-        ② 概要${article.summary ? ' <span class="font-normal text-slate-400">（AI要約）</span>' : ''}
+      <p class="text-xs font-bold ${s.label} uppercase tracking-wider mb-1 flex items-center gap-1.5">
+        ② 概要
+        ${article.summary
+          ? '<span class="font-normal text-xs text-emerald-600 bg-emerald-50 border border-emerald-200 rounded-full px-1.5 py-0.5">AI解説</span>'
+          : '<span class="font-normal text-xs text-slate-400 bg-slate-50 border border-slate-200 rounded-full px-1.5 py-0.5">RSS</span>'
+        }
       </p>
-      <p class="news-summary text-xs text-slate-500 leading-relaxed">
-        ${esc(article.summary ?? article.description) || '（概要なし）'}
+      <p class="news-summary text-xs text-slate-600 leading-relaxed">
+        ${esc(article.summary ?? article.description) || '<span class="italic text-slate-400">AI要約は Phase 2（GEMINI_API_KEY 設定後）に自動生成されます</span>'}
       </p>
     </div>
 
