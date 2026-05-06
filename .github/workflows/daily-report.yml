@@ -48,7 +48,6 @@ jobs:
           TZ: Asia/Tokyo
           # Phase 2: Gemini AI（設定されていれば AI モードで動作）
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: gemini-1.5-flash
           # Phase 3 で追加予定
           # GMAIL_USER:         ${{ secrets.GMAIL_USER }}
           # GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
