@@ -7,22 +7,34 @@ import Parser from 'rss-parser';
 
 const parser = new Parser({ timeout: 10000 });
 
-// Google News RSS: キーワード指定で教育ニュースに絞り込む
+// Google News RSS（バックアップ用）
 const GN = (q) =>
   `https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=ja&gl=JP&ceid=JP:ja`;
 
-// 教員ターゲットのカテゴリ別RSSソース
 const RSS_SOURCES = [
-  // 働き方・雇用（教員不足・残業・離職など）
-  { name: 'Google News（働き方・雇用）', url: GN('教員不足 OR 給特法 OR 教師 残業 OR 離職') },
-  // 部活動・地域移行
-  { name: 'Google News（部活動）',       url: GN('部活動 地域移行 OR 部活 教師') },
-  // 学校DX・ICT活用
-  { name: 'Google News（学校DX・ICT）',  url: GN('学校 ICT OR DX OR デジタル OR AI 教師 OR 授業') },
-  // 特別支援教育・インクルーシブ
-  { name: 'Google News（特別支援）',     url: GN('特別支援教育 OR 発達障害 学校 OR 教師') },
-  // NHK社会ニュース（補完）
-  { name: 'NHK News（社会）',            url: 'https://www3.nhk.or.jp/rss/news/cat4.xml' },
+  // ── メインソース ──────────────────────────────────────────
+  {
+    name: 'Yahoo ニュース（国内）',
+    url:  'https://news.yahoo.co.jp/rss/topics/domestic.xml',
+  },
+  {
+    name: 'NHK News（社会）',
+    url:  'https://www3.nhk.or.jp/rss/news/cat4.xml',
+  },
+  {
+    name: 'LiveDoor News（教育）',
+    url:  'https://news.livedoor.com/topics/rss/edu.xml',
+  },
+  {
+    name: '教育新聞',
+    url:  'https://www.kyoiku-shimbun.co.jp/?feed=rss2',
+  },
+
+  // ── バックアップ（上記が少ない場合に補完）──────────────────
+  {
+    name: 'Google News（教員・学校）',
+    url:  GN('教員 OR 学校 OR 教師 働き方 OR 不足 OR 部活'),
+  },
 ];
 
 export async function fetchNews() {
