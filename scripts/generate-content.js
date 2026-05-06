@@ -65,7 +65,8 @@ export async function generatePosts(newsItems) {
 ${newsText}
 
 【出力形式】
-以下のJSONのみを返すこと（コードブロック・前置き・説明不要）：
+以下のJSONのみを返すこと（コードブロック・前置き・説明不要）。
+文字列内の改行は必ず \\n（バックスラッシュ+n）で表現すること（生の改行を入れない）：
 {"posts":[
   {
     "news_index":1,
@@ -98,9 +99,26 @@ ${newsText}
       temperature: 0.8,
     });
 
-    const text    = completion.choices[0].message.content.trim();
-    const cleaned = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim();
-    const parsed  = JSON.parse(cleaned);
+    const text = completion.choices[0].message.content.trim();
+
+    // コードブロック除去
+    let cleaned = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim();
+
+    // JSONオブジェクト部分だけ抽出（前後の余分なテキストを除去）
+    const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) throw new Error('JSON オブジェクトが見つかりません');
+    cleaned = jsonMatch[0];
+
+    // JSON文字列値内の生の改行をエスケープ（LLMがよく混入させる）
+    cleaned = cleaned.replace(/"((?:[^"\\]|\\.)*)"/g, (match, inner) => {
+      const fixed = inner
+        .replace(/\n/g, '\\n')
+        .replace(/\r/g, '\\r')
+        .replace(/\t/g, '\\t');
+      return `"${fixed}"`;
+    });
+
+    const parsed = JSON.parse(cleaned);
     return parsed.posts;
   } catch (err) {
     console.warn(`  ⚠️  投稿案生成失敗: ${err.message}`);
