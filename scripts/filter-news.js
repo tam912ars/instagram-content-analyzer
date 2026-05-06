@@ -70,9 +70,9 @@ function scoreArticle(article) {
 const DAYS_LIMIT = 30; // 何日以内の記事を対象とするか
 
 function isRecent(publishedAt) {
-  if (!publishedAt) return true; // 日付不明は除外しない
+  if (!publishedAt) return false; // 日付不明は除外
   const published = new Date(publishedAt);
-  if (isNaN(published.getTime())) return true; // パース失敗も除外しない
+  if (isNaN(published.getTime())) return false; // パース失敗も除外
   const diffDays = (Date.now() - published.getTime()) / (1000 * 60 * 60 * 24);
   return diffDays <= DAYS_LIMIT;
 }
