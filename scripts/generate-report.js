@@ -16,7 +16,7 @@ import path from 'path';
 import { fetchNews }        from './fetch-news.js';
 import { filterNews }       from './filter-news.js';
 import { buildReport }      from './build-report.js';
-import { summarizeAll, generatePosts } from './generate-content.js';
+import { generatePosts } from './generate-content.js';
 
 const USE_AI = Boolean(process.env.GEMINI_API_KEY);
 
@@ -44,17 +44,12 @@ async function main() {
   console.log(`  → ${top3.length}件 選定`);
   top3.forEach((a, i) => console.log(`  ${i + 1}. [score:${a.score}] ${a.title.slice(0, 40)}…`));
 
-  // ── Step 3: AI 要約 + 投稿案生成（GEMINI_API_KEY がある場合のみ）──
-  let articlesWithSummary = top3;
+  // ── Step 3: AI 投稿案生成（GEMINI_API_KEY がある場合のみ）──────
   let posts = null;
 
   if (USE_AI) {
-    console.log('[Step 3] Gemini AI: 記事要約');
-    articlesWithSummary = await summarizeAll(top3);
-
     console.log('[Step 3] Gemini AI: 投稿案5本生成');
-    await new Promise(r => setTimeout(r, 4000));  // レート制限対策
-    posts = await generatePosts(articlesWithSummary);
+    posts = await generatePosts(top3);
     console.log(`  → ${posts.length}本 生成`);
   } else {
     console.log('[Step 3] スキップ（GEMINI_API_KEY 未設定 → Phase 1 モード）');
@@ -62,7 +57,7 @@ async function main() {
 
   // ── Step 4: HTML レポート生成 ──────────────────────────────
   console.log('[Step 4] HTML レポート生成');
-  const html = buildReport(articlesWithSummary, today, posts);
+  const html = buildReport(top3, today, posts);
   console.log(`  → ${html.length.toLocaleString()} 文字`);
 
   // ── Step 5: ファイル保存 ───────────────────────────────────
