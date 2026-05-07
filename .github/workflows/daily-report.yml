@@ -1,9 +1,9 @@
 name: 毎朝自動レポート（Node.js版）
 
 on:
-  # Phase 1: schedule は無効化。動作確認できたら有効化する
-  # schedule:
-  #   - cron: '30 21 * * *'   # JST 6:30 AM
+  # 毎朝 6:30 JST（UTC 21:30）に自動実行
+  schedule:
+    - cron: '30 21 * * *'
 
   # 手動実行でテスト
   workflow_dispatch:

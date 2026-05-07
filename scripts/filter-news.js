@@ -105,15 +105,18 @@ function isRecent(publishedAt) {
 
 export function filterNews(articles, topN = 3) {
   // スコアリング + 日付フィルタ
+  let tooOld = 0, excluded = 0;
   const scored = articles
     .map(article => {
-      if (!isRecent(article.publishedAt)) return null; // 30日超は除外
+      if (!isRecent(article.publishedAt)) { tooOld++; return null; }
       const result = scoreArticle(article);
-      if (result === -1) return null;
+      if (result === -1) { excluded++; return null; }
       return { ...article, score: result.score, category: result.category };
     })
     .filter(Boolean)
     .sort((a, b) => b.score - a.score);
+
+  console.log(`  [filter] 古い記事除外: ${tooOld}件 / 除外ドメイン: ${excluded}件 / 残り: ${scored.length}件`);
 
   // タイトル重複排除
   const seen = new Set();
