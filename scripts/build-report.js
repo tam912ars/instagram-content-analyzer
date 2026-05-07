@@ -78,93 +78,71 @@ function newsCard(rank, article) {
 }
 
 /**
- * 投稿案カード（ニュース1本 = Threads + X の2カラム）
- * @param {number} num    - 1〜3（ニュース番号）
- * @param {object} post   - { emotion, weight, threads, x } または null
+ * 投稿案カード（1カラム縦並び: X用 → Threads用）
+ * @param {number} num  - 1〜5
+ * @param {object} post - { xPost, threadsPost } または null
  */
 function postCard(num, post = null) {
-  const colors = ['sky', 'indigo', 'violet'];
-  const c = colors[num - 1] ?? 'slate';
-  const isAI = post && post.threads && !post.threads.startsWith('（AI生成に失敗');
+  const isAI = post && post.xPost && !post.xPost.startsWith('（AI生成に失敗');
+  const numStr = String(num).padStart(2, '0');
 
-  const weightBadge = post?.weight === '軽い'
-    ? `<span class="text-xs rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 font-medium">軽いテーマ</span>`
-    : `<span class="text-xs rounded-full bg-rose-50 text-rose-700 border border-rose-200 px-2 py-0.5 font-medium">重いテーマ</span>`;
+  const placeholder = `<p class="text-sm text-slate-400 italic leading-relaxed">
+        🤖 GROQ_API_KEY を設定すると AI が自動生成します
+      </p>`;
 
-  const aiBadge = isAI
-    ? `<span class="shrink-0 rounded-full bg-green-100 text-green-700 border border-green-200 px-2.5 py-1 text-xs font-medium">AI生成</span>`
-    : `<span class="shrink-0 rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">準備中</span>`;
-
-  const placeholder = `<p class="text-sm text-slate-400 italic bg-slate-50 rounded-lg px-3 py-2 border border-slate-100">
-      🤖 GROQ_API_KEY を設定すると AI が自動生成します
-    </p>`;
-
-  const threadsBlock = isAI
-    ? `<div class="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap bg-indigo-50 rounded-lg px-3 py-3 border border-indigo-100">${esc(post.threads)}</div>
-       <button onclick="copyText(this)" data-text="${esc(post.threads)}"
-               class="mt-1.5 text-xs text-indigo-500 hover:text-indigo-700 font-medium transition-colors">
+  const xBlock = isAI
+    ? `<div class="text-sm text-slate-800 leading-relaxed whitespace-pre-wrap">${esc(post.xPost)}</div>
+       <button onclick="copyText(this)" data-text="${esc(post.xPost)}"
+               class="mt-2 text-xs text-sky-500 hover:text-sky-700 font-medium transition-colors self-start">
          コピー
        </button>`
     : placeholder;
 
-  const xBlock = isAI
-    ? `<div class="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap bg-sky-50 rounded-lg px-3 py-3 border border-sky-100">${esc(post.x)}</div>
-       <button onclick="copyText(this)" data-text="${esc(post.x)}"
-               class="mt-1.5 text-xs text-sky-500 hover:text-sky-700 font-medium transition-colors">
+  const threadsBlock = isAI
+    ? `<div class="text-sm text-slate-800 leading-relaxed whitespace-pre-wrap">${esc(post.threadsPost)}</div>
+       <button onclick="copyText(this)" data-text="${esc(post.threadsPost)}"
+               class="mt-2 text-xs text-indigo-500 hover:text-indigo-700 font-medium transition-colors self-start">
          コピー
        </button>`
     : placeholder;
 
   return `
-<article class="post-card post-card--0${num} bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-  <div class="flex items-stretch">
-    <div class="w-1.5 shrink-0 bg-${c}-400" aria-hidden="true"></div>
-    <div class="flex-1 p-5">
+<article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden"
+         aria-label="POST ${numStr}">
 
-      <!-- ヘッダー -->
-      <div class="flex items-start gap-3 mb-4">
-        <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl
-                    bg-${c}-100 text-${c}-700 text-sm font-black"
-             aria-label="ニュース ${num} の投稿案">
-          ${num < 10 ? '0' + num : num}
-        </div>
-        <div class="flex-1 min-w-0">
-          <p class="text-sm font-bold text-slate-800">ニュース ${num} の投稿案</p>
-          ${post?.emotion ? `<p class="text-xs text-slate-500 mt-0.5">感情軸: ${esc(post.emotion)}</p>` : ''}
-        </div>
-        <div class="flex items-center gap-2 shrink-0">
-          ${post ? weightBadge : ''}
-          ${aiBadge}
-        </div>
-      </div>
+  <!-- カードヘッダー -->
+  <div class="bg-slate-800 px-5 py-3 flex items-center justify-between">
+    <span class="text-white font-black text-sm tracking-widest">POST ${numStr}</span>
+    ${isAI
+      ? `<span class="text-xs rounded-full bg-green-500 text-white px-2.5 py-0.5 font-medium">AI生成</span>`
+      : `<span class="text-xs rounded-full bg-slate-600 text-slate-300 px-2.5 py-0.5 font-medium">準備中</span>`
+    }
+  </div>
 
-      <!-- 本文: Threads | X の2カラム -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+  <div class="divide-y divide-slate-100">
 
-        <!-- Threads -->
-        <div class="flex flex-col gap-1">
-          <p class="text-xs font-bold text-indigo-600 uppercase tracking-wider flex items-center gap-1">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 192 192" aria-hidden="true">
-              <path d="M141.5 85.5c-1.5-8-6.5-15.5-14-20.5-9-6-20.5-7.5-31-4.5-3 1-6 2.5-8.5 4.5-.5-2.5-.5-5-1-7.5H70v82h17.5v-45c1-9 7.5-17 16.5-19 7-1.5 14.5.5 19 6.5 3 4 4 9 4 13.5v44h17.5V89c0-1.5 0-2.5-3-3.5z"/>
-            </svg>
-            Threads
-          </p>
-          ${threadsBlock}
-        </div>
-
-        <!-- X -->
-        <div class="flex flex-col gap-1">
-          <p class="text-xs font-bold text-sky-600 uppercase tracking-wider flex items-center gap-1">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.731-8.843L2.25 2.25h6.856l4.261 5.632 5.877-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-            X（旧Twitter）
-          </p>
-          ${xBlock}
-        </div>
-
-      </div>
+    <!-- X用 -->
+    <div class="px-5 py-4 flex flex-col gap-2">
+      <p class="text-xs font-bold text-sky-600 flex items-center gap-1.5 uppercase tracking-wider">
+        <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.731-8.843L2.25 2.25h6.856l4.261 5.632 5.877-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        X用
+      </p>
+      ${xBlock}
     </div>
+
+    <!-- Threads用 -->
+    <div class="px-5 py-4 flex flex-col gap-2">
+      <p class="text-xs font-bold text-indigo-600 flex items-center gap-1.5 uppercase tracking-wider">
+        <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 192 192" aria-hidden="true">
+          <path d="M141.5 85.5c-1.5-8-6.5-15.5-14-20.5-9-6-20.5-7.5-31-4.5-3 1-6 2.5-8.5 4.5-.5-2.5-.5-5-1-7.5H70v82h17.5v-45c1-9 7.5-17 16.5-19 7-1.5 14.5.5 19 6.5 3 4 4 9 4 13.5v44h17.5V89c0-1.5 0-2.5-3-3.5z"/>
+        </svg>
+        Threads用
+      </p>
+      ${threadsBlock}
+    </div>
+
   </div>
 </article>`;
 }
@@ -182,9 +160,9 @@ export function buildReport(articles, isoDate, posts = null) {
 
   const newsHtml  = articles.map((a, i) => newsCard(i + 1, a)).join('\n');
 
-  // posts は [{news_index, emotion, weight, threads, x}, ...] 形式（ニュース3本分）
-  const postsHtml = articles.map((_, i) => {
-    const post = posts?.find(p => p.news_index === i + 1) ?? posts?.[i] ?? null;
+  // posts は [{xPost, threadsPost}, ...] 形式（5本）
+  const postsHtml = Array.from({ length: 5 }, (_, i) => {
+    const post = posts?.[i] ?? null;
     return postCard(i + 1, post);
   }).join('\n');
 
@@ -304,6 +282,7 @@ export function buildReport(articles, isoDate, posts = null) {
               Auto Generated
             </p>
             <p class="text-lg font-black text-white">X / Threads 投稿案 自動生成</p>
+            <p class="text-xs text-indigo-200 mt-1">今日のニュースをもとにした投稿ネタ 5本</p>
           </div>
           <span class="text-3xl opacity-60" aria-hidden="true">✍️</span>
         </div>

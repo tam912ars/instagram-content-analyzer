@@ -1,7 +1,7 @@
 /**
  * generate-content.js
- * Groq API（llama-3.3-70b）による「ダイ先生」スタイル投稿案生成
- * ニュース3本 × (Threads投稿 + X投稿) = 3セット出力
+ * Groq API（llama-3.3-70b）による「ダイ先生」スタイル投稿案5本生成
+ * 出力: [{xPost, threadsPost}, ...] × 5件
  */
 
 import Groq from 'groq-sdk';
@@ -39,56 +39,54 @@ export async function generatePosts(newsItems) {
 ・最後は"問い"や"余韻"で終える／答えを出し切らない
 ・「整理」「違和感」「本音」という言葉と相性が良い
 
-【媒体ごとの特徴】
-■ Threads：感情・弱音・相談室感。短文改行多用。共感優先。「自分だけじゃない」の空気感。
-■ X：問題提起を強める。冒頭で惹きつける。少し強い言葉。拡散されやすい"違和感"。短く鋭く。
+【X投稿のルール】
+・140文字前後
+・冒頭で惹きつける
+・問題提起を強める
+・少し強い言葉、拡散されやすい"違和感"を入れる
+・最後は問い or 一言で締める
+・ハッシュタグ不要
+・絵文字は最小限（1〜2個まで）
 
-【テーマの重さ判定】
-軽い（あるある・日常・小さな違和感）→ Threads 150〜300文字
-重い（メンタル・教員不足・保護者問題・部活・退職・長時間労働）→ Threads 400〜500文字
+【Threads投稿のルール】
+・重いテーマ→400〜500文字、軽いテーマ→150〜300文字
+・短文改行を多用して読みやすく
+・感情・弱音・相談室感を出す
+・「自分だけじゃない」の空気感
+・共感を優先、でも最後は視点を少し広げる
+・ハッシュタグ不要
+・絵文字は最小限
 
-【構文パターン（どれか1つを選ぶ）】
+【構文パターン（X・Threadsともに）】
+以下のいずれかを使う：
 ① 本音暴露型：一言本音 → 少し躊躇 → でも言う → 理由 → 現場感情 → 問い
 ② 現場あるある→社会化：現場のリアル → 感情 → 違和感 → 社会構造へ → 問い
 ③ 相談室型：優しく受け止める → 否定しない → 整理へ導く → 少し希望を残す
 
 【重要ルール】
-・媒体ごとに同じ文章を使い回さない
-・ニュース解説アカウントにしない
-・"先生の感情"を主役にする
-・ハッシュタグ不要
-・絵文字は最小限（1〜2個まで）
+・XとThreadsは同じ文章を使い回さない
+・ニュース解説にしない、"先生の感情"を主役にする
+・正論より感情を優先
 ・説教っぽくしない
 ・読み手に"考える余白"を残す
 
-【対象ニュース】
+【今日のニュース（参考情報）】
 ${newsText}
+
+上記ニュースを踏まえ、今日使えそうな投稿を5本作成してください。
+1本ごとにXとThreadsの両方を生成します。
+ニュースと投稿を1対1で対応させる必要はありません。
+ニュース全体のテーマ・空気感をもとに、今日らしい投稿を5本選んでください。
 
 【出力形式】
 以下のJSONのみを返すこと（コードブロック・前置き・説明不要）。
-文字列内の改行は必ず \\n（バックスラッシュ+n）で表現すること（生の改行を入れない）：
+文字列内の改行は必ず \\n で表現すること（生の改行を入れない）：
 {"posts":[
-  {
-    "news_index":1,
-    "emotion":"先生が感じやすい感情（例：疲弊感・無力感）",
-    "weight":"重い or 軽い",
-    "threads":"Threads投稿文（重い→400〜500字、軽い→150〜300字、改行あり）",
-    "x":"X投稿文（140字前後、問題提起・違和感・問いで締める）"
-  },
-  {
-    "news_index":2,
-    "emotion":"...",
-    "weight":"...",
-    "threads":"...",
-    "x":"..."
-  },
-  {
-    "news_index":3,
-    "emotion":"...",
-    "weight":"...",
-    "threads":"...",
-    "x":"..."
-  }
+  {"xPost":"X用投稿文（140字前後）","threadsPost":"Threads用投稿文"},
+  {"xPost":"...","threadsPost":"..."},
+  {"xPost":"...","threadsPost":"..."},
+  {"xPost":"...","threadsPost":"..."},
+  {"xPost":"...","threadsPost":"..."}
 ]}
 `.trim();
 
@@ -104,7 +102,7 @@ ${newsText}
     // コードブロック除去
     let cleaned = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim();
 
-    // JSONオブジェクト部分だけ抽出（前後の余分なテキストを除去）
+    // JSONオブジェクト部分だけ抽出
     const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
     if (!jsonMatch) throw new Error('JSON オブジェクトが見つかりません');
     cleaned = jsonMatch[0];
@@ -122,16 +120,13 @@ ${newsText}
     return parsed.posts;
   } catch (err) {
     console.warn(`  ⚠️  投稿案生成失敗: ${err.message}`);
-    return getPlaceholderPosts(newsItems.length);
+    return getPlaceholderPosts();
   }
 }
 
-function getPlaceholderPosts(count = 3) {
-  return Array.from({ length: count }, (_, i) => ({
-    news_index: i + 1,
-    emotion:    '（生成失敗）',
-    weight:     '重い',
-    threads:    '（AI生成に失敗しました。GROQ_API_KEY と利用上限をご確認ください）',
-    x:          '（AI生成に失敗しました）',
+function getPlaceholderPosts() {
+  return Array.from({ length: 5 }, () => ({
+    xPost:       '（AI生成に失敗しました。GROQ_API_KEY と利用上限をご確認ください）',
+    threadsPost: '（AI生成に失敗しました）',
   }));
 }
