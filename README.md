@@ -1,75 +1,74 @@
-# 📊 ダイ先生 Instagram コンテンツ分析ツール
+# 📊 ダイ先生 SNS運用 自動報告ツール
 
-Instagramの過去の投稿・コメントをAIで分析し、毎日のコンテンツ案（フィード・リール・スタエフ・YouTubeライブ）を図解で提案するツールです。
+教育関連ニュース・SNS反応・過去投稿傾向をAIで分析し、  
+ダイ先生らしい視点で「今日投稿できるネタ」を自動生成するレポートツールです。
 
-## 機能
+毎朝、教育新聞・地方新聞・Yahoo!ニュースなどのWeb記事をもとに、  
+X・Threads向け投稿案をHTMLレポートとして出力します。
 
-- **ダッシュボード**: エンゲージメント推移・コメントキーワード・ハッシュタグ・投稿タイプ別分析
-- **AIコンテンツ提案**: GPT-4o がデータを分析して以下を自動生成
-  - 📸 フィード投稿ネタ案（フック・本文・キャプション・ハッシュタグ）
-  - 🎬 リールネタ案（構成・BGMムード）
-  - 🎙️ スタエフ トークネタ（トーク構成・時間目安）
-  - 📺 YouTubeライブ ネタ（アジェンダ・想定Q&A）
-- **投稿一覧**: エンゲージメント順の投稿管理
+生成されたレポートは GitHub Pages 上で確認できます。
 
-## セットアップ
+---
 
-### 1. 依存パッケージをインストール
+# ✨ このツールでできること
 
-```bash
-cd instagram-content-analyzer
-pip install -r requirements.txt
-```
+## 📰 教育ニュースの自動収集
 
-### 2. 環境変数を設定
+以下のようなテーマの記事を収集・分析します。
 
-```bash
-cp .env.example .env
-```
+- 教員不足
+- 働き方改革
+- 部活動問題
+- 保護者対応
+- 学校不祥事
+- 校則問題
+- 給特法
+- 教育政策
+- 不登校
+- 学校現場のリアル
 
-`.env` を編集してAPIキーを設定:
+---
 
-```env
-INSTAGRAM_ACCESS_TOKEN=your_token
-INSTAGRAM_ACCOUNT_ID=your_account_id
-OPENAI_API_KEY=sk-...
-```
+## 🤖 AIによる投稿案生成
 
-### 3. アプリを起動
+収集したニュースをもとに、
 
-```bash
-streamlit run app.py
-```
+- 「先生の感情」
+- 「学校現場のリアル」
+- 「社会構造への視点」
 
-ブラウザで `http://localhost:8501` が開きます。
+を掛け合わせ、ダイ先生らしい投稿案を自動生成します。
 
-## デモモード
+### 出力内容
 
-APIキーなしでもデモデータで動作確認できます。
-サイドバーの「🔧 デモデータで動作確認」をONにしてください。
+- X投稿案
+- Threads投稿案
+- 投稿フック
+- 問いかけ
+- 切り口提案
 
-## Instagram Graph API の取得方法
+---
 
-1. [Meta Developers](https://developers.facebook.com/) でアプリを作成
-2. Instagram Graph API を有効化
-3. ビジネスアカウントを連携
-4. アクセストークンとアカウントIDを取得
+## 📄 HTMLレポート生成
 
-## フォルダ構成
+毎日の分析結果を図解レポートとして出力します。
 
-```
-instagram-content-analyzer/
-├── app.py                        # Streamlit メインアプリ
-├── requirements.txt
-├── .env.example
-├── src/
-│   ├── instagram/
-│   │   ├── client.py             # Instagram Graph API クライアント
-│   │   └── mock_data.py          # デモ用モックデータ
-│   ├── analysis/
-│   │   └── post_analyzer.py      # 投稿・コメント分析
-│   └── ai/
-│       └── content_generator.py  # GPT-4o コンテンツ案生成
-├── data/cache/                   # APIレスポンスキャッシュ
-└── reports/                      # 生成レポート保存先
-```
+### レポート内容
+
+- 今日注目すべき教育ニュース
+- 投稿ネタ5案
+- X用投稿
+- Threads用投稿
+- ニュース要約
+- 投稿アイデア一覧
+
+---
+
+## 🌐 GitHub Pages対応
+
+生成したHTMLレポートをGitHub Pagesで公開できます。
+
+例：
+
+```txt
+https://your-name.github.io/instagram-content-analyzer/reports/2026-05-07.html
