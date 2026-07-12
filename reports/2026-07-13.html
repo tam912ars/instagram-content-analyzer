@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ダイ先生 毎朝自動レポート — 2026年7月13日</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["'Noto Sans JP'", 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <script>
+    function copyText(btn) {
+      const text = btn.dataset.text;
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = 'コピー完了！';
+        btn.classList.add('text-green-600');
+        setTimeout(() => { btn.textContent = orig; btn.classList.remove('text-green-600'); }, 1500);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = 'コピー完了！';
+        setTimeout(() => { btn.textContent = 'コピー'; }, 1500);
+      });
+    }
+  </script>
+</head>
+
+<body class="min-h-screen bg-slate-50 font-sans text-slate-700">
+
+  <!-- ── Sticky header ── -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm">
+    <div class="h-1 bg-gradient-to-r from-sky-400 via-indigo-500 to-violet-500" aria-hidden="true"></div>
+    <div class="mx-auto max-w-3xl px-4 py-3 flex items-center gap-3">
+      <div class="flex h-8 w-8 items-center justify-center rounded-xl
+                  bg-gradient-to-br from-indigo-700 via-violet-700 to-purple-700
+                  text-white font-black text-sm shrink-0" aria-hidden="true">D</div>
+      <div class="flex-1 min-w-0">
+        <span class="font-bold text-slate-800 text-sm">ダイ先生</span>
+        <span class="text-slate-400 text-xs ml-2">教師向けニュースレポート</span>
+      </div>
+      <span class="text-xs text-slate-500 shrink-0 hidden sm:block">2026年7月13日（月）</span>
+    </div>
+  </header>
+
+  <!-- ── Hero ── -->
+  <div class="bg-gradient-to-br from-indigo-700 via-violet-700 to-purple-700 text-white">
+    <div class="mx-auto max-w-3xl px-6 py-10">
+      <p class="text-indigo-200 text-xs font-semibold tracking-[0.2em] uppercase mb-3">
+        Daily Education News
+      </p>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2 leading-tight">
+        2026年7月13日（月）
+      </h1>
+      <p class="text-indigo-200 text-sm">
+        教育ニュースから注目の
+        <span class="text-amber-300 font-bold">Top 3</span>
+        をピックアップ
+      </p>
+    </div>
+  </div>
+
+  <main class="mx-auto max-w-3xl px-4 py-8 space-y-10">
+
+    <!-- ── STEP 1: ニュース ── -->
+    <div class="space-y-4">
+      <div class="flex items-center gap-3" role="heading" aria-level="2">
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="flex h-7 w-7 items-center justify-center rounded-full
+                       bg-sky-500 text-white text-xs font-black" aria-hidden="true">1</span>
+          <span class="text-sm font-bold text-slate-600">ニュース収集</span>
+        </div>
+        <div class="flex-1 h-px bg-slate-200" aria-hidden="true"></div>
+        <span class="text-xs text-slate-400 shrink-0">Top 3 ピックアップ</span>
+      </div>
+
+      <section class="news-section grid grid-cols-1 sm:grid-cols-3 gap-5"
+               aria-label="収集したニュース一覧">
+        
+<article class="news-card news-card--01 bg-white rounded-2xl shadow-sm border border-slate-200
+                border-l-4 border-sky-400 overflow-hidden flex flex-col"
+         data-component="news-card" data-index="1">
+
+  <!-- カードヘッダー -->
+  <div class="bg-sky-50 px-4 py-2.5 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="text-xl" aria-hidden="true">🥇</span>
+      <span class="text-xs font-black tracking-widest text-slate-600">NEWS 01</span>
+    </div>
+    <span class="rounded-full bg-sky-500 text-white text-xs px-2 py-0.5 font-bold">1位</span>
+  </div>
+
+  <!-- カードボディ -->
+  <div class="px-4 py-4 flex flex-col gap-3 flex-1">
+
+    <!-- ① タイトル -->
+    <div>
+      <p class="text-xs font-bold text-sky-500 uppercase tracking-wider mb-1">① タイトル</p>
+      <h3 class="news-title text-sm font-bold text-slate-800 leading-snug">
+        学校教育関係者向け､2022年がよくわかる｢最も読まれた記事｣トップ10 部活動の地域移行､教員不足､働き方改革ほか - 東洋経済オンライン
+      </h3>
+    </div>
+
+
+    <!-- カテゴリ + 出典 -->
+    <div class="flex items-center gap-2 flex-wrap">
+      <span class="text-xs bg-sky-50 text-sky-500 border border-sky-400 rounded-full px-2 py-0.5 font-medium">働き方</span>
+      <p class="text-xs text-slate-400">出典: Google News（教員働き方）</p>
+    </div>
+
+    <!-- リンク -->
+    <div class="mt-auto pt-2 border-t border-slate-100">
+      <a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE5DSWhIMlVleUo1czNGRW5kOVQ1VVJHYXZMUWNPV3B4MmpkTzZLMTNWZTdqVVpxSmNvNUduNkEzQ3RGcDNNQ2xHTW1hUVFZYTgtX0FJQ1N1bWlPbkk?oc=5" target="_blank" rel="noopener"
+          class="news-link inline-flex items-center gap-1 text-xs text-sky-600 font-medium
+                 hover:text-sky-800 transition-colors focus:outline-none focus:ring-2
+                 focus:ring-sky-400 rounded"
+          aria-label="記事「学校教育関係者向け､2022年がよくわかる｢最も読まれた記事｣トップ10 部活動の地域移行､教員不足､働き方改革ほか - 東洋経済オンライン」を読む">
+         🔗 記事を読む →
+       </a>
+    </div>
+  </div>
+</article>
+
+<article class="news-card news-card--02 bg-white rounded-2xl shadow-sm border border-slate-200
+                border-l-4 border-indigo-400 overflow-hidden flex flex-col"
+         data-component="news-card" data-index="2">
+
+  <!-- カードヘッダー -->
+  <div class="bg-indigo-50 px-4 py-2.5 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="text-xl" aria-hidden="true">🥈</span>
+      <span class="text-xs font-black tracking-widest text-slate-600">NEWS 02</span>
+    </div>
+    <span class="rounded-full bg-indigo-500 text-white text-xs px-2 py-0.5 font-bold">2位</span>
+  </div>
+
+  <!-- カードボディ -->
+  <div class="px-4 py-4 flex flex-col gap-3 flex-1">
+
+    <!-- ① タイトル -->
+    <div>
+      <p class="text-xs font-bold text-indigo-500 uppercase tracking-wider mb-1">① タイトル</p>
+      <h3 class="news-title text-sm font-bold text-slate-800 leading-snug">
+        特別支援学校の教員が埼玉県提訴 うつ病発症で休職、賠償求める（共同通信） - Yahoo!ニュース
+      </h3>
+    </div>
+
+
+    <!-- カテゴリ + 出典 -->
+    <div class="flex items-center gap-2 flex-wrap">
+      <span class="text-xs bg-indigo-50 text-indigo-500 border border-indigo-400 rounded-full px-2 py-0.5 font-medium">特別支援</span>
+      <p class="text-xs text-slate-400">出典: Google News（学校DX・特別支援）</p>
+    </div>
+
+    <!-- リンク -->
+    <div class="mt-auto pt-2 border-t border-slate-100">
+      <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE1zWjZDWGJ0a1QtNmJLOW9lWl9Eb3k3aHRLWkYtR3lhMThrWkRLS05DNE5QYTlpOUZiLVgxR3o3U2tzSTUwUXdUTk9hSV9TdURQNEh4THdkamhneXZwU01XTXpJa0w3N0Vyc0tET1FVdVFTOWNPRWJzQ25pZVpVbFU?oc=5" target="_blank" rel="noopener"
+          class="news-link inline-flex items-center gap-1 text-xs text-sky-600 font-medium
+                 hover:text-sky-800 transition-colors focus:outline-none focus:ring-2
+                 focus:ring-sky-400 rounded"
+          aria-label="記事「特別支援学校の教員が埼玉県提訴 うつ病発症で休職、賠償求める（共同通信） - Yahoo!ニュース」を読む">
+         🔗 記事を読む →
+       </a>
+    </div>
+  </div>
+</article>
+
+<article class="news-card news-card--03 bg-white rounded-2xl shadow-sm border border-slate-200
+                border-l-4 border-violet-400 overflow-hidden flex flex-col"
+         data-component="news-card" data-index="3">
+
+  <!-- カードヘッダー -->
+  <div class="bg-violet-50 px-4 py-2.5 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="text-xl" aria-hidden="true">🥉</span>
+      <span class="text-xs font-black tracking-widest text-slate-600">NEWS 03</span>
+    </div>
+    <span class="rounded-full bg-violet-500 text-white text-xs px-2 py-0.5 font-bold">3位</span>
+  </div>
+
+  <!-- カードボディ -->
+  <div class="px-4 py-4 flex flex-col gap-3 flex-1">
+
+    <!-- ① タイトル -->
+    <div>
+      <p class="text-xs font-bold text-violet-500 uppercase tracking-wider mb-1">① タイトル</p>
+      <h3 class="news-title text-sm font-bold text-slate-800 leading-snug">
+        部活動の地域展開 - city.kobe.lg.jp
+      </h3>
+    </div>
+
+
+    <!-- カテゴリ + 出典 -->
+    <div class="flex items-center gap-2 flex-wrap">
+      <span class="text-xs bg-violet-50 text-violet-500 border border-violet-400 rounded-full px-2 py-0.5 font-medium">部活動</span>
+      <p class="text-xs text-slate-400">出典: Google News（教員働き方）</p>
+    </div>
+
+    <!-- リンク -->
+    <div class="mt-auto pt-2 border-t border-slate-100">
+      <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE5FUVByblZreDRUR2c1cGcxdWtTaXZ5Q1VTYnFkTkx0YVRSdEU2TDNDb3Y1WXg1NUdfb0NlUmZTalJVZHlrb295MlIzX3B3MGZpT3dVMUtCMndKYmpUUjl0MUE5LU91ejdGNXc?oc=5" target="_blank" rel="noopener"
+          class="news-link inline-flex items-center gap-1 text-xs text-sky-600 font-medium
+                 hover:text-sky-800 transition-colors focus:outline-none focus:ring-2
+                 focus:ring-sky-400 rounded"
+          aria-label="記事「部活動の地域展開 - city.kobe.lg.jp」を読む">
+         🔗 記事を読む →
+       </a>
+    </div>
+  </div>
+</article>
+      </section>
+    </div>
+
+    <!-- ── STEP 2: 投稿案 ── -->
+    <div class="space-y-4">
+      <div class="flex items-center gap-3" role="heading" aria-level="2">
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="flex h-7 w-7 items-center justify-center rounded-full
+                       bg-indigo-500 text-white text-xs font-black" aria-hidden="true">2</span>
+          <span class="text-sm font-bold text-slate-600">投稿案生成</span>
+        </div>
+        <div class="flex-1 h-px bg-slate-200" aria-hidden="true"></div>
+        <span class="text-xs text-slate-400 shrink-0">X / Threads</span>
+      </div>
+
+      <section class="post-section space-y-4" aria-label="投稿案一覧">
+        <div class="rounded-2xl bg-gradient-to-r from-indigo-500 to-violet-500
+                    px-6 py-4 flex items-center justify-between">
+          <div>
+            <p class="text-xs font-semibold text-indigo-200 tracking-wider uppercase mb-0.5">
+              Auto Generated
+            </p>
+            <p class="text-lg font-black text-white">X / Threads 投稿案 自動生成</p>
+            <p class="text-xs text-indigo-200 mt-1">今日のニュースをもとにした投稿ネタ 5本</p>
+          </div>
+          <span class="text-3xl opacity-60" aria-hidden="true">✍️</span>
+        </div>
+        <div class="space-y-3">
+          
+<article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden"
+         aria-label="POST 01">
+
+  <!-- カードヘッダー -->
+  <div class="bg-slate-800 px-5 py-3 flex items-center justify-between">
+    <span class="text-white font-black text-sm tracking-widest">POST 01</span>
+    <span class="text-xs rounded-full bg-green-500 text-white px-2.5 py-0.5 font-medium">AI生成</span>
+  </div>
+
+  <div class="divide-y divide-slate-100">
+
+    <!-- X用 -->
+    <div class="px-5 py-4 flex flex-col gap-2">
+      <p class="text-xs font-bold text-sky-600 flex items-center gap-1.5 uppercase tracking-wider">
+        <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.731-8.843L2.25 2.25h6.856l4.261 5.632 5.877-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        X用
+      </p>
+      <div class="text-sm text-slate-800 leading-relaxed whitespace-pre-wrap">教員不足が深刻</div>
+       <button onclick="copyText(this)" data-text="教員不足が深刻"
+               class="mt-2 text-xs text-sky-500 hover:text-sky-700 font-medium transition-colors self-start">
+         コピー
+       </button>
+    </div>
+
+    <!-- Threads用 -->
+    <div class="px-5 py-4 flex flex-col gap-2">
+      <p class="text-xs font-bold text-indigo-600 flex items-center gap-1.5 uppercase tracking-wider">
+        <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 192 192" aria-hidden="true">
+          <path d="M141.5 85.5c-1.5-8-6.5-15.5-14-20.5-9-6-20.5-7.5-31-4.5-3 1-6 2.5-8.5 4.5-.5-2.5-.5-5-1-7.5H70v82h17.5v-45c1-9 7.5-17 16.5-19 7-1.5 14.5.5 19 6.5 3 4 4 9 4 13.5v44h17.5V89c0-1.5 0-2.5-3-3.5z"/>
+        </svg>
+        Threads用
+      </p>
+      <div class="text-sm text-slate-800 leading-relaxed whitespace-pre-wrap">最近、教員不足のニュースをよく聞きますね。
+もちろん、教育現場は人手が足りないと、本当に大変です。
+でも、一方で、「教員が足りないなら、AIを導入したら？」という声も聞こえてきます。
+でも、教師の仕事って、知識を教えることだけなんでしょうか。
+教室の空気、子どもの違感、言葉にならないSOS。
+そこまで効率化し始めた時、教育って何が残るんだろう。</div>
+       <button onclick="copyText(this)" data-text="最近、教員不足のニュースをよく聞きますね。
+もちろん、教育現場は人手が足りないと、本当に大変です。
+でも、一方で、「教員が足りないなら、AIを導入したら？」という声も聞こえてきます。
+でも、教師の仕事って、知識を教えることだけなんでしょうか。
+教室の空気、子どもの違感、言葉にならないSOS。
+そこまで効率化し始めた時、教育って何が残るんだろう。"
+               class="mt-2 text-xs text-indigo-500 hover:text-indigo-700 font-medium transition-colors self-start">
+         コピー
+       </button>
+    </div>
+
+  </div>
+</article>
+
+<article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden"
+         aria-label="POST 02">
+
+  <!-- カードヘッダー -->
+  <div class="bg-slate-800 px-5 py-3 flex items-center justify-between">
+    <span class="text-white font-black text-sm tracking-widest">POST 02</span>
+    <span class="text-xs rounded-full bg-green-500 text-white px-2.5 py-0.5 font-medium">AI生成</span>
+  </div>
+
+  <div class="divide-y divide-slate-100">
+
+    <!-- X用 -->
+    <div class="px-5 py-4 flex flex-col gap-2">
+      <p class="text-xs font-bold text-sky-600 flex items-center gap-1.5 uppercase tracking-wider">
+        <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.731-8.843L2.25 2.25h6.856l4.261 5.632 5.877-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        X用
+      </p>
+      <div class="text-sm text-slate-800 leading-relaxed whitespace-pre-wrap">休みが取れない</div>
+       <button onclick="copyText(this)" data-text="休みが取れない"
+               class="mt-2 text-xs text-sky-500 hover:text-sky-700 font-medium transition-colors self-start">
+         コピー
+       </button>
+    </div>
+
+    <!-- Threads用 -->
+    <div class="px-5 py-4 flex flex-col gap-2">
+      <p class="text-xs font-bold text-indigo-600 flex items-center gap-1.5 uppercase tracking-wider">
+        <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 192 192" aria-hidden="true">
+          <path d="M141.5 85.5c-1.5-8-6.5-15.5-14-20.5-9-6-20.5-7.5-31-4.5-3 1-6 2.5-8.5 4.5-.5-2.5-.5-5-1-7.5H70v82h17.5v-45c1-9 7.5-17 16.5-19 7-1.5 14.5.5 19 6.5 3 4 4 9 4 13.5v44h17.5V89c0-1.5 0-2.5-3-3.5z"/>
+        </svg>
+        Threads用
+      </p>
+      <div class="text-sm text-slate-800 leading-relaxed whitespace-pre-wrap">休みが取れないって、教師の苦しみですよね。
+夏休みも、冬休みも、春休みも、
+実際は休みなんて取れないことが多い。
+保護者対応や、成績処理、
+さらには部活動の指導まで。
+教師って、本当に大変な仕事をしています。</div>
+       <button onclick="copyText(this)" data-text="休みが取れないって、教師の苦しみですよね。
+夏休みも、冬休みも、春休みも、
+実際は休みなんて取れないことが多い。
+保護者対応や、成績処理、
+さらには部活動の指導まで。
+教師って、本当に大変な仕事をしています。"
+               class="mt-2 text-xs text-indigo-500 hover:text-indigo-700 font-medium transition-colors self-start">
+         コピー
+       </button>
+    </div>
+
+  </div>
+</article>
+
+<article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden"
+         aria-label="POST 03">
+
+  <!-- カードヘッダー -->
+  <div class="bg-slate-800 px-5 py-3 flex items-center justify-between">
+    <span class="text-white font-black text-sm tracking-widest">POST 03</span>
+    <span class="text-xs rounded-full bg-green-500 text-white px-2.5 py-0.5 font-medium">AI生成</span>
+  </div>
+
+  <div class="divide-y divide-slate-100">
+
+    <!-- X用 -->
+    <div class="px-5 py-4 flex flex-col gap-2">
+      <p class="text-xs font-bold text-sky-600 flex items-center gap-1.5 uppercase tracking-wider">
+        <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.731-8.843L2.25 2.25h6.856l4.261 5.632 5.877-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        X用
+      </p>
+      <div class="text-sm text-slate-800 leading-relaxed whitespace-pre-wrap">教師の健康</div>
+       <button onclick="copyText(this)" data-text="教師の健康"
+               class="mt-2 text-xs text-sky-500 hover:text-sky-700 font-medium transition-colors self-start">
+         コピー
+       </button>
+    </div>
+
+    <!-- Threads用 -->
+    <div class="px-5 py-4 flex flex-col gap-2">
+      <p class="text-xs font-bold text-indigo-600 flex items-center gap-1.5 uppercase tracking-wider">
+        <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 192 192" aria-hidden="true">
+          <path d="M141.5 85.5c-1.5-8-6.5-15.5-14-20.5-9-6-20.5-7.5-31-4.5-3 1-6 2.5-8.5 4.5-.5-2.5-.5-5-1-7.5H70v82h17.5v-45c1-9 7.5-17 16.5-19 7-1.5 14.5.5 19 6.5 3 4 4 9 4 13.5v44h17.5V89c0-1.5 0-2.5-3-3.5z"/>
+        </svg>
+        Threads用
+      </p>
+      <div class="text-sm text-slate-800 leading-relaxed whitespace-pre-wrap">教師の健康って、大事なことですよね。
+最近、教師のうつ病が増えているようです。
+圧倒な仕事量、
+保護者からのプレッシャー、
+自分自身の理想とのギャップ。
+教師の健康を考えると、
+教育システムを変える必要性を感じます。</div>
+       <button onclick="copyText(this)" data-text="教師の健康って、大事なことですよね。
+最近、教師のうつ病が増えているようです。
+圧倒な仕事量、
+保護者からのプレッシャー、
+自分自身の理想とのギャップ。
+教師の健康を考えると、
+教育システムを変える必要性を感じます。"
+               class="mt-2 text-xs text-indigo-500 hover:text-indigo-700 font-medium transition-colors self-start">
+         コピー
+       </button>
+    </div>
+
+  </div>
+</article>
+
+<article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden"
+         aria-label="POST 04">
+
+  <!-- カードヘッダー -->
+  <div class="bg-slate-800 px-5 py-3 flex items-center justify-between">
+    <span class="text-white font-black text-sm tracking-widest">POST 04</span>
+    <span class="text-xs rounded-full bg-green-500 text-white px-2.5 py-0.5 font-medium">AI生成</span>
+  </div>
+
+  <div class="divide-y divide-slate-100">
+
+    <!-- X用 -->
+    <div class="px-5 py-4 flex flex-col gap-2">
+      <p class="text-xs font-bold text-sky-600 flex items-center gap-1.5 uppercase tracking-wider">
+        <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.731-8.843L2.25 2.25h6.856l4.261 5.632 5.877-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        X用
+      </p>
+      <div class="text-sm text-slate-800 leading-relaxed whitespace-pre-wrap">教育の未来</div>
+       <button onclick="copyText(this)" data-text="教育の未来"
+               class="mt-2 text-xs text-sky-500 hover:text-sky-700 font-medium transition-colors self-start">
+         コピー
+       </button>
+    </div>
+
+    <!-- Threads用 -->
+    <div class="px-5 py-4 flex flex-col gap-2">
+      <p class="text-xs font-bold text-indigo-600 flex items-center gap-1.5 uppercase tracking-wider">
+        <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 192 192" aria-hidden="true">
+          <path d="M141.5 85.5c-1.5-8-6.5-15.5-14-20.5-9-6-20.5-7.5-31-4.5-3 1-6 2.5-8.5 4.5-.5-2.5-.5-5-1-7.5H70v82h17.5v-45c1-9 7.5-17 16.5-19 7-1.5 14.5.5 19 6.5 3 4 4 9 4 13.5v44h17.5V89c0-1.5 0-2.5-3-3.5z"/>
+        </svg>
+        Threads用
+      </p>
+      <div class="text-sm text-slate-800 leading-relaxed whitespace-pre-wrap">教育の未来って、どうなるんでしょうね。
+AIが進化し、
+教師が減る可能性もあります。
+でも、教師の仕事って、
+知識を教えることだけでなく、
+人を育てることにもあります。
+教育の未来を考えると、
+教師の役割を再考する必要性を感じます。</div>
+       <button onclick="copyText(this)" data-text="教育の未来って、どうなるんでしょうね。
+AIが進化し、
+教師が減る可能性もあります。
+でも、教師の仕事って、
+知識を教えることだけでなく、
+人を育てることにもあります。
+教育の未来を考えると、
+教師の役割を再考する必要性を感じます。"
+               class="mt-2 text-xs text-indigo-500 hover:text-indigo-700 font-medium transition-colors self-start">
+         コピー
+       </button>
+    </div>
+
+  </div>
+</article>
+
+<article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden"
+         aria-label="POST 05">
+
+  <!-- カードヘッダー -->
+  <div class="bg-slate-800 px-5 py-3 flex items-center justify-between">
+    <span class="text-white font-black text-sm tracking-widest">POST 05</span>
+    <span class="text-xs rounded-full bg-green-500 text-white px-2.5 py-0.5 font-medium">AI生成</span>
+  </div>
+
+  <div class="divide-y divide-slate-100">
+
+    <!-- X用 -->
+    <div class="px-5 py-4 flex flex-col gap-2">
+      <p class="text-xs font-bold text-sky-600 flex items-center gap-1.5 uppercase tracking-wider">
+        <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.731-8.843L2.25 2.25h6.856l4.261 5.632 5.877-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        X用
+      </p>
+      <div class="text-sm text-slate-800 leading-relaxed whitespace-pre-wrap">子どもの未来</div>
+       <button onclick="copyText(this)" data-text="子どもの未来"
+               class="mt-2 text-xs text-sky-500 hover:text-sky-700 font-medium transition-colors self-start">
+         コピー
+       </button>
+    </div>
+
+    <!-- Threads用 -->
+    <div class="px-5 py-4 flex flex-col gap-2">
+      <p class="text-xs font-bold text-indigo-600 flex items-center gap-1.5 uppercase tracking-wider">
+        <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 192 192" aria-hidden="true">
+          <path d="M141.5 85.5c-1.5-8-6.5-15.5-14-20.5-9-6-20.5-7.5-31-4.5-3 1-6 2.5-8.5 4.5-.5-2.5-.5-5-1-7.5H70v82h17.5v-45c1-9 7.5-17 16.5-19 7-1.5 14.5.5 19 6.5 3 4 4 9 4 13.5v44h17.5V89c0-1.5 0-2.5-3-3.5z"/>
+        </svg>
+        Threads用
+      </p>
+      <div class="text-sm text-slate-800 leading-relaxed whitespace-pre-wrap">子どもの未来って、どうなるんでしょうね。
+教育システムが変化し、
+教師の役割も変化します。
+でも、子どもの未来を考えると、
+教師の存はとても大切です。
+子どもが社会で生きていくために、
+教師が与える影響は大きい。
+教師の存は、
+子どもの未来を形作る重要な要素です。</div>
+       <button onclick="copyText(this)" data-text="子どもの未来って、どうなるんでしょうね。
+教育システムが変化し、
+教師の役割も変化します。
+でも、子どもの未来を考えると、
+教師の存はとても大切です。
+子どもが社会で生きていくために、
+教師が与える影響は大きい。
+教師の存は、
+子どもの未来を形作る重要な要素です。"
+               class="mt-2 text-xs text-indigo-500 hover:text-indigo-700 font-medium transition-colors self-start">
+         コピー
+       </button>
+    </div>
+
+  </div>
+</article>
+        </div>
+      </section>
+    </div>
+
+    <!-- ── フェーズ表示 ── -->
+    <div class="rounded-xl bg-green-50 border-green-200
+                border px-4 py-3 flex items-start gap-3">
+      <span class="text-base shrink-0 mt-0.5" aria-hidden="true">✅</span>
+      <p class="text-xs text-green-700 leading-relaxed">
+        <strong>Phase 2 稼働中</strong>：Groq AI（llama-3.3-70b）によるダイ先生スタイル投稿案の自動生成が有効です。<br><strong>Phase 3</strong> でメール送信（URL のみ）を追加予定です。
+      </p>
+    </div>
+
+  </main>
+
+  <footer class="mt-8 border-t border-slate-200 bg-white py-6">
+    <div class="mx-auto max-w-3xl px-4 flex flex-col sm:flex-row
+                items-center justify-between gap-2 text-xs text-slate-400">
+      <p>ダイ先生 毎朝自動レポートツール</p>
+      <p>生成日時: 2026/7/13 7:22:49</p>
+    </div>
+  </footer>
+
+</body>
+</html>
